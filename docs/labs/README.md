@@ -61,7 +61,7 @@ We only officially support the [Arduino Uno R4 Wifi](https://store.arduino.cc/pr
 The Arduino Uno R4 Wifi was chosen because:
 - It allows for wireless communication between boards and computers
 - It balances price and quality, so that we do not spend unnecessary time debugging
-- It is designed to be very beginner-friendly and widely available (i.e., vs. a [Raspberry PI](raspberrypi.com))
+- It is designed to be very beginner-friendly and widely available (i.e., vs. a [Raspberry PI](https://raspberrypi.com))
 - There is a huge user support community, and many, many, many tutorials available
 
 If, for example, you want to use a cheap [ESP32](https://www.espressif.com/en/products/socs/esp32), we will not stop you. However, we can't help you much either. 
@@ -126,7 +126,7 @@ Getting your own small toolkit will help you to work on circuits at home.
 :::
 
 ## Circuit diagrams: TinkerCAD and Fritzing
-Where possible, we will use [TinkerCAD](tinkercad.com/) interactive circuit simulator for diagrams. Since not all of our parts are available on TinkerCAD, we may also use [Fritzing](https://fritzing.org/) diagrams. They'll be free to view, but if you want to create your own, you will need to pay a small amount to use Fritzing.
+Where possible, we will use [TinkerCAD](https://tinkercad.com/) interactive circuit simulator for diagrams. Since not all of our parts are available on TinkerCAD, we may also use [Fritzing](https://fritzing.org/) diagrams. They'll be free to view, but if you want to create your own, you will need to pay a small amount to use Fritzing.
 
 ## Teaching Notes and Concept Library
 Where possible, all of the course concepts will be documented in the [Concept Library](/docs/concepts). Most teaching activities will include [Teaching Notes](/docs/concepts/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
