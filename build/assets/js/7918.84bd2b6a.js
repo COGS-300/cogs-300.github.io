@@ -1,0 +1,1 @@
+(self.webpackChunkcogs_300_docs=self.webpackChunkcogs_300_docs||[]).push([[7918],{5741:()=>{},8974:(s,c,e)=>{"use strict";e.d(c,{A:()=>k});var o=e(8291);const k=o}}]);
