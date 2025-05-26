@@ -1,61 +1,56 @@
-import { themes as prismThemes } from 'prism-react-renderer';
-import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'COGS 300',
-  tagline: 'Understanding and Designing Cognitive Systems',
-  favicon: 'img/favicon.ico',
+  title: "COGS 300",
+  tagline: "Understanding and Designing Cognitive Systems",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://cogs-300.github.io',
+  url: "https://cogs-300.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'COGS-300', // Usually your GitHub org/user name.
-  projectName: 'cogs-300.github.io', // repo name must match the GitHub username/org if it's the root
-  
-  deploymentBranch: 'gh-pages', // default is fine
+  organizationName: "COGS-300", // Usually your GitHub org/user name.
+  projectName: "cogs-300.github.io", // repo name must match the GitHub username/org if it's the root
+
+  deploymentBranch: "gh-pages", // default is fine
   trailingSlash: false, // recommended for GitHub Pages
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
-  
+
   // Themes
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: ["@docusaurus/theme-mermaid"],
   // In order for Mermaid code blocks in Markdown to work,
   // you also need to enable the Remark plugin with this option
   markdown: {
     mermaid: true,
   },
 
-
   // Don't render these files with Docasaurus
-  staticDirectories: ['static'], // e.g., put raw Marp files in /slides
-
-
-
-
+  staticDirectories: ["static"], // e.g., put raw Marp files in /slides
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -64,7 +59,7 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: ["rss", "atom"],
             xslt: true,
           },
           // Please change this to your repo.
@@ -72,88 +67,98 @@ const config: Config = {
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onInlineTags: "warn",
+          onInlineAuthors: "warn",
+          onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
   ],
 
   plugins: [
-    '@docusaurus/theme-live-codeblock',
-    require.resolve('docusaurus-lunr-search')
+    "@docusaurus/theme-live-codeblock",
+    require.resolve("docusaurus-lunr-search"),
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 70,
+        max: 1030, // max resized image's width.
+        min: 640, // min resized image's width. If original is smaller, use that.
+        steps: 2, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
   ],
-  
+
   themeConfig: {
     liveCodeBlock: {
       /**
        * The position of the live playground, above or under the editor
        * Possible values: "top" | "bottom"
        */
-      playgroundPosition: 'bottom',
+      playgroundPosition: "bottom",
     },
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'COGS 300',
+      title: "COGS 300",
       logo: {
-        alt: 'The COGS 300 Logo',
-        src: 'img/logo.svg',
+        alt: "The COGS 300 Logo",
+        src: "img/logo.svg",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Course Content',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Course Content",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: 'https://github.com/cogs-300/',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/cogs-300/",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: "Tutorial",
+              to: "/docs/intro",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Piazza',
-              href: 'https://piazza.com',
+              label: "Piazza",
+              href: "https://piazza.com",
             },
             {
-              label: 'CSSS Discord',
-              href: 'http://www.ubccogssoc.ca/',
+              label: "CSSS Discord",
+              href: "http://www.ubccogssoc.ca/",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "Blog",
+              to: "/blog",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "GitHub",
+              href: "https://github.com/facebook/docusaurus",
             },
           ],
         },

@@ -1,0 +1,80 @@
+import Image from '@theme/IdealImage';
+
+# Electricity 101
+
+Electronics use electric current to power components and do something useful. A **charge** is produced in a material when electrons are added or removed from an electrically neutral material. When there are fewer electrons than neutral, then the material has a positive charge. When there are more electrons, then the material has a negative charge.
+
+To create an electric current, you need a positive charge, a negative charge, and a conductive material along which electrons can flow. A charged battery, for example, uses chemical reactions to separate the positive and negative charges. Then, when you connect the positive to the negative terminal, electrons can flow from one to the other.
+
+This difference in charges is called the potential difference, or the **voltage**. You can think of the voltage as the amount of work per unit charge that can be done by a power source such as a battery.
+
+When you have an electrical **component** between the positive and negative terminals, then the component is driven to do work.
+
+## Materials
+- [TinkerCAD battery lamp circuit](https://www.tinkercad.com/things/iy8Vimd04Vq-electricity-101?sharecode=xxBxLakHuo_24h1a5FRmksUy2j6DGnrMyjheCpC06_g)
+- [TinkerCAD Arduino lamp circuit](https://www.tinkercad.com/things/iplnL8Kj4w6-electricity-101-arduino?sharecode=vHEf-nhnSL9ombgpMq3-TgEiZwTMMwYP4M4s2tnJel0)
+- [TinkerCAD Arduino LED circuit](https://www.tinkercad.com/things/3j4VkpdpGOr-electricity-101-arduino-led)
+- 1.5V Battery
+- 1.5V Lamp
+- 2 x wires for positive and negative battery terminals
+- [Battery and Bulb Holder](/designs/3d_models/electricity-101/00-lightbulb%20v21.obj) (use a viewer like [3D Viewer](https://3dviewer.net/) if you wish to view)
+
+## TinkerCAD
+[TinkerCAD](https://tinkercad.com) is a program that will allow you to design and simulate circuits. The circuit for today's activity is [available here](https://www.tinkercad.com/things/iy8Vimd04Vq-electricity-101?sharecode=xxBxLakHuo_24h1a5FRmksUy2j6DGnrMyjheCpC06_g). You should see the following image:
+
+<Image img={require('/img/electricity-101-battery-circuit-landing.png')} />
+
+You can click on either **simulation** or sign up for a TinkerCAD account to run the simulation.
+
+
+## The model circuit
+
+<Image img={require('/img/electricity-101-battery-circuit.png')} />
+
+Take a battery and attach a component (such as a lamp) between the positive and negative terminals. You can see that it lights up.
+
+This is your model circuit. All circuits work like this circuit, just at different levels of complexity. If you ever feel like you don't understand a circuit, model it in terms of this basic circuit of positive terminal, component, negative terminal.
+
+When the circuit is closed, the lamp is on (often depicted as 1). When the circuit is open, the lamp is off (often depicted as a zero). When the voltage is HIGH (1), then work can be done, but when it is LOW (0), no work can be done.
+
+Run the simulation, and compare to the physical components.
+
+<Image img={require('/img/electricity-101-battery-circuit-simulation.png')} />
+<Image img={require('/img/electricity-101-battery-circuit-simulation-running.png')} />
+
+
+## Electricity formulas
+You can look at the engineering circuit diagram by clicking on the **Schematic View** button. You don't need to learn how to read circuit diagrams in this class, but some people want to.
+
+<Image img={require('/img/electricity-101-battery-circuit-engineering-diagram.png')} />
+
+The canonical electrical formula is Ohm's law: `V=IR`. This means that voltage (`V`) is equal to current (`I`) multiplied by resistance (`R`). 
+
+It's best to think of this as a mathematical statement about the relationship between voltage, current, and resistance. For example, Arduino uses either a `5` volt logic system or a `3.3.V` logic system, so the left hand side of `V=IR` would be either `5V` or `3.3V`. `I x R` must equal `5V` across a `5V` Arduino circuit.
+
+## Arduino model circuit
+
+<Image img={require('/img/electricity-101-arduino-circuit.png')} />
+
+Just like the battery, the Arduino has a positive pins (`+5V` and `3.3V`) and ground pin(`GND` or `0V`). You can drive an lamp circuit from these without any programming whatsoever. 
+
+Plug in your lamp from the `3.3V` positive pin to the *GND*. Be careful! You may burn out the lamp if you use too high of a voltage.
+
+
+## On your own: Using LEDs for a model circuit
+
+<Image img={require('/img/electricity-101-arduino-led.png')} />
+
+Look at the [LED Arduino circuit on TinkerCAD](https://www.tinkercad.com/things/3j4VkpdpGOr-electricity-101-arduino-led).
+
+The LED will use up about `2V` by making the light, so the rest of the circuit needs to "use up" the `5V`. Plugging in an LED directly between the `5V` pin and ground (which is `0V`), would drive the current `I` very high. That very high current will blow up an LED (luckily, it's usually not dangerous, just annoying). 
+
+Therefore, your LED circuits need to have resistors. By having more resistance in the circuit, the current will be lower, and more of the energy of the potential difference in the voltage will be converted to heat energy in the resistor instead of the LED.
+
+Using `~300 Ohm` resistor, LED, and the Arduino, create a model circuit. It will be just like your battery circuit, but using the Arduino as a power source.
+
+When you've done this, add more LEDs one-by-one. How many LEDs can you drive off of your `5V` pin? Do you have to change the number, position, or value of the resistors? What happens if you put the LEDs in [series or in parallel](https://www.allaboutcircuits.com/textbook/direct-current/chpt-5/what-are-series-and-parallel-circuits)?
+
+
+## Philosophical Connection
+Although simple, this circuit can produce many interesting philosophical connections. The model circuit is a binary circuit: it's either `on` or `off`, `1` or `0`, `HIGH` or `LOW`. It therefore can express truth values such as `true` or `false`. A more complex circuit can perform arbitrary computations. You are looking at the base unit of a computer. If you believe that there is a [connection between computation and consciousness](https://en.wikipedia.org/wiki/Computational_theory_of_mind), then this is the base unit of that consciousness. How, then, do wires like these combine to make something conscious? Discuss with your group.
