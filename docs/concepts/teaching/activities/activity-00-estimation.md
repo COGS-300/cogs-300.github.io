@@ -1,4 +1,6 @@
 # Body Estimation
+
+## Introduction
 Often, in your education so far, you have been required to get precise, mathematically-correct answers with a strong focus on accuracy. Of course, accuracy matters for engineering, but _estimation_, _approximation_, and _managing error_ are much more important than 100% correct answers.
 
 For this exercise, you are asked to use only your body as a measuring stick. No using rulers or any other device that will give you an accurate, pre-measured scientific unit. Any part of your actual body is fine.
@@ -12,19 +14,21 @@ Measure four different sizes of things:
 - Something very large, as in, as big as a room.
 
 ## Error
-While you're measuring, estimate the **error** by setting an upper and lower bound. 
+While you're measuring, estimate the **[error](https://en.wikipedia.org/wiki/Errors_and_residuals)** by setting an upper and lower bound.
 
 For example, if I am measuring my pencil with my index finger, I measure it to be *12 index fingers +/- 3 index fingers*. I might have accidentally overlapped or spaced out my measuring spots, so it could be as long as 15 index fingers at an upper bound, or as little as 9 as a lower bound. The amount of error for each time I put my finger down is at most 1/4 (+/- 1/8) of my finger if I'm being careful, so out of 12 times of putting my finger down, I could have potentially added or removed 3 fingers.
 
 ## Accuracy vs. precision
-Consider the difference in error when you use something large, like your hand, vs. something small, like your pinky, to measure the different sizes of other things. Imagine if you had to measure multiple times: what would give you the best results in terms of **accuracy** and **precision**.
+Consider the difference in error when you use something large, like your hand, vs. something small, like your pinky, to measure the different sizes of other things. Imagine if you had to measure multiple times: what would give you the best results in terms of **[accuracy and precision](https://manoa.hawaii.edu/exploringourfluidearth/physical/world-ocean/map-distortion/practices-science-precision-vs-accuracy)**.
 
 - **Accuracy**: Accuracy is the distance your measurement is from the true dimension of the object you're measuring, where smaller is more accurate. A highly-accurate measurement system will produce an average measurement that overlaps with the true measurement.
 
 - **Precision**: Precision is the magnitude of measurement that you're capable of making, where smaller is more precise. A highly-precise measurement system will produce a tight cluster of measurements.
 
 ## Approximating
-Repeatedly estimating with smaller and smaller error bounds is the process of approximating. Robots commonly use approximating techniques to manage error, and make the best guess about their environments.
+Repeatedly estimating with smaller and smaller error bounds is the process of [approximating](https://en.wikipedia.org/wiki/Approximation). Robots commonly use approximating techniques to manage error, and make the best guess about their environments.
+
+
 
 ## Philosophical connection
 [Ontology](https://en.wikipedia.org/wiki/Ontology) (the study of being) and [epistemology](https://en.wikipedia.org/wiki/Epistemology) (the study of knowledge) are tightly linked.
