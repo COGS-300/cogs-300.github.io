@@ -1,5 +1,20 @@
 # 4E Model of Cognition
-In this class, 
+In this class, we follow the [4E model of cognition](https://www.degruyterbrill.com/document/doi/10.1075/aicr.86.06war/html). That is, we say that cognition is:
+- **Embodied**, i.e., takes place in a body, not just a brain.
+- **Embedded**, i.e., takes place in an environment, not just a body.
+- **Enacted**, i.e., takes place through a process between the body and environment, not just a state.
+- **Extended**, i.e., takes place including information (states) from the environment that could not happen with the body/brain alone.
 
+Note that the reading above also includes _affective_, or emotional cognition. Although [I'm a strong proponent of this view](https://dl.acm.org/doi/full/10.1145/3543514), we won't address it very much in this class.
 
+To be clear, the 4E model is an opinionated stance within cognitive science. It's not obvious and not everyone is a proponent of it. For example, one might follow the [Brain in a Vat](https://iep.utm.edu/brain-in-a-vat-argument/) thought experiment to a [naive](https://www.plato-philosophy.org/being-philosophically-naive) logical conclusion, and believe that the only cognition that happens is within the brain. To be clear, _naivety_ is not meant here as a perjorative, it can be a strong philosophical stance!
 
+If you believe that we're effectively just brains in vats, you might miss the fact that our current vats (bodies) are doing computationally complex things outside of the brain. For example, the [retina does computation](https://pmc.ncbi.nlm.nih.gov/articles/PMC3717333/), but it is not typically considered part of the brain. However, our brain would not be able to perceive via vision as it does without these computations.
+
+As you will see in this course, I argue that you do not even need neuronal tissue to be "computing" in a real sense. For example, [muscles propogate action potentials](https://doi.org/10.1001/archneurpsyc.1939.02270200021002) just like neurons do. The contraction also produces action potentials, such as in the [muscle spindle](https://journals.physiology.org/doi/abs/10.1152/physrev.1964.44.2.219). There is a causal connection between the action potential from the brain, the muscle contracting, and the muscle spindle sending information back to the brain. As far as I'm concerned, that's computation in a similar sense to what we'll see in the course.
+
+If cognition happens in the body (embodied), then the body must live in an environment (embedded). There are meaningful distinctions between body and environment in terms of the strength of the causal connection, however, there are causal relationships. [Physical constraints and affordances](https://www.taylorfrancis.com/chapters/edit/10.4324/9781315816852-11/theory-affordances-james-gibson) are an obvious one: I can only move my muscles as far as I'm not stopped by a wall or another object in front of me. But also, I can only [visually perceive things that really exist](http://www.klemens.sav.sk/fiusav/doc/organon/prilohy/2012/2/9-22.pdf). That means that certain cognitions are only possible if I am placed in exactly the environment that will causally produce them, e.g., visually seeing a particular place. In fact, I extend my cognition regularly with things like the computer, or pieces of paper, or my calendar, which contain things that I can't remember without looking at reminders. These cognitions (and computations) would literally be impossible without having an external reminder.
+
+But I don't just stay still in a place. I am constantly in some kind of motion. Even when "sitting still," my heart is pumping blood, my eyes are blinking, I'm breathing. My cognition is continuously being updated with both self-referential thoughts and externally-oriented thoughts. It's an active process (enacted), and it never stops.
+
+These concepts are easy to learn, hard to understand. We will return to them repeatedly throughout the term.

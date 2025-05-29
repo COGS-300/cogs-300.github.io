@@ -1,0 +1,250 @@
+import Image from '@theme/IdealImage';
+
+# Digital Signals
+
+## Introduction
+As you saw in the [Electricity 101](/docs/concepts/teaching/activities/activity-00-electricity.mdx) activity, we can make a `HIGH` or `LOW` signal by setting a voltage to `5V` or `0V`. The threshold for `HIGH` is arbitrary (but has good engineering reasons behind it). The measurement for `5V` is relative to something we define as `0V`, so we need an electrically neutral material to reference the voltage to, such as the ground. 
+
+You might see `0V` marked as `ref` for reference, or `GND` for ground. The assumption is that because the ground is big, it will quickly dissipate any charge and return to roughly neutral. You can think of the Earth as a big, electrically neutral material—on average, of course, since it can have local charge buildup such as when lightning strikes.
+
+If we switch between `HIGH` and `LOW`, we can create a digital signal. If we gradually change between `HIGH` and `LOW`, we can create an analog signal. Arduino can measure both, but we'll talk about analog signals next week.
+
+### Materials
+- [TinkerCAD switch circuit](https://www.tinkercad.com/things/biQGidVCuSI-basic-digital-signals?sharecode=LEXO6LWbAABNUB1u-Jvi46WdygK20t5bEdw-HK3EEsY)
+- [TinkerCAD blink circuit](https://www.tinkercad.com/things/kcuesQbp7Wi-digital-signals-with-code?sharecode=KNs7Vx0cdYJg3B7cHfRCpz9N6osnTS97QmB18Hmf_dU)
+- [TinkerCAD 2-byte and 8-byte display simulation](https://www.tinkercad.com/things/6c5SB3OGPOR-digital-signals-with-code-byte-display).
+- Arduino
+- Breadboard
+- 2 x switch
+- 2 x LED
+- 2 x 100 Ohm resistor
+- up to 20 x M-M jumper cable
+
+---
+## Activity
+
+### Demo: Cutaway switch
+First, let's all see how a normal switch works by looking at a cutaway (literally, we cut it away: sanded off part of the switch to show you the internals).
+
+If the switch is **closed**, you can see the leads of the switch touch. Then the circuit is **complete**, meaning there's a potential difference (voltage) between the positive and negative terminals, allowing current to run, and turning the lightbulb `ON`. 
+
+If the switch is **open**, then circuit is **incomplete**, stopping current from running. There's still a potential difference between the positive and negative terminals, but since there's nothing connecting them, the charge cannot pass from one to the other, therefore no work can be done by the lightbulb.
+
+### Make binary switching circuits
+Using your Arduinos as a power source, create a binary switching circuit using an LED, a resistor, a switch, and your breadboard. There's no need for code. You can reference the [TinkerCAD switch circuit](https://www.tinkercad.com/things/biQGidVCuSI-basic-digital-signals?sharecode=LEXO6LWbAABNUB1u-Jvi46WdygK20t5bEdw-HK3EEsY) on the bottom right if you need help.
+
+Once you've finished one, make another. You'll use these two to communicate.
+
+### Make an message-passing encoding
+In computing, we map digital signals to arbitrary meanings. For example, [ASCII](https://www.ascii-code.com/), one of the standards for text encoding, maps the binary signal `01000001` to the letter `A` and `01000010` to `B`. 
+
+Try sending a combination of the letters `A` and `B` using only your switching circuit. It's hard! What problems do you encounter? What do you need to differentiate the letters?
+
+Come up with a full encoding and transmission protocol for your digital signals to send the letters `A` thru `Z` (and any other characters you need). Encoding means the pattern of `HIGH` or `LOW`. Transmission protocol means the set of rules you use to interpret the pattern.
+
+**Choose a group spokesperson and be ready to present the problems you encountered and your encoding and protocol design out loud.**
+
+
+### Recreate your message using Blink
+<Image img={require('/img/activity-01-digital-signals.png')} />
+
+Using the [TinkerCAD blink circuit](https://www.tinkercad.com/things/kcuesQbp7Wi-digital-signals-with-code?sharecode=KNs7Vx0cdYJg3B7cHfRCpz9N6osnTS97QmB18Hmf_dU), come up with a way of sending your signal using code instead of a switch.
+
+If you just finished CPSC 110, Arduino's C++ might be an unfamiliar language to you. We'll briefly go through how to read and write C++ syntax. Although this is not a coding course, being able to read and write very simple Arduino-based C++ will be necessary.
+
+```cpp
+void setup()
+{
+  pinMode(13, OUTPUT);
+}
+```
+This is your `setup` function. It runs once at the beginning of the program. This function is calling a built-in function called `pinMode` which takes two parameters: 
+- `13`, the pin that you are activating
+- `OUTPUT`, a constant value that indicates that the pin should output a signal (rather than read-in)
+
+Note: if we were to write this in a Lisp-like language like Dr. Racket, the program would look something like:
+
+```js
+(setup (pinMode 13 OUTPUT))
+```
+
+However, C++ is an [imperative language](https://learn.microsoft.com/en-us/dotnet/standard/linq/functional-vs-imperative-programming), which means that we are always managing program state with code statements that execute one after another. This `setup` function means that the program will always assume pin `13` is set to `OUTPUT` unless we change it later.
+
+```cpp
+void loop()
+{
+  digitalWrite(13, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(13, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+```
+
+Now we have the `loop` function, which runs forever.
+
+```cpp
+digitalWrite(13, HIGH);
+```
+
+Says that pin `13` should be set to `HIGH`. Now it is powering the LED.
+
+```cpp
+delay(1000);
+```
+
+Says that the whole program should wait for 1000 milliseconds, or 1 second.
+
+```cpp
+digitalWrite(13, LOW);
+```
+Says that pin `13` should be set to `LOW`. Now the LED is off, so there's no potential difference (voltage) between `13` and `GND`.
+
+Using the `delay` function and a pattern of `HIGH` and `LOW` settings to pin `13`, recreate your encoding for a letter.
+
+
+---
+## On your own
+### Display a byte of information all at once
+
+If you wire multiple LEDs together, you can make a display. Fundamentally, this is how digital display technology works, [likely including your computer monitor](https://en.wikipedia.org/wiki/LED_display). If you zoom in very closely, you will see that it has a matrix of very small red, blue, and green LEDs that light up.
+
+Make a display that outputs a whole byte of information. Working through this on your own will give you some insight into the circuit design and debug process, and teach you how to code in C++. Wiring multiple LEDs uses more voltage. You may have to play with the number of resistors that you use, or the value of the resistors. 
+
+Both code and circuit design is an iterative process. Making circuits and writing code requires making small, simple, testable things that help you learn about the large, complex, hard-to-diagnose system that you're designing. Websites such as the [Refactoring Guru](https://refactoring.guru/smells/) can teach you about how to get the "smell" for when it's time to refactor your code, but the best teacher is practice.
+
+If you want to step through the code, there is an [Arduino debugger](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-debugger/), however, it is still a new feature.
+
+Start the iterative process by making a display with only two LEDs. You will probably end up with something like this:
+
+<Image img={require('/img/activity-01-digital-signals-two-leds.png')} />
+
+Great. Once you can guarantee that this works, you have got the basic principle down. Now, you just need to iterate. Keep plugging LEDs in, say, `4` of them, and adding to the code.
+
+```cpp
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  
+}
+
+void loop()
+{
+  digitalWrite(13, HIGH);
+  digitalWrite(12, HIGH);  
+  digitalWrite(11, HIGH);
+  digitalWrite(10, HIGH);  
+
+  delay(1000); // Wait for 1000 millisecond(s)
+  
+  digitalWrite(13, LOW);
+  digitalWrite(12, LOW);  
+  digitalWrite(11, LOW);
+  digitalWrite(10, LOW);  
+
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+```
+
+But wait. This is starting to look very hard to maintain. [It smells of duplicate code](https://refactoring.guru/smells/duplicate-code). We can make some of this code shorter if we use **iteration**, or a `for` loop.
+
+```cpp
+for (int i = 10; i <= 13; i++) {
+    digitalWrite(i, HIGH);
+}
+delay(1000);
+
+for (int i = 10; i <= 13; i++) {
+    digitalWrite(i, LOW);
+}
+delay(1000);
+```
+
+This code does the same thing, but now it's **extensible**, i.e., you can add to it without a lot of extra work. With a little refactoring, we can even make this easier to maintain:
+
+```cpp
+// Global variables (any function can access)
+int firstPin = 10;
+int lastPin = 13;
+
+// Setup (runs once)
+void setup() {
+    for (int i = firstPin; i <= lastPin; i++) {
+        pinMode(i, OUTPUT);
+    }
+}
+
+// Loop (runs forever)
+void loop() {
+    // Turn all LEDs ON
+    for (int i = firstPin; i <= lastPin; i++) {
+        digitalWrite(i, HIGH);
+    }
+    delay(1000);
+
+    // Turn all LEDs OFF
+    for (int i = firstPin; i <= lastPin; i++) {
+        digitalWrite(i, LOW);
+    }
+    delay(1000);    
+}
+```
+
+Now as you add more LEDs, all you have to do is set `firstPin` to the first pin that you are currently testing with. 
+
+```cpp
+int firstPin = 7;
+int lastPin = 13;
+```
+
+The astute among you may notice that there's even MORE duplicate code. We can introduce a [function](https://www.w3schools.com/cpp/cpp_functions.asp) to package similar functionality. The function will take the setting of `HIGH` or `LOW` as an [argument](https://www.w3schools.com/cpp/cpp_function_param.asp), which has a type of `int`.
+
+```cpp
+// Turns all LEDs to the value of `setting`
+void setLEDs(int setting) {
+    for (int i = firstPin; i <= lastPin; i++) {
+        digitalWrite(i, setting);
+    }
+}
+
+// Loop (runs forever)
+void loop() {
+    // Turn all LEDs ON
+    setLEDs(HIGH);
+    delay(1000);
+
+    // Turn all LEDs OFF
+    setLEDs(LOW);
+    delay(1000);    
+}
+```
+
+We'll keep the `delay` calls all in the same spot. It starts to get very confusing if you refactor them too much!
+
+You'll notice that [C++ requires return types](https://www.w3schools.com/cpp/cpp_function_return.asp). So far, since our functions aren't returning any values, we can just set the return type to `void`.
+
+Now, we don't want our code to display only all `ON` or all `OFF`. We should come up with a design for a variable setting. For example, we could iterate through a string such as `IOIOOIOI` and set the LED `ON` if there is an `I` or `OFF` if there is a `O`. However, for this exercise, we'll use a [byte](https://docs.arduino.cc/language-reference/en/variables/data-types/byte/). A `byte` is just an 8-bit number written like `0b10011001`. 
+
+We'll use a [bitwise shift](https://docs.arduino.cc/learn/programming/bit-math/#bit-shift-operators) operator called to help manage our `byte`. If we type `<<`, the `0b11111111` will shift to the left and become `0b111111110`, adding a `0` to the right. If we type `>>`, the byte `0b10000010` will become `0b11000001`, adding a `1` to the left, and cutting off the rightmost bit (the operator will copy whatever the leftmost bit is).
+
+If we're iterating through the `byte`, then we only want the last `bit` each time, so we'll use a [bitmask](https://docs.arduino.cc/learn/programming/bit-mask/). For example, we could use a [bitwise and](https://docs.arduino.cc/learn/programming/bit-math/#bitwise-and) to ensure that all the bits are `0` except the rightmost bit: `0b11000001 & 0b00000001 = 0b00000001`.
+
+So if we make a pattern of bits that represent our pattern of on and off such as `0b10011001`, then we can iterate through the `byte` with the following:
+
+```cpp
+void setLEDs(byte pattern) {
+    for (int i = 0; i < 8; i++) {
+        int pin = lastPin - i;
+        int value = pattern >> (7 - i) & 0b00000001;
+        digitalWrite(pin, value);
+    }
+}
+```
+
+Compare your code and working circuit to this [TinkerCAD 2-byte and 8-byte display simulation](https://www.tinkercad.com/things/6c5SB3OGPOR-digital-signals-with-code-byte-display).
+
+
+### Philosophical Connection
+Digital signals encode information with `HIGH` and `LOW` voltages, which are treated as truth values. If a [human computer](https://en.wikipedia.org/wiki/Computer_(occupation) (that means a person who does computation for a living, like an accountant), then anything computable by a human is machine-computable. The [Church-Turing thesis](https://plato.stanford.edu/entries/church-turing/) is often used by philosophers to question the nature of the universe and cognition. Can everything be translated effectively into computable digital signals? Discuss.
