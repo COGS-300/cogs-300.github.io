@@ -1,0 +1,67 @@
+import Image from '@theme/IdealImage';
+
+# Analog Signals
+## Introduction
+Last classs we looked at [digital signals](/docs/concepts/teaching/activities/activity-01-signals.mdx), where signals can either be `HIGH` or `LOW`, `ON` or `OFF`, `TRUE` or `FALSE`. However, there is a lot of range between `0V` and `5V` that we can make use of with sensitive enough instruments. Your Arduino has an [analog input](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/) functionality that allows you to see the level of voltage. You can also read [digital input](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) if you only need a `HIGH` or `LOW` reading, but for now, we're going to look at levels of voltage between `0V` and `5V`.
+
+Your Arduino has an [analog-to-digital converter](https://docs.arduino.cc/built-in-examples/basics/ReadAnalogVoltage/) (ADC). The ADC works by successively comparing an input signal's voltage to a comparisom voltage. There are `1024` levels of comparison, so it finds the voltage level that your input signal is just below, and outputs that as a number between `0` and `1024`.
+
+A [potentiometer](https://docs.arduino.cc/learn/electronics/potentiometer-basics/) is a device that increases resistance according to a dial. You can think of it as a variable resistor, that is, a resistor that varies according to the amount you twist the dial. You need a reference voltage `0V`, a maximum voltage `5V` and then the output voltage between the reference and maximum.
+
+### Materials
+- [TinkerCAD Potentiometer and LED circuit](https://www.tinkercad.com/things/1cXARK32BAK-model-analog-circuit-with-potentiometer?sharecode=Xts3vR_a1qBpgOKFC7DRSTuhc9KQNudpqBfWAVkBFXE)
+
+---
+## Activity
+### Demo: Potentiometer and Voltmeters
+Take a look at how a very large potentiometer works. You can see the input voltage is `6V` because there are `4 x 1.5V` batteries in the pack. However, the measured voltage may be a bit lower, because some of the batteries are not at their maximum charge. 
+
+The way that the voltage is measured depends on the [type of voltmeter](https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/20%3A_Circuits_and_Direct_Currents/20.4%3A_Voltmeters_and_Ammeters). Often we use a [multimeter](https://en.wikipedia.org/wiki/Multimeter) to measure resistance, voltage, and current. This demo shows how voltmeters work.
+
+When the dial is turned, the measured voltage changes both on the digital display, and on the analog dial display. The digital display has an ADC circuit just like your Arduino. The analog display uses a magent that deflects the needle proportional to the electromagenetic field around the live wire.
+
+Look on both sides of the box to see how it is wired. Notice that the digital display needs a positive, negative, and probe (sensor) connection, whereas the analog display just has a positive and negative terminal. Why is that?
+
+
+### Create a Potentiometer Sensor and LED Display Circuit
+![Potentiometer circuit](/img/activity-02-analog-signals.png)
+Create a circuit according to the [TinkerCAD Potentiometer and LED circuit](https://www.tinkercad.com/things/1cXARK32BAK-model-analog-circuit-with-potentiometer?sharecode=Xts3vR_a1qBpgOKFC7DRSTuhc9KQNudpqBfWAVkBFXE). There are two parts, the potentiometer circuit, and the LED circuit. The potentiometer is your sensor, and the LED is your display.
+
+### Map values and Debug with the Serial Monitor
+Click on the code in the simulator, copy, and run on your Arduino. Notice these lines:
+
+```cpp
+// read the analog in value:
+sensorValue = analogRead(analogInPin);
+
+// map it to the range of the analog out:
+outputValue = map(sensorValue, 0, analogRange, 0, ledRange);
+
+// change the analog out value:
+analogWrite(analogOutPin, outputValue);
+```
+We have three functions there. The `analogRead` function reads an analog value from a pin. The `map` function takes a value from an input range and either stretches or shrinks it to match an output range. The `analogWrite` function outputs a variable amount of power depending on the value you provide it (we'll learn more about how in a few lectures).
+
+Find your own Serial Monitor, and see the real input values, how they are converted, and what your LED should be outputting. You should always use the Serial Monitor to debug your programs if you can't figure out what's going wrong.
+
+---
+## On your own
+### Mix Analog and Digital Sensing
+You have now used both buttons and potentiometers. Using the analog sensing as a template, you can extend to create a digital sensing circuit. For example, you might want to sense whether a button has been pressed, then read the potentiometer only if the button has been pressed.
+
+However, this introduces some interesting timing problems. Your `loop` may not be doing the `digitalRead` at the same time your finger presses the button if you are using a standard instantaneous button. How can you ensure that the button press is read?
+
+There are a few options. Experiment with your own solutions first before reading on.
+
+### Loop length
+One option is to make your loop very fast. If you make the loop faster than the time it takes to press a button, you have a high likelihood of catching the button press. However, it's hard to control loop length, particularly when your program includes other logic that take time, such as delays or high-cost computations.
+
+### Button state
+Another option is to make your button stay in a particular state. Switches, for example, stay `ON` once they are switched `ON`, so we can assume that a full loop will happen before the switch state changes.
+
+### Interrupts
+There is also an advanced option: implement an [interrupt](https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/). Most hardware, such as your keyboard, uses this solution. It means that certain pins will be set aside to trigger functions outside of the normal program execution loop. As soon as you start using interrupts, however, you start needing to think about how your program state might change during your loop. This is not a problem, per se, just introduces complexity in terms of parallel programming.
+
+---
+## Philosophical Connection
+Analog is often considered to more "true" or "real" compared to digital. There is certainly an aspect of loss of quality when something is [digitized](https://en.wikipedia.org/wiki/Digitization) from a continuous value from the real world. However, there is a sense in which even the "real world" has quantization limits, as evidenced in the [Planck length](https://en.wikipedia.org/wiki/Planck_units#Planck_length) (discussed in [this paper](https://link.springer.com/article/10.1007/BF02744199)). Although [information](https://en.wikipedia.org/wiki/Entropy_(information_theory)) is lost through digitization, does it even matter at limits [below human perception](https://en.wikipedia.org/wiki/Hearing_range)? Discuss.

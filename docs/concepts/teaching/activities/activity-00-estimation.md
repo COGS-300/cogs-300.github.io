@@ -42,7 +42,8 @@ For example, I know that I am 6ft tall, my thumb is about 1 inch, my pinky is ab
 
 Beware of vanity sizing. I wear pants with supposedly a 33 in waist, but if I measure around where my pants actually sit on my hips, it's 38 inches. Big error if I were to use my belt to measure something!
 
-### Philosophical connection
+---
+## Philosophical connection
 [Ontology](https://en.wikipedia.org/wiki/Ontology) (the study of being) and [epistemology](https://en.wikipedia.org/wiki/Epistemology) (the study of knowledge) are tightly linked.
 
 In terms of ontology, most scientists are [realists](https://en.wikipedia.org/wiki/Philosophical_realism#Metaphysical_realism). Realists contend that there is a real world that we can come to know through objective observation. [Subjectivists](https://en.wikipedia.org/wiki/Subjectivism) contend that our own perceptions are the only "measurement" of reality that we get access to, so there is no objective world to contend with. Of course, then there are many positions in-between.
