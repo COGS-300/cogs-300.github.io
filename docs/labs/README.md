@@ -14,7 +14,7 @@ In the COGS 300 Labs, you will be using the [Arduino](https://www.arduino.cc/) d
 ## Journey from zero to robot
 The labs will progress you from learning basic circuits to making an autonomous robot that will compete in a final tournament. The tournament will be an obstacle course where your robot must autonomously navigate through two mazes and find a goal. Winner of the tournament will be the robot with the goal-finding time.
 
-Many people starting COGS 300 balk at the idea that they can build a robot. They may not consider themselves engineers, believe they are bad at coding, are no good at math, etc. Our experience is that everyone (yes, even you!) can indeed learn to build and program a robot by the end of the course. Many people from the Arts are surprised at how well they can do! I have heard many times during office hours how someone can't believe they built a robot. It will happen for you, too.
+Many people starting COGS 300 balk at the idea that they can build a robot. They may not consider themselves engineers, believe they are bad at coding, are no good at math, etc. Our experience is that everyone (yes, even you!) can indeed learn to build and program a robot by the end of the course. Many people from the Arts are surprised at how well they can do! I have heard many times during office hours how someone can't believe they built a robot. It will happen for you, too, if you put in the time.
 
 
 ## Coding and Circuit Building
@@ -26,25 +26,25 @@ For those who want to engage at a more advanced level, you are welcome to use an
 
 
 ## Marking and Structure
-Each lab has preparatory work that you should do ahead of time called the "pre-lab". There will usually be some video content, some coding content, and some conceptual content. The pre-labs are not marked, but they are highly suggested to complete to have a good experience in your lab.
+Each lab has preparatory work that you should do ahead of time called the "pre-lab". There will usually be some video content, some coding content, and some conceptual content. The pre-labs are not marked, but they are highly recommended to have a good experience in your lab.
 
-During the lab, you will have tasks that you need to complete and show your TA. They are designed to be challenging enough to keep you focused during lab, but not so challenging that you cannot complete them. If you are having difficulty completing them, that's a perfect time to ask for a lot of help from the TA. In this course, unlike many courses, your TA is there to help you, not to test your knowledge. Every question is allowed.
+During the lab, you will have tasks that you need to complete and show your TA. They are designed to be challenging enough to keep you focused during lab, but not so challenging that you cannot complete them. If you are having difficulty completing them, that's a perfect time to ask for a lot of help from the TA. In this course, your TA is there to help you, not to test your knowledge. All questions are encouraged.
 
 At some point during the lab, the TA will visit your group and ask you to show you the creative work from the previous lab. At this time, they will also go through a **post-mortem** with you. It is important that you take the post-mortem seriously and be honest during them. There will be _some_ critique, but more importantly, it is a time to talk about difficulties working during the week, and to debug problems both with your robots and your group working structure. Everyone will be required to:
 - Say one thing that worked well about working together this week.
-- Say one thing that you, personally, accomplished.
+- Say one thing that you, personally, accomplished with regards to your group work.
 - Say one thing that did not work well about working together this week.
 
 This is designed to get you talking about problems early and often. Nobody is allowed to not talk, everybody has to say one thing positive—and negative. No system is perfect; even if the week went really well, that's the perfect time to practice saying difficult things.
 
-After the lab, you will have homework that you need to complete before the next lab. Usually, there will be a creative component, i.e., you'll need to do something that is _beyond_ the minimum stated requirements to get full marks. Students sometimes find this ambiguity to be difficult. The point of this is not to make your life stressful or to have an unobtainable high bar, but simply to show that you have understood the lab work enough to extend what you've learned into new areas. When they've run them by me, most people's first creative ideas are wonderful and good enough to get full marks easily.
+After the lab, you will have homework that you need to complete before the next lab. Usually, there will be a creative component, i.e., you'll need to do something that is _beyond_ the minimum stated requirements to get full marks. Students sometimes find this ambiguity to be difficult. The point of this is not to make your life stressful or to have an unobtainable high bar, but simply to show that you have understood the lab work enough to extend what you've learned into new areas. Usually, when students run their ideas by me, most people's first creative ideas are wonderful and good enough to get full marks easily.
 
 - 5: Exceptional demonstration of lab concepts (exceeds requirements)
 - 4: Good demonstration of lab concepts (meets requirements)
 - 3: Reasonable demonstration of lab concepts (one or two requirements unclear)
 - 2: Missing one or two lab concepts
 - 1: Missing most lab concepts
-- 0: No attendance/no completion.
+- 0: No attendance/no completion
 
 ### Attendance
 Attendance at labs is **mandatory**. If there is a very exceptional instance where you cannot attend, you must inform your **TA and group members** _well ahead_ of the lab so that alternate plans can be made. This applies to group meetings and outside of class communication as well. You are required to be reachable, communicative, and present.

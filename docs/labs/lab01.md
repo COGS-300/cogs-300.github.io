@@ -67,7 +67,7 @@ void loop() {
 }
 ```
 
-Next, see how the [multimeter](https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-multimeter) works. A multimeter will be your best debugging tool. Learn how to use it by filling in the table below.
+Next, see how the [multimeter](https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-multimeter) works. A multimeter will be your best debugging tool. Learn how to use it by filling in the table below in your sketchbooks or on your computer.
 
 Test the continuity, voltage, and current of the circuit using the multimeter.
 <p>Complete the chart by putting the **black probe** at the ground wire and the <span style={{color:"red"}}>**red probe**</span> at the component position listed below:</p>

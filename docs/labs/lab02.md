@@ -1,27 +1,14 @@
 ---
-title: Lab 02. Sensing and Interacting
+title: Lab 02. Paper Prototyping
 ---
 
-Sensation and actuation are two components of systems that need to act intelligently in the world. The most basic model of an intelligent agent and the world looks like this:
+For this lab, we will walk you through a product design process called [paper prototyping](https://www.interaction-design.org/literature/topics/paper-prototyping). You can create very effective electronic prototypes using only simple materials like paper, lego, and hot glue. 
 
-```mermaid
----
-config:
-      theme: redux
----
-flowchart TD
-        A(["Agent"])
-        B(["World"])
-        A -- "Action" --> B
-        B -- "Sensation" --> A
-        
+Since we have not taught you how to use the motor drivers and servos that you will eventually use for your robots, any actuation that your device does will need to be acted out using the [wizard of oz](https://www.nngroup.com/articles/wizard-of-oz/) method. It's nothing too complicated: you develop a script for what *would* happen if you did indeed have a working motor, and just use your hands to make the thing move instead. You can use this for any components or computational processes that you haven't learned yet.
 
-```
-Although we try to make this model more complicated in COGS 300, it's a good starting point for this lab.
-
-In this lab, you will learn how to use an Arduino to take a reading from a sensor, then output an action based on the reading. 
-
-This never-ending interactive `loop` will be the basis of your robot programming for the rest of the term.
+By going through this process, we will be teaching you about two important concepts:
+1. **The interactive loop**, including managing the resources of computer processing time and electric current to sense and display information.
+2. **A low-cost iterative design process**, where making many simple good-enough prototypes will help you get to a better and more complex design.
 
 ---
 ## Pre-lab
@@ -32,9 +19,109 @@ Review how [buttons](https://www.arduino.cc/en/Tutorial/Button), [potentiometers
 
 Note that there are two paradigms at play here: [digital](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) and [analog](https://www.arduino.cc/reference/tr/language/functions/analog-io/analogread/) sensing. Digital just means that we have forced the signal to be either `HIGH` or `LOW`, i.e., binary `1` or `0`, `+5V` or `0V`. Analog sensing means that we can vary the reading continuously between `HIGH` and `LOW`. Arduino happens to give us `1024` different levels of reading between `+5V` and `0V`, so it's not truly continuous, but is good enough for our purposes.
 
-### 2. Review basic actuation
+### 2. Review design process guidelines
+When doing product design, it's far too easy to shoot down each other's ideas because you're worried about being efficient or getting it right. For this lab, you are encouraged to "get it wrong." 
 
-Review how [servos](https://docs.arduino.cc/tutorials/generic/basic-servo-control/) work.  Again, if you want an even more in-depth explanation, check out Paul McWhorter's tutorial on [servos](https://www.youtube.com/watch?v=mDyQkTIzDsc).
+Review the [IDEO Brainstorming Rules](https://www.designkit.org/methods/brainstorm-rules.html), the [wizard of oz](https://www.nngroup.com/articles/wizard-of-oz/) technique, and [paper prototyping](https://www.interaction-design.org/literature/topics/paper-prototyping) processes. 
+
+Absolutely nobody is allowed to imagine themselves "not technical enough" to contribute to the design and construction process. If you passed kindergarten craft class (and we presume you did since you are in university), you can be a technical product designer. On the other side, nobody is allowed to imagine themselves "too technical" to use something as simple as paper. A good engineer can creatively use whatever material is at hand.
 
 ---
 ## Lab
+You will get into groups of either 3 or 4 people to work on this lab. Work with people you don't know and who have different educational backgrounds than you. This will be your last chance to test working with new people before committing to a group next lab, so take advantage of the chance to get to know somebody new.
+
+### 1. Seven Things
+:::tip Your TA will demonstrate this, so wait until they do so to get started.
+
+*Seven Things* is an improv game designed to get you to think freely and without judgement. Many creative teams will play this game before an important event to get their minds engaged in an open way. You can use it as a mind-opening technique whenever you need to think outside the box.
+:::
+
+Choose one person is the **Speaker**. Choose another person to be the **Topic Giver**. The **Topic Giver** will think of a topic that is a kind of a creative anti-category. We'll explain that more in a second. The **Speaker** will then say seven things that fall into the topic. Between each thing, the rest of the group claps once and counts. Importantly, there are absolutely **no wrong answers**. You can even repeat yourself and the group will still clap and count. The point is **speed not accuracy**.
+
+For example, the **Topic Giver** might say, "Name me seven things that don't live in my walls anymore." It's a creative anti-category because, other than mice and insects, most things we typically encounter do not ever live inside walls. We're not looking for a list of insects, we're looking for things that break the category. A great answer by the speaker might look like:
+
+- "An elephant"
+- *everyone else claps and counts "1"*
+- "My grandma's orthodontist"
+- *everyone else claps and counts "2"*
+
+And so on, up to seven things. At seven, everyone claps vigorously and says "seven things." Then, the old **Speaker** becomes the new **Topic Giver**, and the new **Speaker** is arbitrarily chosen to be the next person in the circle. 
+
+Again, the point is non-judgement. And *speed*, but only to facilitate the non-judgement. As fast as possible means you're as free-thinking as possible.
+
+Once everyone has gone at least twice, the TA will indicate that it's time to move on to the next step.
+
+
+### 2. Product Concept Design
+Stay with your same groups and find a whiteboard. Don't jump ahead in the process. We are disciplining ourselves to go slowly so that our final design can *emerge*, rather than be pre-determined.
+
+#### 2a. Brainstorm interfaces that use dials, switches, LEDs, and buttons
+The point of this exercise is to write down as many interfaces as you possibly can. Again, there are absolutely **no wrong answers**. Allow a **Leader** and one or more **Writers** to naturally emerge in the group. Think about all of the physical interfaces that you possibly can that use switches, buttons, or dials as input devices, and/or LEDs as output devices such as computer mice, keyboards, dial phones, remote controls, car audio systems, and more. You should be able to come up with 20-40 different devices in 5 minutes. Look around the room if you need inspiration.
+
+The **Leader** has the job of keeping the conversation fast-paced, fair, and thinking of new categories if ideas start to fizzle out. The **Writer(s)** have the job of capturing what everyone is saying. When ideas in a particular category start to come slower, well before everyone is bored or confused, the **Leader** should suggest a new topic. It's OK if different people take each role, but someone should be paying attention to the energy of the group. Only stop when given the signal from the TA to move on.
+
+#### 2b. Brainstorm your own interface ideas
+For the rest of lab, you will be building your own paper prototype of an interactive interface that includes real, live, working electrical components. Looking at your big list of existing interfaces on the wall, choose one or two to either replicate, mix together, and/or extend as this lab's paper prototype. The outcome of this process will be only a conceptual design, not yet a drawing or work plan.
+
+**Unlike above** where there were **no wrong answers**, you may now start to **evaluate** ideas. Even though judgement can now appropriately be used, it is better to use a "yes-and" strategy even while evaluating, which is to say that building on each other's ideas is typically more effective and fulfilling than dismissing and criticizing.
+
+However, it is now time to collectively say "no" to some ideas (in fact, eventually all ideas but one). There are ways to do this that keep the group dynamic positive and effective. The point isn't just to make everybody feel heard and valuable, you also don't want to prematurely throw away good ideas. You must balance deferring decisions to capture the good parts of a design with making final decisions to manage cognitive load. There's no formula, but there are practices:
+
+1. **Keep it simple**. A final idea should be achievable in a week, do only one core thing very well (even if there are multiple features), and make sense to everyone.
+
+2. **Rearrange and agree on categories**. If you have reached a roadblock, look at and re-arrange the categorical similarities between your ideas so far. For example, you might notice that you have three music-related ideas (car audio, spotify music player, guitar tuner), and two banking-related ideas (ATM machine, bitcoin stock tracker). But, if you re-arrange them, you have three ideas that need the internet, and two that don't. Now you can make a decision: do we want to wizard-of-oz the internet or not?
+
+3. **Approval vote on front-runners**. Say you're having a hard time deciding between two or three great ideas. Do an approval vote: everyone gets to vote "yes" for what they want to work on, so you can vote multiple times. The idea with the most votes wins.
+
+4. **Split teams.** Say you have one great idea, but disagreements on two different directions. Start prototyping both until you hit a problem. Plan to mix your ideas later.
+
+Don't get bogged down with arguments, precision, and getting it "right" too early. Your plan will change as you actually make the prototype. That's OK, let it happen.
+
+
+### 3. First "Paper" Prototypes (start in lab, finish for homework)
+Now that you have a concept, you need to start figuring out different aspects of your product. Each prototype will serve a different purpose. Those who like to draw might want to create a drawing of the final product. Others might want to start figuring out the basic circuit. Others still might want to figure out the mechanics. We'll break our prototypes down into the following three categories. Split up your team based on interest and ability to tackle the different prototypes in parallel.
+
+#### 3a. **Looks-like prototype**. 
+As the name suggests, this prototype will start to look like the final product. You might think through colours, typography, component placement. For example, if you are making a TV remote, you might draw the layout of the buttons and labels. Make at least one drawing of your final product.
+
+#### 3b. **Feels-like prototype.** 
+This prototype will be the right size and shape of your final product. For example, if you are making a TV remote, you could cut a piece of cardboard to fit in your hand. If it's too big, cut it down. Make sure it's comfortable in everyone's hands. Glue some buttons on it to see if you can reach them with your fingers. Rip them off and try again if you can't. You'll very quickly find out what "works" and doesn't. Make at least one feels-like prototype to demonstrate how your product will physically be constructed.
+
+#### 3c. **Works-like prototype.** 
+This prototype will illustrate the functionality of your final design. For example, if you are making a TV remote, you might create all of the buttons and the LED indicator, but they don't have to be in the right layout. 
+
+Decide which components that your prototype will need. You will need at least one **digital** and one **analog** sensing component, as well as at least one **LED** for display. Use the code from our [digital sensing lecture activity](docs/concepts/teaching/activities/activity-01-signals) and [analog sensing lecture activity](docs/concepts/teaching/activities/activity-02-analog-signals) to start.
+
+
+#### Paper prototyping summary
+
+Each prototype is both a test and a plan. Break your design down into different levels of organization. For the TV remote example, you might want to prototype the volume buttons all by themselves, and then, later, make another prototype for the volume buttons and the channel buttons together. Make a works-like-feels-like prototype. Make a looks-like-works-like prototype. More prototypes usually are better.
+
+
+### 4. Wizard of Oz Script (start in lab, finish for homework)
+You probably will not be able to program absolutely every functionality that you want your prototype to do. That's OK! For everything that you don't have a current ability to do, act it out. To formalize it, you'll need a proper script that says "If the user does X, then the computer returns Y." It does not have to be a full flow-chart of every possible action, but should clearly illustrate how your interface works.
+
+Let's say that I wanted to prototype YouTube for the TV remote example. I don't need to program YouTube, I just need my friend to stand in front of me with YouTube up on their phone. Then, when I press the "Next" button, they press the next video button on YouTube. No wires, API calls, Bluetooth protocols, or programming necessary.
+
+Make a wizard-of-oz script for your prototype. Do actually write it down so that you can remember and repeat your prototype actions for your TA. It should be clearly written enough that your TA could read through it and basically understand how your prototype works without you being there.
+
+
+### 5. Working Prototype and Video (homework)
+Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. 
+
+The absolute minimum requirements will be to use at least the following components:
+
+- One or more buttons or switches.
+- One or more potentiometers or photocells.
+- One or more LEDs or other Arduino-controlled display technologies.
+
+A large portion of the interface must really work with an Arduino interactive loop. You may use a Processing.org sketch to interact with your Arduino, but you are not required to.
+
+As mentioned last labm, each lab will be marked out of 5. To get 5/5, you will need to come up with something extra that is not directly specified in the above minimum requirements, i.e., you will have to be creative.
+
+5: Exceptional demonstration of lab concepts (exceeds requirements)
+4: Good demonstration of lab concepts (meets requirements)
+3: Reasonable demonstration of lab concepts (one or two requirements unclear)
+2: Missing one or two lab concepts
+1: Missing most lab concepts
+0: No attendance/no completion.
