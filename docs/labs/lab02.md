@@ -119,9 +119,9 @@ A large portion of the interface must really work with an Arduino interactive lo
 
 As mentioned last labm, each lab will be marked out of 5. To get 5/5, you will need to come up with something extra that is not directly specified in the above minimum requirements, i.e., you will have to be creative.
 
-5: Exceptional demonstration of lab concepts (exceeds requirements)
-4: Good demonstration of lab concepts (meets requirements)
-3: Reasonable demonstration of lab concepts (one or two requirements unclear)
-2: Missing one or two lab concepts
-1: Missing most lab concepts
-0: No attendance/no completion.
+- 5: Exceptional demonstration of lab concepts (exceeds requirements)
+- 4: Good demonstration of lab concepts (meets requirements)
+- 3: Reasonable demonstration of lab concepts (one or two requirements unclear)
+- 2: Missing one or two lab concepts
+- 1: Missing most lab concepts
+- 0: No attendance/no completion.
