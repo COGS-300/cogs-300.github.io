@@ -1,0 +1,64 @@
+import Image from '@theme/IdealImage';
+
+# Driving Motors
+
+## Introduction
+Beacuse moving in the physical world takes a lot of power, we need to use higher-voltage sources to drive our motors than the low-voltage logic of our Arduino. For this activity, we will be learning about the [L298n Motor Driver](https://projecthub.arduino.cc/lakshyajhalani56/l298n-motor-driver-arduino-motors-motor-driver-l298n-7e1b3b) which you will be using in your robots for the rest of term.
+
+### Materials
+- [L298n Motor Driver](https://projecthub.arduino.cc/lakshyajhalani56/l298n-motor-driver-arduino-motors-motor-driver-l298n-7e1b3b)
+- [Gearbox Motors](https://www.adafruit.com/product/3777?srsltid=AfmBOor5MfKJDAAhAgsrMqJc_g2fbvvkAEt_cJ33dDdXpzkwIfElny2I)
+- [Potentiometer](https://docs.arduino.cc/learn/electronics/potentiometer-basics/)
+
+---
+## Activity
+
+### Build the Circuit
+Build **one side** of the [L298N circuit from this tutorial](https://projecthub.arduino.cc/lakshyajhalani56/l298n-motor-driver-arduino-motors-motor-driver-l298n-7e1b3b). Getting familiar with the meaning of the pinouts will be helpful for when you encounter this in lab. Use the following pins for your Arduino:
+
+```cpp
+#define enA 9   // Enable pin for Motor A — must be a PWM-capable pin
+#define in1 8   // Direction control pin 1 for Motor A
+#define in2 7   // Direction control pin 2 for Motor A
+```
+
+:::tip
+You only need one motor to understand the driver, so just build one side. Make sure your wiring aligns with the pinout.
+:::
+
+### Test the circuit
+Using the following code, test your motor.
+
+```cpp
+#define enA 9   // Enable pin for Motor A — must be a PWM-capable pin
+#define in1 8   // Direction control pin 1 for Motor A
+#define in2 7   // Direction control pin 2 for Motor A
+
+void setup() {
+    // Set motor control pins as outputs
+    pinMode(enA, OUTPUT);
+    pinMode(in1, OUTPUT);
+    pinMode(in2, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(enA, HIGH); // Turn on motor at full power (no PWM)
+}
+```
+
+### Speed Control
+Using `analogWrite(enA, pwm)` where `pwm` can range from `0-255`, run your motor at different speeds.
+
+Next, use a potentiometer to control the motor speed. You may want to use the [Arduino map function](https://docs.arduino.cc/language-reference/en/functions/math/map/) to translate the sensor reading (which is in the range `0-1024`) to the motor control range `0-255`. If you can't remember how to hook up a potentiometer, return to the [Analog Signals](http://localhost:3000/docs/concepts/teaching/activities/analog-signals) activity.
+
+---
+## On your own
+You'll get plenty of practice with these drivers in lab, but it's worth also practicing with these materials on your own time. Spend some time with a multimeter and a driver measuring the output of different components.
+
+--- 
+## Philosophical Connection
+PWM has some similarity to the way our motor neurons control our muscles. Each spike of a neuron makes our muscles twitch an imperceptible amount. Many, many twitches add up into a muscle movement. 
+
+[Some people use the ability of our muscles to be stimulated by electrical activity to develop novel computer interfaces](https://dl.acm.org/doi/pdf/10.1145/3706598.3713676). We could call this system a cybernetic enhancement. One characterization of this kind of work is that it is [techno-futurism](https://en.wiktionary.org/wiki/techno-futurism), that is, works within a value system that promotes technological solutions to human problems. Do you find this kind of work exciting or scary? Both? Discuss.

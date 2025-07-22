@@ -1,8 +1,12 @@
+---
+description: Measuring with continuous signals.
+---
+
 import Image from '@theme/IdealImage';
 
 # Analog Signals
 ## Introduction
-Last classs we looked at [digital signals](/docs/concepts/teaching/activities/activity-01-signals.mdx), where signals can either be `HIGH` or `LOW`, `ON` or `OFF`, `TRUE` or `FALSE`. However, there is a lot of range between `0V` and `5V` that we can make use of with sensitive enough instruments. Your Arduino has an [analog input](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/) functionality that allows you to see the level of voltage. You can also read [digital input](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) if you only need a `HIGH` or `LOW` reading, but for now, we're going to look at levels of voltage between `0V` and `5V`.
+Last classs we looked at [digital signals](/docs/concepts/teaching/activities/01-signals.mdx), where signals can either be `HIGH` or `LOW`, `ON` or `OFF`, `TRUE` or `FALSE`. However, there is a lot of range between `0V` and `5V` that we can make use of with sensitive enough instruments. Your Arduino has an [analog input](https://docs.arduino.cc/built-in-examples/analog/AnalogInput/) functionality that allows you to see the level of voltage. You can also read [digital input](https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/) if you only need a `HIGH` or `LOW` reading, but for now, we're going to look at levels of voltage between `0V` and `5V`.
 
 Your Arduino has an [analog-to-digital converter](https://docs.arduino.cc/built-in-examples/basics/ReadAnalogVoltage/) (ADC). The ADC works by successively comparing an input signal's voltage to a comparisom voltage. There are `1024` levels of comparison, so it finds the voltage level that your input signal is just below, and outputs that as a number between `0` and `1024`.
 
@@ -26,6 +30,7 @@ Look on both sides of the box to see how it is wired. Notice that the digital di
 ### Create a Potentiometer Sensor and LED Display Circuit
 ![Potentiometer circuit](/img/activity-02-analog-signals.png)
 Create a circuit according to the [TinkerCAD Potentiometer and LED circuit](https://www.tinkercad.com/things/1cXARK32BAK-model-analog-circuit-with-potentiometer?sharecode=Xts3vR_a1qBpgOKFC7DRSTuhc9KQNudpqBfWAVkBFXE). There are two parts, the potentiometer circuit, and the LED circuit. The potentiometer is your sensor, and the LED is your display.
+
 
 ### Map values and Debug with the Serial Monitor
 Click on the code in the simulator, copy, and run on your Arduino. Notice these lines:
@@ -64,4 +69,4 @@ There is also an advanced option: implement an [interrupt](https://docs.arduino.
 
 ---
 ## Philosophical Connection
-Analog is often considered to more "true" or "real" compared to digital. There is certainly an aspect of loss of quality when something is [digitized](https://en.wikipedia.org/wiki/Digitization) from a continuous value from the real world. However, there is a sense in which even the "real world" has quantization limits, as evidenced in the [Planck length](https://en.wikipedia.org/wiki/Planck_units#Planck_length) (discussed in [this paper](https://link.springer.com/article/10.1007/BF02744199)). Although [information](https://en.wikipedia.org/wiki/Entropy_(information_theory)) is lost through digitization, does it even matter at limits [below human perception](https://en.wikipedia.org/wiki/Hearing_range)? Discuss.
+Analog is often considered to more "true" or "real" compared to digital. There is certainly an aspect of loss of quality when something is [digitized](https://en.wikipedia.org/wiki/Digitization) from a continuous value from the real world. However, there is a sense in which even the "real world" has quantization limits, as evidenced in the [Planck length](https://en.wikipedia.org/wiki/Planck_units#Planck_length) (discussed in [this paper](https://link.springer.com/article/10.1007/BF02744199)). Although [information](https://en.wikipedia.org/wiki/Entropy_(information_theory)) is lost through digitization, does it even matter at physical limits [below human perception](https://en.wikipedia.org/wiki/Hearing_range)? Discuss.

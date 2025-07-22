@@ -1,0 +1,48 @@
+---
+description: Using light to change electric signals.
+---
+
+import Image from '@theme/IdealImage';
+
+# Photocells
+
+## Introduction
+Photo cells, a.k.a., [photoresistors](https://en.wikipedia.org/wiki/Photoresistor) are used to sense light. They change the amout of resistance depending on the amount of light that hits them. By measuring the voltage in a circuit after a photocell, we can determine a [measure of light](https://en.wikipedia.org/wiki/Lux) in terms of the "flow of light" per square meter. 
+
+The practical upshot for this class is that, if we plug a photocell into our circuit, take some measurement of the surrounding light, we can detect changes in that light. It doesn't really matter what the precise units are because we can just calibrate it for whatever we're trying to do.
+
+You can use a [potentiometer as a model](/docs/concepts/teaching/activities/02-analog-signals) for your photocell circuit.
+
+### Materials
+- [TinkerCAD Photocell vs. Potentiometer](https://www.tinkercad.com/things/fPb3NwqdLd4-photocell-vs-potentiometer?sharecode=BDtvy3YQtsJHfPWTVOw-MxRQ9d835rKO6y_4oDqHUxU)
+- Photocell 
+- LED
+- 1 x 220 Ohm resistor
+- 1 x 10 kOhm resistor (lower is fine, nothing will get burned out)
+
+---
+## Activity
+This activity is meant to go along with the previous [analog signals](/docs/concepts/teaching/activities/02-analog-signals) activity. Most of the conceptual background is there.
+
+For this activity, we will see how a photocell can be used just like a potentiometer in a circuit for sensing. Of course, since it's sensing light, not rotation, it can do different things practically. But the sensing circuit basics are the same.
+
+Consider how this is similar or different than the sensory neurons that you have. Our eyes have biological photocells. Cameras have electronic photocells that are basically just smaller versions of the big ones we use in lecture. Just like the photocells in our eyes, we sometimes need a big apparatus around it to properly sense the signal we're interested in. 
+
+### Demo
+Take a look at how a photocell works to directly control another component (if used as a resistor, which it is). Also, see how it is used as a sensing component.
+
+### Build a Photocell Sensing Circuit
+Replace the potentiometer from the previous activity with a photocell according to the [TinkerCAD diagram](https://www.tinkercad.com/things/fPb3NwqdLd4-photocell-vs-potentiometer?sharecode=BDtvy3YQtsJHfPWTVOw-MxRQ9d835rKO6y_4oDqHUxU). Note that you may want to fully recreate the circuit with another person's Arduino so that you can use them side-by-side.
+
+### Isolate the Signal to Improve Detection
+You may notice that there is a lot of light-based "noise" in the room that interferes with the detection that you want to accomplish. Come up with ways to isolate the sensing surface of the photocell from ambient light so that you can detect the presence only of your phone's flashlight. Think of how the eye or a camera works for inspiration.
+
+---
+## On your own
+Photocells are versatile components that can be used for a wide range of applications. Soon, we will look at how using them along with different mechanical constructions can perform distance sensing. On your own, come up with designs for sensing devices that use a photocell to measure distance. 
+
+Just like above, you'll have to think through the mechanics and isolation to ensure that you're using the physical world to shape the signal that you're interested in. You'll see that a distance sensor is a configuration and a use case for a different kind of sensor.
+
+---
+## Philosophical Connection
+All sensors transform physical signals into other physical signals. Often, they are attached to measuring devices. We call them sensors because we use them to sense phenomena that we're interested in. It can seem like electronic or biological sensors like photocells have a different quality to them when compared to something like a switch. But, in some way, a switch is just a binary pressure sensor. What, if anything, makes a photocell categorically different than a switch? What are examples of measuring devices that we do not call sensors? Why are they different? Discuss.

@@ -1,1 +1,1 @@
-Dummy link in so that Docusaurus compiles
+Dummy link in so that Docusaurus compiles while drafting with unknown links. If you see this page, there is a yet-broken link.
