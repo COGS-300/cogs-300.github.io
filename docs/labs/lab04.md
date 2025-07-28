@@ -12,6 +12,11 @@ In this lab, you will be attempting to get a robot to autonomously drive from a 
 
 ---
 ## Pre-lab
+- Encoders
+- Encoder explanation
+- Encoder circuit
+- Serial monitor communication
+- Remote sensing
 
 ---
 ## Lab
