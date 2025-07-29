@@ -10,7 +10,8 @@ Often, in your education so far, you have been required to get precise, mathemat
 For this exercise, you are asked to use only your body as a measuring stick. No using rulers or any other device that will give you an accurate, pre-measured scientific unit. Any part of your actual body is fine.
 
 ### Materials
-- Nothing extra needed! Just use your body.
+- Some things to measure
+- A sketchbook to record your notes in
 
 ---
 ## Activity
