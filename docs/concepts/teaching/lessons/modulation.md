@@ -256,3 +256,6 @@ class PWMSignal implements AudioSignal {
 }
 ```
 The reason why PWM makes more sense for Arduino is that we're using direct wire connections with well-defined `HIGH` (`+5V`) and `LOW` (`GND`) voltage states. In theory, we could do some form of AM or FM using the Arduino, and it would be a fun exercise to try, but it's simply faster with the existing Arduino hardware setup to use `HIGH`/`LOW` patterns.
+
+Comparing PWM to neuron signaling is interesting, particularly if we look at [neuron signaling patterns](https://pmc.ncbi.nlm.nih.gov/articles/PMC5067378/). Each time the motor neuron fires, the muscle contracts ever-so-slightly in what is called a *twitch*. Put enough twitches together, and you get perceptible movement. That is a bit like a duty cycle: more signal on equals more output of the actuator.
+
