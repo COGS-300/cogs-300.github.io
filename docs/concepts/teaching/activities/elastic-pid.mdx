@@ -1,0 +1,36 @@
+import Image from '@theme/IdealImage';
+
+# Elastic PID
+
+## Introduction
+This brief activity is a physical demonstration of the "P" part of a PID controller.
+
+### Materials
+- An elastic
+- A coin
+- A stick or ruler
+- A marker
+- A piece of paper
+
+---
+## Activity
+Mark a "set point" on a piece of paper by tracing a coin. Place the coin somewhere else on the paper. Using only the elastic, flick the coin back towards the set point. However, there's a trick: you can only pull the elastic back *proportional* to the distance from the set point, i.e., the error. 
+
+To calculate this, set a `P` value. For example, if your error is `10cm` and your `P = 1.0` then you'd need to pull your elastic back `10cm`. If it is `P = 0.5`, then you would pull your elastic back `5cm`. 
+
+Tune your `P` value roughly first. If you're getting wild overshoot, tune it down. If you're getting very little advancement of the coin, tune it up. Then, see how your `P` value works the closer you get to the set point, i.e., as error is reduced. 
+
+You should see a point where your elastic no longer works to get the coin near the set point. That is, there is some error that is persistent in the system. That's where the other terms of the PID control come in. You can try adding them in, too. For `D`, you want to tune to the change in error. For `I`, you want to tune to the sum of all the error.
+
+So, for example:
+
+```
+P = 0.5
+I = 0.0
+D = 0.0
+
+1. Coin is 10cm away. Elastic is pulled back 5cm. Coin moves 6cm.
+2. Coin is 4cm away. Elastic is pulled back 2cm. Coin moves 0.5cm.
+3. Coin is 3.5cm away. Elastic is pulled back 1.75cm. Coin moves 0.25cm.
+etc.
+```
