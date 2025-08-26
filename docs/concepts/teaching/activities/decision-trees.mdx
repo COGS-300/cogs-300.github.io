@@ -1,0 +1,299 @@
+---
+description: Making a decision tree from live data
+---
+
+# Decision Trees in Arduino and Weka
+
+## Introduction
+As we explored last time, decision trees are useful to encode decision-making processes where classification is needed. For complex decisions, sometimes we need to use machine learning techniques to create the decision tree, which is referred to as training a classifier. In this activity, we will train a classifier using data from the Arduino and automatically generate a decision tree that can be used onboard your robots.
+
+### Materials
+- Photo cells
+- White paper
+- Black tape
+- 3 x photocells
+- 3 x resistors
+- Breadboard
+- Jumper cables
+- TinkerCAD
+- [Weka GUI](https://ml.cms.waikato.ac.nz/index.html)
+
+---
+## Activity
+For this activity, we'll use an array of photocells to simulate our robots. 
+
+### Create a 3-sensor Photocell Array
+Following the given TinkerCAD model, create an array of three photocells. You will be using the photocells to classify whether or not you are on a line, so make them robust enough to move and be re-oriented.
+
+You can use the code in the next section to test your connection.
+
+### Upload the following to Arduino
+Use the following code to print the values from your sensors out to the Serial Monitor. Do a gut-check with each sensor individually as well as all together: ensure that the values are close to what you would expect.
+
+```cpp
+// Prints time(ms), s0, s1, s2 to Serial for reading
+const int S0 = A0, S1 = A1, S2 = A2;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("millis,s0,s1,s2"); // header
+}
+
+void loop() {
+  int v0 = analogRead(S0);
+  int v1 = analogRead(S1);
+  int v2 = analogRead(S2);
+
+  Serial.print(millis()); // time
+  Serial.print(',');      // seperator
+  Serial.print(v0);       // sensor 0
+  Serial.print(',');
+  Serial.print(v1);       // sensor 1
+  Serial.print(',');
+  Serial.println(v2);     // sensor 2
+
+  delay(20); // ~50 Hz
+}
+```
+
+### Upload the following to Processing
+Use the following code to receive the values from your Arduino, label your data, and write the values to a CSV. The code only writes when you are actively pressing a `0-9` button so as not to include data that is not useful. Press `Space` to stop the data recording. 
+
+```java
+// Reads CSV from Arduino (millis,s0,s1,s2). Writes ONLY when a label (0–9) is set.
+
+import processing.serial.*;
+Serial ser;
+PrintWriter out;
+
+String filename;
+int     flushEvery = 100;
+int     savedRows  = 0;
+
+// live label; -1 => not recording
+int currentLabel = -1;
+
+void setup() {
+  size(720, 170);
+  surface.setTitle("Arduino CSV Label Logger (0-9=label, space=clear, q=quit)");
+
+  println("Available serial ports:");
+  String[] ports = Serial.list();
+  for (int i = 0; i < ports.length; i++) println(i + ": " + ports[i]);
+
+  int portIndex = 0; // <-- set after first run to the desired port
+  int baud = 115200;
+
+  ser = new Serial(this, Serial.list()[portIndex], baud);
+  ser.bufferUntil('\n');
+
+  filename = "arduino_labeled_" + timestamp() + ".csv";
+  out = createWriter(filename);
+
+  // Header (always written once at start of file)
+  out.println("host_time_ms,dev_millis,s0,s1,s2,label");
+
+  textFont(createFont("Menlo", 14));
+  redrawHUD();
+}
+
+void draw() {
+  // no per-frame work
+}
+
+void serialEvent(Serial s) {
+  String line = s.readStringUntil('\n');
+  if (line == null) return;
+  line = trim(line);
+  if (line.length() == 0) return;
+
+  // Skip Arduino header if it appears
+  if (line.equalsIgnoreCase("millis,s0,s1,s2")) return;
+
+  // Expect exactly 4 fields from Arduino: millis,s0,s1,s2
+  String[] parts = split(line, ',');
+  if (parts.length != 4) return;
+
+  // Only record when a label is set (0..9)
+  if (currentLabel >= 0) {
+    int hostMs = millis();
+    out.print(hostMs); out.print(',');
+    out.print(parts[0]); out.print(','); // dev millis
+    out.print(parts[1]); out.print(','); // s0
+    out.print(parts[2]); out.print(','); // s1
+    out.print(parts[3]); out.print(','); // s2
+    out.println(currentLabel);
+
+    savedRows++;
+    if (savedRows % flushEvery == 0) out.flush();
+    redrawHUD(); // update counter on screen
+  }
+}
+
+void keyPressed() {
+  if (key == 'q' || key == 'Q') {
+    println("Stopping. Saved: " + filename + " (" + savedRows + " rows)");
+    cleanupAndExit();
+    return;
+  }
+  if (key == ' ') {
+    currentLabel = -1; // stop recording
+    redrawHUD();
+    return;
+  }
+  if (key >= '0' && key <= '9') {
+    currentLabel = key - '0'; // start/continue recording with this label
+    redrawHUD();
+  }
+}
+
+void redrawHUD() {
+  background(250);
+  fill(0);
+  textAlign(LEFT, TOP);
+
+  boolean recording = (currentLabel >= 0);
+  String rec = recording ? "REC" : "—";
+  fill(recording ? color(0) : color(120));
+  text(
+    "Logging to: " + filename +
+    "\nPort: " + ser.portName() +
+    "\nStatus: " + rec + "   Current label: " + currentLabel +
+    "\nSaved rows: " + savedRows +
+    "\nControls: 0–9=set label (record), space=clear (pause), q=quit",
+    10, 10
+  );
+}
+
+void exit() {
+  cleanupAndExit();
+  super.exit();
+}
+
+void cleanupAndExit() {
+  if (out != null) { out.flush(); out.close(); out = null; }
+  if (ser != null) { ser.stop(); ser = null; }
+}
+
+String timestamp() {
+  return nf(year(), 4) + "-" + nf(month(), 2) + "-" + nf(day(), 2) + "_" +
+         nf(hour(), 2) + "-" + nf(minute(), 2) + "-" + nf(second(), 2);
+}
+
+
+```
+
+### Come up with a labelling protocol
+You can use the numbers `0-9` to label your data. Decide what each label will mean, and how you will go about labelling the live data from the Arduino. For example, you might want a different label depending on the position of the paper, left, right, center. Or, you might want a more fine-grained labelling system. Discuss with your group.
+
+Once you've decided on your protocol, run the Arduino and Processing sketches at the same time and execute your protocol.
+
+
+### Transform your CSV in Weka
+Download and use Weka to transform your CSV into a form that Weka can use to train a classifier. There's nothing particularly special going on, it's just adding a set of text labels to the top of the file so that the system knows what the CSV data is supposed to look like.
+
+
+### Train and Evaluate a Classifier
+Using Weka's built-in systems, train a classifier. You can use the GUI to support many different important metrics. See how well your classifier is performing by looking at the confusion matrix. 
+
+For example, choose: `trees > J48`. Then, go to `Start > Review Summary` and select `Confusion Matrix`. Click `Visualize tree` to show the split thresholds.
+
+Click through various other trees and evaluation methods if you would like.
+
+
+### Export your Classifier
+You can see a text-based verison of your tree after you've trained it. For example, you might see:
+
+```md
+J48 pruned tree
+------------------
+
+s0 <= 520
+|   s2 <= 300: 3 (50.0/10.0)
+|   s2 >  300: 7 (45.0/12.0)
+s0 >  520
+|   s1 <= 450: 1 (40.0/8.0)
+|   s1 >  450: 9 (55.0/15.0)
+```
+
+This is Weka's way of saying:
+
+- If s0 `<=` 520 and s2 `<=` 300, predict class 3
+- If s0 `<=` 520 and s2 `>` 300, predict class 7
+- If s0 `>` 520 and s1 `<=` 450, predict class 1
+- If s0 `>` 520 and s1 > 450, predict class 9
+
+This is directly translatable to a decision tree that you write entirely in C++ code:
+
+```cpp
+
+// Classifier derived manually from Weka J48 tree
+
+int classify(int s0, int s1, int s2) {
+  if (s0 <= 520) {
+    if (s2 <= 300) {
+      return 3;   // label 3
+    } else {
+      return 7;   // label 7
+    }
+  } else { // s0 > 520
+    if (s1 <= 450) {
+      return 1;   // label 1
+    } else {
+      return 9;   // label 9
+    }
+  }
+}
+```
+
+Where you call the following code in your Arduino:
+
+```cpp
+int lbl = classify(sensor0, sensor1, sensor2);
+Serial.print("Predicted label: ");
+Serial.println(lbl);
+```
+
+Once you understand what's going on from the GUI side, you can run the following program in Processing:
+
+```java
+import weka.core.*;
+import weka.classifiers.trees.J48;
+
+void setup() {
+  try {
+    // Load your training data to rebuild the tree
+    Instances data = new Instances(new java.io.FileReader(dataPath("arduino_labeled.arff")));
+    data.setClassIndex(data.numAttributes() - 1);
+
+    J48 tree = new J48();
+    tree.buildClassifier(data);
+
+    String src = tree.toSource("ArduinoTree");
+    println(src);
+
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
+  exit();
+}
+```
+
+This gives you a Java-based decision tree. You can translate this into C++ code if you would like, or simply run this on your own computer to test the classification.
+
+### Python and other connectors
+There's nothing special about Processing and Arduino. If you would prefer another progamming language that has more machine learning features, Python is also an excellent choice. You can also more directly export Python code to C.
+
+---
+## On your own
+It's helpful to get used to this flow of taking real data from your Arduino, labelling it, and putting it into a form that's usable by your robot. You can do this either onboard the robot, or using a connecting program like a Processing sketch.
+
+Try the above exercise a number of times on your own. Use different classifier creation and evaluation methods. Experiment with calculated columns, either directly from Arduino, or calculated after the fact with Excel or another CSV editing program. 
+
+Do some feature engineering: for example, you might consider looking at the *change* in sensor value as being a good indicator of whether or not you're transitioning from sensing the ground to sensing a line. Test to see whether that improves classification. Conversely, you can run evaluation methods on your features to see whether there are features that are worth removing.
+
+---
+## Philosophical Connection
+One of the big problems with classifiers is that there is a forced choice: the model has to output some kind of category for the input data. Even if you designate a category to be "unknown", for that to be present in the model, you still have to label your data to train for it. 
+
+To what extent does this mirror human cognitive classification of objects? Do we have a "forced choice" mechanism in our brain, or do we have a way of detecting ambiguity? Does this change based on the input modality, e.g., sound vs. vision? Spend some time thinking through the phenomenology of classification: when do you *know* what something is during your perceptive experience? When do you not know and how does it feel?

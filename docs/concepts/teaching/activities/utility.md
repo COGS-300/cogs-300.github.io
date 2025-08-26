@@ -2,9 +2,7 @@
 description: Creating a servo
 ---
 
-import Image from '@theme/IdealImage';
-
-# Activity Template
+# Utility
 
 ## Introduction
 
