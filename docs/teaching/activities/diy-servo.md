@@ -7,7 +7,7 @@ import Image from '@theme/IdealImage';
 # Do-It-Yourself Servo
 
 ## Introduction
-Now that you understand how to [use a servo](/docs/concepts/teaching/activities/servo), you may want to understand how they work. As you saw in class, the inside of a servo consists of a DC motor, a series of gears, a rotational encoder, and a control board. We're going to break that out into large scale so that you can understand each component on its own.
+Now that you understand how to [use a servo](/docs/teaching/activities/servo), you may want to understand how they work. As you saw in class, the inside of a servo consists of a DC motor, a series of gears, a rotational encoder, and a control board. We're going to break that out into large scale so that you can understand each component on its own.
 
 ### Materials
 - Rubber bands

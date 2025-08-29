@@ -1,4 +1,4 @@
-# Personal Electronics Project
+# Electronics Project overview
 Although this course is required to have a nominal final exam, the final assessment of your individual abilities in this course will be the personal electronics project. The project must be done individually because it is an individual assessment, but you are certainly encouraged to discuss the work with your classmates. This is your chance to demonstrate your engagement and mastery over the course subject matter. It is an open-ended creative project, but it must include:
 
 1. An operating Arduino R4 and working circuit
@@ -18,8 +18,8 @@ At some point after the first two weeks and before the last two weeks of class, 
 ### Initial Pitch, Timeline and Budget
 By one month into the course, you will be required to hand in a written pitch, timeline, and budget for your project. This can be done on paper, PDF, or using any recordable medium of your choice. You will receive written feedback on your pitch. The point of this is to scope your project appropriately to the course. The budget should be under $50.
 
-### Demo Day Feedback
-In Lab 10, you will be required to bring a working portion of your project into lab for demonstration and critique. The project does not need to be complete, but you need to have enough functional components to be able to show off your idea.
+### Demo Day: Paper Prototype
+In Lab 10, you will be required to bring a working paper prototype of your project into lab for demonstration and critique. The project does not need to be complete, but you need to have enough functional components to be able to show off your idea. Everything that is not yet functional needs to be constructed as a "working" paper prototype.
 
 ### Final Showcase
 On the last day of class, you will show off your fully-working final project. Be prepared to explain the concept of your project, demonstrate how it works, and answer questions people may have.

@@ -129,6 +129,6 @@ Getting your own small toolkit will help you to work on circuits at home.
 Where possible, we will use [TinkerCAD](https://tinkercad.com/) interactive circuit simulator for diagrams. Since not all of our parts are available on TinkerCAD, we may also use [Fritzing](https://fritzing.org/) diagrams. They'll be free to view, but if you want to create your own, you will need to pay a small amount to use Fritzing.
 
 ## Teaching Notes and Concept Library
-Where possible, all of the course concepts will be documented in the [Concept Library](/docs/concepts). Most teaching activities will include [Teaching Notes](/docs/concepts/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
+Where possible, all of the course concepts will be documented in the [Concept Library](/docs/concepts). Most teaching activities will include [Teaching Notes](/docs/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
 
-_See [Teaching Notes](/docs/concepts/teaching/labs) for more details._
+_See [Teaching Notes](/docs/teaching/labs) for more details._

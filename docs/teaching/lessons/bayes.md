@@ -1,5 +1,5 @@
 # Bayes Theorem
-As we learned last time in our lesson on [probability](/docs/concepts/teaching/activities/probability), the mathematical definitions for probability are as follows.
+As we learned last time in our lesson on [probability](/docs/teaching/activities/probability), the mathematical definitions for probability are as follows.
 
 Formula for single events:
 $$
