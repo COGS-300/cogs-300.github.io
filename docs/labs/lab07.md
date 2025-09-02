@@ -1,5 +1,6 @@
 ---
 title: Lab 07. Object Tracking
+draft: true
 ---
 
 For this lab, we are performing object detection and tracking. Using the same ultrasonic sensors as for the last two labs, we will perform basic [depth mapping](https://en.wikipedia.org/wiki/Depth_map) by creating an array of distances. The purpose of this is to be able to move our robot towards an object. You will need to do this in the final tournament, where you will have to find and touch a goal object with your robot.

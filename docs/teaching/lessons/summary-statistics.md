@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Summary Statistics for Robotics
 Summary statistics are used in many scientific fields, including robotics. This lesson is a brief reminder of the summary statistics you have likely learned elsewhere, and will learn and apply again here in COGS 300 for robotics.
 

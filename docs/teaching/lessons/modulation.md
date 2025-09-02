@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Modulation 
 There are a number of different ways that we use the physics of signals to encode information. Two common ones that you may have heard of are [amplitude modulation](https://en.wikipedia.org/wiki/Amplitude_modulation) and [frequency modulation](https://en.wikipedia.org/wiki/Frequency_modulation) which are used for [AM/FM radio](https://en.wikipedia.org/wiki/Radio). 
 

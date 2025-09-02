@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Filters in Signal Processing
 When we receive a signal, it's rare that it is purely clean. Like static on an old TV or radio, it's common to have noise included in the signal. We therefore have to extract the information that we want (signal) from the information we don't want (noise).
 

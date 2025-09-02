@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Utility Matrices and Expected Value
 When we talked about probability, we danced around a concept called [expected value](https://en.wikipedia.org/wiki/Expected_value). Now, since we're talking about utility, we need to properly define it.
 

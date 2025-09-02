@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Bayes Filter
 Now that we've learned Bayes, we can implement it as an ongoing process in the robot. In some ways, an iterated version of Bayes Theorem, called a Bayes Filter, is easier to understand and implement than a one-shot calculation of Bayes. 
 

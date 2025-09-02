@@ -1,5 +1,6 @@
 ---
 title: Lab 03. Build Your Own Bot
+draft: true
 ---
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # DC Motors and Gearboxes
 When making things move in robotics, there is a tradeoff between size, power, voltage, and speed. If you want to generate force (torque), you can use a very large voltage, but then you need large motors and large batteries if you want to sustain that torque for a long amount of time. 
 
