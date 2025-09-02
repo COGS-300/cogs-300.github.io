@@ -32,3 +32,31 @@
   --ifm-color-primary-lighter: #FF5252;
   --ifm-color-primary-lightest: #FF1744;
 }
+
+
+/* COGS 300 Schedule tables */
+table.schedule-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+.schedule-table col {
+  width: 20%; /* 5 equal-width columns */
+}
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+.schedule-table th {
+  background: #f6f8fa;
+  text-align: left;
+}
+.schedule-table td ul {
+  margin: 0.25rem 0 0 1rem; /* nice compact bullets */
+  padding: 0;
+}
+.schedule-table td li {
+  margin: 0.1rem 0;
+}

@@ -2,7 +2,7 @@
 id: index
 position: 1
 title: Labs Overview
-slug: /
+slug: /category/-labs
 ---
 
 ![](/img/arduino.svg)

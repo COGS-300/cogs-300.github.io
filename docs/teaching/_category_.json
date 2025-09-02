@@ -1,7 +1,8 @@
 {
   "label": "Teaching Notes",
-  "position": 1,
+  "position": 6,
   "link": {
     "type": "generated-index",
+    "description": "This area of the website is for lessons, activities, lab slides, and other notes that are mostly relevant to the teaching team. Feel free to look through, but don't expect that everything here will be 100% what shows up in class."
   }
 }
