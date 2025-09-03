@@ -20,7 +20,7 @@ Many people starting COGS 300 balk at the idea that they can build a robot. They
 ## Coding and Circuit Building
 This course will mainly use the [Arduino IDE](https://www.arduino.cc/en/software), which uses [C++](https://isocpp.org/). You do not need to be experienced at C++ programming to start the course, but you will want to become familiar with the [basics of reading and writing C++](https://www.w3schools.com/cpp/cpp_intro.asp) if you have come from another language (like [Racket](https://racket-lang.org/) or [Python](https://www.python.org/)). Since this is not a coding course, we will be giving only limited instruction in C++ (however, we will provide many working code examples).
 
-You will also need some method of communicating between the Arduino and your computer. You can use the [Processing.org IDE](https://processing.org/download), a Java-based IDE that looks and feels very similar to Arduino. We will also use pre-written Python examples, available on the [COGS 300 GitHub page](https://github.com/COGS-300).
+You will also need some method of communicating between the Arduino and your computer. You can use the [Processing.org IDE](https://processing.org/download), a Java-based IDE that looks and feels very similar to Arduino. We will also use pre-written examples, available on the [COGS 300 GitHub page](https://github.com/COGS-300).
 
 For those who want to engage at a more advanced level, you are welcome to use any machine learning (ML) framework that you want to guide your robot. We will teach only a limited version of ML in the class so that it is possible for beginners to feel confident. However, you are encouraged to use any ML resources and build the most intelligent robot you can.
 
@@ -55,7 +55,7 @@ We do not especially require doctor's notes, unless there starts to be an ongoin
 Some materials are provided, and some materials you will be required to purchase. Our local electronics store, [Lee's](http://www.leeselectronic.com/) is our preferred provider (i.e., we ask them to stock materials), but they are not the cheapest. Cheap is not always better: buyer beware.
 
 ### Purchase these yourself
-#### 1 x Arduino Uno R4 Wifi
+#### 1 x Arduino Uno R4 Wifi (included in Lab Kit)
 We only officially support the [Arduino Uno R4 Wifi](https://store.arduino.cc/products/uno-r4-wifi). You can use other, similar, cheaper boards at your own risk. Course staff will not help you debug problems that are unique to a knockoff board.
 
 The Arduino Uno R4 Wifi was chosen because:
@@ -71,29 +71,21 @@ The R4 actually includes an ESP32 module!
 :::
 
 
-#### 1+ solderless breadboards
+#### 1+ solderless breadboards (included in Lab Kit)
 A [solderless breadboard](https://en.wikipedia.org/wiki/Breadboard) is a helpful prototyping device that allows you to connect circuit components without [soldering](https://en.wikipedia.org/wiki/Soldering), i.e., permanently joining wires. You need to purchase at least one medium-sized breadboard for use in lectures, but you may need to purchase more. A limited number of breadboards are available in the lab supplies.
 
 
-#### A variety of jumper wires 
+#### A variety of jumper wires (included in Lab Kit)
 You will need to purchase a good amount of [jumper wires](https://en.wikipedia.org/wiki/Jump_wire) (at least 10 each of male-male, female-female, and female-male). These are used to connect the different components to your Arduinos. 
 
 
-#### 5+ Visible LEDs of any colour
+#### 5+ Visible LEDs of any colour (included in Lab Kit)
 The most basic output device for an Arduino is an [LED](https://en.wikipedia.org/wiki/Light-emitting_diode). You will be using these particularly in the beginning of the course as indicators (i.e., is this on? Does this work? Is there power). But they are also helpful for illuminating the ground for line-following challenges. A variety of colours is nice, make sure some are white.
 
 You can also get invisible IR LEDs, but they will only be useful later in the course.
 
 
-#### 2+ Photoresistor 
-A [photoresistor](https://en.wikipedia.org/wiki/Photoresistor) is a component that changes resistance according to the amount of light that enters it. They are useful for detecting ambient light changes, and are used for line-following tasks.
-
-
-#### 3+ IR sensor modules
-An [IR Sensor Module](https://circuitdigest.com/microcontroller-projects/interfacing-ir-sensor-module-with-arduino) can be used for distance sensing or sensing reflectivity. They use invisible [infrared light](https://en.wikipedia.org/wiki/Infrared). Some people prefer these for line-following.
-
-
-#### 4+ Rechargable AA batteries
+#### 4+ Rechargable AA batteries (NOT included in Lab Kit)
 The most common debugging problem with the robot is power issues. You will need at least one independent power source for your robot, and the most common and useful will be a recharable [AA battery](https://en.wikipedia.org/wiki/AA_battery) pack. You should feed an absolute maximum of 12V into your robot, so you could buy as many as 8 AA batteries. _Note: you can use bigger batteries, different packs, etc., but do not use standard 9V batteries to power your robots, they will run out quickly._
 
 
@@ -128,7 +120,5 @@ Getting your own small toolkit will help you to work on circuits at home.
 ## Circuit diagrams: TinkerCAD and Fritzing
 Where possible, we will use [TinkerCAD](https://tinkercad.com/) interactive circuit simulator for diagrams. Since not all of our parts are available on TinkerCAD, we may also use [Fritzing](https://fritzing.org/) diagrams. They'll be free to view, but if you want to create your own, you will need to pay a small amount to use Fritzing.
 
-## Teaching Notes and Concept Library
-Where possible, all of the course concepts will be documented in the [Concept Library](/docs/concepts). Most teaching activities will include [Teaching Notes](/docs/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
-
-_See [Teaching Notes](/docs/teaching/labs) for more details._
+## Teaching Notes
+Most teaching activities will include [Teaching Notes](/docs/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
