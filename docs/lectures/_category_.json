@@ -2,7 +2,6 @@
   "label": "🗒️ Lectures",
   "position": 4,
   "link": {
-    "type": "generated-index",
-    "description": "COGS 300 Labs."
+    "type": "generated-index"
   }
 }
