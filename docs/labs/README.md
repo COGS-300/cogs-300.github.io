@@ -99,7 +99,7 @@ An [ultrasonic distance sensor](https://howtomechatronics.com/tutorials/arduino/
 We use both the [HG7881 and L9110 motor drivers](https://electropeak.com/learn/interfacing-l9110s-dual-channel-h-bridge-motor-driver-module-with-arduino/?srsltid=AfmBOooTazlWPp54KU-xuUg3WEMewrzkuiFLbcByq6Cfxk2WuwbHKjwH) in our lab. We can provide 1-2 to each robot team. If you would like one to take home, you will need to purchase it yourself.
 
 :::danger[Motor driver voltage]
-Make sure you only use 12V or less for the motor drivers.
+Start with 12V for the motor drivers! Your Arduino can handle higher loads...but why take a chance?
 :::
 
 
@@ -121,4 +121,4 @@ Getting your own small toolkit will help you to work on circuits at home.
 Where possible, we will use [TinkerCAD](https://tinkercad.com/) interactive circuit simulator for diagrams. Since not all of our parts are available on TinkerCAD, we may also use [Fritzing](https://fritzing.org/) diagrams. They'll be free to view, but if you want to create your own, you will need to pay a small amount to use Fritzing.
 
 ## Teaching Notes
-Most teaching activities will include [Teaching Notes](/docs/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
+Most teaching activities will include [Teaching Notes](/teaching). These are provided for course staff to review. Students are welcome to read them, but it may be better to simply follow the lab/lecture instructions and experience the concepts first before getting too deep on the details.
