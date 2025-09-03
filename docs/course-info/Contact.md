@@ -16,3 +16,5 @@ Britton Halfert (Mon lab), Daniel Villasenor (Wed lab), Chloe Thomas (Fri lab)
 **Discussion**
 
 Piazza: https://piazza.com/ubc.ca/winterterm12025/cogs300
+
+Discord: https://discord.gg/M5Da2P2Vej
