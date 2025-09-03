@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Line Detection Decision Trees
 ## Introduction
 Sometimes we want to make definitive categorical determinations from our sensor data. For this course, we're going to use line detection as a test case. However, the techniques we'll learn here generalize to machine learning for any categorical determination. Today, we'll hand-build decision trees to navigate mazes. Later, we'll learn how to build classifiers using many observations from sensor data.

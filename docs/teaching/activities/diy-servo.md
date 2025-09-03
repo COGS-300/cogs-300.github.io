@@ -1,5 +1,6 @@
 ---
 description: Creating a servo
+draft: true
 ---
 
 import Image from '@theme/IdealImage';

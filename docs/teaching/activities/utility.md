@@ -1,6 +1,8 @@
 ---
 description: Assigning value to actions
+draft: true
 ---
+
 # Utility
 ## Introduction
 Utility is a widely-used concept in decision theory and originates particularly in the philosophy of labour and economics. The idea was to assign a numerical value to products and services that corresponds to the amount that they could be sold for. In economics, it's a hard quantity to define, since it depends on the preferences of individuals and groups of individuals. 
