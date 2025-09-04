@@ -10,7 +10,7 @@ We will guide you towards developing this idea in class, during labs, and in one
 
 ## Project Components
 ### Sketchbook
-You are required to maintain a physical sketchbook to document your thinking. Every week, you'll be required to hand in a reflection that documents your engagement with the course, and briefly justifies a self-assessment grade. The majority of your mark will come from this sketchbook self-assessment grade. We reserve the right to check your self-assessment grade against our records of your class engagement, including attendance and participation.
+You are required to maintain a physical sketchbook to document your thinking. Every two weeks, you'll be required to hand in a reflection that documents your engagement with the course, and briefly justifies a self-assessment grade. The majority of your mark will come from this sketchbook self-assessment grade. We reserve the right to check your self-assessment grade against our records of your class engagement, including attendance and participation.
 
 ### Sketchbook meeting
 At some point after the first two weeks and before the last two weeks of class, you will be required to have a one-on-one meeting with a member of the teaching staff about your final project idea. You will bring your sketchbook and discuss the development of your idea, and your general course engagement with the teaching staff member. You are required to meet with the teaching staff member to receive your sketchbook grade.
@@ -26,7 +26,6 @@ On the last day of class, you will show off your fully-working final project. Be
 
 ### Final Sketchbook and Documentation Handin
 You will be required to hand in your sketchbook and final project documentation, including a short written description of the concept and execution, a circuit diagram, and drawings and design diagrams needed to understand the functionality of the project, and a video that demonstrates the working product.
-
 
 ## Potential Project Directions
 Again, you are encouraged to take this project and run wild with it. There are many, many potential directions that you can take it. The below ideas are given as jumping off points, including a templates for your pitch, timeline and budget. Any idea you pitch should be unique and developed mostly on your own, but feel free to talk to others to brainstorm ideas.
