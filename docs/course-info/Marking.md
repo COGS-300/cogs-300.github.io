@@ -8,7 +8,6 @@ A majority of your mark is dependent on active participation, peer, and self-eva
 | Sketchbook                               | 25         |
 | Labs                                     | 35         |
 | Personal project                         | 35         |
-|------------------------------------------|------------|
 
 ## Final Exam (5%)
 Apparently, we have to give you one. It's 5% because that's the minimum that made sense. It will consist of design challenges just like the ones we have in class.
