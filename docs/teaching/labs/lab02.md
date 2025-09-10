@@ -1,6 +1,6 @@
 ---
 title: Lab 02. Paper Prototyping
-draft: true
+draft: false
 ---
 
 ## Overview
