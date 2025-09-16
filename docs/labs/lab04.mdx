@@ -1,0 +1,110 @@
+---
+title: Lab 04. Localizaton
+draft: true
+---
+
+In lecture, we brought up the concept of [telemetry](https://docs.wpilib.org/en/stable/docs/software/telemetry/telemetry.html), that is, recording live data on your robot's position. and [localization](https://en.wikipedia.org/wiki/Robot_navigation), that is, figuring out where your robot is on a map. 
+
+If you think about a map, it has plenty of *reference points*, or places that you can refer to when making some kind of measurement. The reference point can be, say, a doorway. The measurement can be something like *ten paces South from the doorway if facing the doorway is North*. You can then localize yourself relative to that doorway on a map. However, in the same way where "paces" is a form of measurement that is full of inaccuracies, robot motion is full of the same kind of errors.
+
+Without external sensors (which we'll get to next week), robots can only refer to themselves for measurement. Using encoders, we can measure how much a wheel has turned. The encoders, as you have seen, have low spatial resolution, which is one source of error. But, there are many other sources of error such as wheels slipping or the shape of the tire dragging the robot one way or the other. 
+
+In this lab, you will be attempting to get a robot to autonomously drive from a starting point to an ending point. At first, you will drive it like a remote control car, recording the telemetry from the wheels. Hopefully, you will then get the robot to recreate the path on its own (this will prove difficult). The point of the lab isn't success, but to characterize and minimize error (and to make you really want the next step, external sensors).
+
+---
+## Pre-lab
+- Encoders
+- Encoder explanation
+- Encoder circuit
+- Serial monitor communication
+- Remote sensing
+
+---
+## Lab
+The point of today's lab is to introduce you to encoders, common errors with localization, and remote telemetry. We'll go through these piece-by-piece, so, as with previous labs, you may choose to split the effort in your group.
+
+### 1. Add encoders to your robot
+Add two [encoders](https://docs.sunfounder.com/projects/ultimate-sensor-kit/en/latest/components_basic/18-component_speed.html) to your robot. They should consist of wheel with holes in it, and sensor module that wraps around it. The encoder wheel should go on the other side of your robot's drive wheel (the one that has a tire).
+
+Wire your encoder and test. You can simply use a `digitalRead(pin)`, the same as with a button read. Think through how you will use the `digitalRead` to determine the encoder speed.
+
+:::warning
+Your encoder has an analog out and a digital out. You can experiment with it, but the digital out is really all you need.
+:::
+
+### 2. Print telemetry to your Serial Monitor
+Once you have the encoder reliably working, print your telemetry to the Serial Monitor. You should design a good enough Serial Monitor print output that you can debug what's wrong with your robot. Format the output nicely and use good delimiting, e.g., always printing a value after a comma.
+
+Optionally, you might want to start streaming this data to your computer. Although you technically could copy and paste Serial Monitor output, it's going to be annoying pretty quickly. 
+
+For example, your Arduino code could look like this:
+
+```cpp
+const int D1 = 2, D2 = 3;
+
+void setup() {
+  pinMode(D1, INPUT_PULLUP);   // use pullups; pressed/LOW = 0
+  pinMode(D2, INPUT_PULLUP);
+  Serial.begin(115200);
+}
+
+void loop() {
+  int v1 = digitalRead(D1);    // 0 or 1
+  int v2 = digitalRead(D2);    // 0 or 1
+  Serial.print(v1); Serial.print(',');
+  Serial.println(v2);          // newline-terminated
+  delay(5);                    // ~200 Hz (adjust as needed)
+}
+```
+
+And your Processing.org code could look like this:
+
+```java
+import processing.serial.*;
+
+Serial port;
+PrintWriter out;
+
+void setup() {
+  println(Serial.list());                 
+  String portName = Serial.list()[0];     // <-- change to your port index
+  port = new Serial(this, portName, 115200);
+  port.bufferUntil('\n');
+
+  String fn = nf(year(),4)+nf(month(),2)+nf(day(),2)+"_"+nf(hour(),2)+nf(minute(),2)+nf(second(),2);
+  out = createWriter("arduino_log_"+fn+".csv");
+  out.println("t_ms,d1,d2");
+}
+
+void serialEvent(Serial p) {
+  String line = trim(p.readStringUntil('\n'));
+  if (line == null || line.length() == 0) return;
+
+  String[] parts = split(line, ',');
+  if (parts.length == 2) {
+    int d1 = int(parts[0]);
+    int d2 = int(parts[1]);
+    out.println(millis()+","+d1+","+d2);
+    out.flush();   // <--- force write to disk immediately
+  }
+}
+
+void keyPressed() { out.flush(); out.close(); exit(); }
+void draw() {}
+```
+
+:::warning
+We do not guarantee that the above code will "just work." These are examples; you need to design your own logging system.
+:::
+
+### 3. "Remote" control your robot from a start position to a goal
+Using your driving framework from last class, drive your robot from a start position to a goal. Start with a straight line, then add in at least one 90 degree turn.
+
+Set up a Processing sketch to control your robot from your computer. This will look very similar to the code we saw in the first class where you controlled LED brightness using Processing. Your robot should accept driving commands while connected by a wire to your computer.
+
+As a stretch goal (not required), you may consider making this truly remote. Although it will be a few weeks before we discuss how to do this in class, your Arduino R4 has the ability to connect via Bluetooth or Wifi to a computer. If you're getting tired of wires, go wireless.
+
+
+### 4. Record and replay the telemetry (homework)
+Let's put it all together. Now that you can remote control your robot from one side, and you can record telemetry from the other side, you can both record where your robot was and "replay" the motion.
+

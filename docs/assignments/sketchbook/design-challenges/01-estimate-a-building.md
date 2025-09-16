@@ -1,3 +1,7 @@
+---
+draft: false
+---
+
 # Introduction Module: Estimate a Building
 For this design challenge, you are being asked to estimate the size of a building. You are not restricted from using some conventional measuring tools, but this is an exercise in estimation, so you are not required to be correct in your measurement, just close. Do not put yourself in danger to measure anything, i.e., don't climb anything or hang out of a window, etc.
 
