@@ -1,5 +1,5 @@
 ---
-title: Lab 04. Localizaton
+title: Lab 04. Telemetry
 draft: true
 ---
 
@@ -9,30 +9,28 @@ If you think about a map, it has plenty of *reference points*, or places that yo
 
 Without external sensors (which we'll get to next week), robots can only refer to themselves for measurement. Using encoders, we can measure how much a wheel has turned. The encoders, as you have seen, have low spatial resolution, which is one source of error. But, there are many other sources of error such as wheels slipping or the shape of the tire dragging the robot one way or the other. 
 
-In this lab, you will be attempting to get a robot to autonomously drive from a starting point to an ending point. At first, you will drive it like a remote control car, recording the telemetry from the wheels. Hopefully, you will then get the robot to recreate the path on its own (this will prove difficult). The point of the lab isn't success, but to characterize and minimize error (and to make you really want the next step, external sensors).
+In this lab, you will be attempting to localize a robot using only telemetry. At first, you will drive it like a remote control car, recording the telemetry from the wheels. Hopefully, you will then be able to recreate the robot's path (this will prove difficult). The point of the lab isn't "success," but to characterize and minimize error (and to make you really want the next step, external sensors).
 
 ---
 ## Pre-lab
-- Encoders
-- Encoder explanation
-- Encoder circuit
-- Serial monitor communication
-- Remote sensing
+- Review the lecture materials on encoders
+- Remind yourself about the [Serial monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/)
+- Potentially, look up [Arduino Bluetooth Examples](https://github.com/arduino-libraries/ArduinoBLE/tree/master/examples/Peripheral)
 
 ---
 ## Lab
 The point of today's lab is to introduce you to encoders, common errors with localization, and remote telemetry. We'll go through these piece-by-piece, so, as with previous labs, you may choose to split the effort in your group.
 
 ### 1. Add encoders to your robot
-Add two [encoders](https://docs.sunfounder.com/projects/ultimate-sensor-kit/en/latest/components_basic/18-component_speed.html) to your robot. They should consist of wheel with holes in it, and sensor module that wraps around it. The encoder wheel should go on the other side of your robot's drive wheel (the one that has a tire).
+Add two [encoders](https://docs.sunfounder.com/projects/ultimate-sensor-kit/en/latest/components_basic/18-component_speed.html) to your robot. They should consist of wheel with holes in it, and sensor module that wraps around it. The encoder wheel should go on the other side of your robot's drive wheel (the one that has a tire). You should have two encoders: one for each wheel.
 
-Wire your encoder and test. You can simply use a `digitalRead(pin)`, the same as with a button read. Think through how you will use the `digitalRead` to determine the encoder speed.
+Wire your encoders and test. You can simply use a `digitalRead(pin)`, the same as with a button read. Think through how you will use the `digitalRead` to determine the encoder speed.
 
 :::warning
 Your encoder has an analog out and a digital out. You can experiment with it, but the digital out is really all you need.
 :::
 
-### 2. Print telemetry to your Serial Monitor
+### 2. Print accurate telemetry to your Serial Monitor
 Once you have the encoder reliably working, print your telemetry to the Serial Monitor. You should design a good enough Serial Monitor print output that you can debug what's wrong with your robot. Format the output nicely and use good delimiting, e.g., always printing a value after a comma.
 
 Optionally, you might want to start streaming this data to your computer. Although you technically could copy and paste Serial Monitor output, it's going to be annoying pretty quickly. 
@@ -94,17 +92,35 @@ void draw() {}
 ```
 
 :::warning
-We do not guarantee that the above code will "just work." These are examples; you need to design your own logging system.
+We do not guarantee that the above code will "just work." These are examples—you need to design your own logging system.
 :::
 
-### 3. "Remote" control your robot from a start position to a goal
-Using your driving framework from last class, drive your robot from a start position to a goal. Start with a straight line, then add in at least one 90 degree turn.
+It is worth spending some time really designing the telemetry and measuring its real-world accuracy. Set up some experiments. For example, you might be tempted to "just" record every tick and the time between ticks, and assume that this will translate directly to wheel distance travelled. And, although the logic makes sense, robots rarely play nicely with logic due to the many errors in the system.
+
+
+### 3. "Remote" control your robot from a start position to a goal (homework)
+Using your driving framework from last class, drive your robot from a start position to a goal. Start with a straight line, then add in at least one 90 degree turn. You may experiment with more turns.
 
 Set up a Processing sketch to control your robot from your computer. This will look very similar to the code we saw in the first class where you controlled LED brightness using Processing. Your robot should accept driving commands while connected by a wire to your computer.
 
-As a stretch goal (not required), you may consider making this truly remote. Although it will be a few weeks before we discuss how to do this in class, your Arduino R4 has the ability to connect via Bluetooth or Wifi to a computer. If you're getting tired of wires, go wireless.
+> As a stretch goal (not required), you may consider making this truly remote. Although it will be a few weeks before we discuss how to do this in class, your Arduino R4 has the ability to connect via Bluetooth or Wifi to a computer. If you're getting tired of wires, go wireless. [See the Arduino Bluetooth examples](https://github.com/arduino-libraries/ArduinoBLE/tree/master/examples/Peripheral) here.
 
+Record your driving commands alongside your telemetry. If you "replay" your commands to the robot with the same timing, does the robot actually follow the same path? Why or why not? Come up with a way to characterize the error.
 
-### 4. Record and replay the telemetry (homework)
-Let's put it all together. Now that you can remote control your robot from one side, and you can record telemetry from the other side, you can both record where your robot was and "replay" the motion.
+Submit a video on Piazza of your work **before next lab**, even if you're not happy with the results. People will be interested to know!
+
+Ideas for going above and beyond:
+- A detailed characterization of error with an experiment demonstration
+- A very good and robustly tested telemetry recording process
+- A very good remote driving framework that makes it fun and easy to drive
+- Bluetooth telemetry control (this will be difficult and we haven't taught you it)
+
+As usual, you will be marked on the following scale:
+
+- 5: Exceptional demonstration of lab concepts (exceeds requirements)
+- 4: Good demonstration of lab concepts (meets requirements)
+- 3: Reasonable demonstration of lab concepts (one or two requirements unclear)
+- 2: Missing one or two lab concepts
+- 1: Missing most lab concepts
+- 0: No attendance/no completion.
 
