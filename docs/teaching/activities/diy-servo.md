@@ -1,6 +1,6 @@
 ---
 description: Creating a servo
-draft: true
+draft: false
 ---
 
 import Image from '@theme/IdealImage';
@@ -14,7 +14,8 @@ Now that you understand how to [use a servo](/teaching/activities/servo), you ma
 - Rubber bands
 - Cogs, gears, and wheels
 - 3mm Barbeque skewer or similar sized stick
-- Potentially the equivalent of abovein Lego
+- Potentially the equivalent of above in Lego
+- Potentiometer
 
 ---
 ## Activity
@@ -26,6 +27,9 @@ To increase both the precision and the amount of force that the model servo can 
 
 ### Simulate a control algorithm
 Come up with an algorithm that will determine the BBQ skewer movement. Choose a target angle to turn the knob to. Then turn the BBQ skewer either forwards or backwards. Try to be as precise as possible: if the potentiometer is close to the target angle, should you spin the BBQ skewer slower or faster? Put this behaviour into your algorithm.
+
+### Make the servo continuous
+How could you make this servo continuous? There are ways to do it, but you'd have to break the potentiometer (don't break the lab ones) and add some kind of counter using a button.
 
 ---
 ## On your own
