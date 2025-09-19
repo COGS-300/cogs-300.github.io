@@ -8,10 +8,11 @@ Paul Bucci
 - Office hours: Tuesday after class or by appointment
 
 **Teaching Assistants**
-Britton Halfert (Mon lab), Daniel Villasenor (Wed lab), Chloe Thomas (Fri lab)
+Britton Helfert (Mon lab), Daniel Villasenor (Wed lab), Chloe Thomas (Fri lab)
 - Email: cogs.300@ubc.ca
 - Office: COGS Lab
-- Office Hours: TBD
+- Office Hours:
+    * Britton: Monday 12-3PM
 
 **Discussion**
 
