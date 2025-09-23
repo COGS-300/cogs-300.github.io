@@ -1,6 +1,6 @@
 ---
 title: Lab 04. Telemetry
-draft: true
+draft: false
 ---
 
 ## Overview
