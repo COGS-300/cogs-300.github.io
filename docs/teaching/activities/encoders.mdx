@@ -1,0 +1,142 @@
+---
+description: An introduction to optical encoders.
+draft: false
+---
+
+import Image from '@theme/IdealImage';
+
+# Encoders
+
+## Introduction
+To measure the amount that a motor has turned, we need to use an encoder. You've seen potentiometers used as encoders with our discussion of servos, however, they have a limited physical extent due to the nature of their construction. A common design for a continuous encoder is to use an optical sensor. A light is shone through holes in a disc that is attached to the motor's output shaft, and a sensor on the other side detects the light.
+
+### Materials
+- Encoder disc/wheel
+- Optical Encoder
+- Arduino
+- Jumper wires
+
+---
+## Activity
+
+### Wire your Encoder
+<Image img={require('/img/encoder-wiring.png')} />
+
+Wire your encoder as per the image above. Use this very simple Serial Monitor program to test whether it's working as expected:
+
+```cpp
+const int D9 = 9;
+
+void setup() {
+  pinMode(D1, INPUT_PULLUP);   // use pullups; pressed/LOW = 0
+  Serial.begin(115200);
+}
+
+void loop() {
+  int i = digitalRead(D9);    // 0 or 1
+  Serial.print("Encoder: "); Serial.print(i); Serial.println('');
+  delay(1);
+}
+```
+
+### Translate the signal to distance
+Using the formula for circumference, $c = \pi d$, translate a "tick" of the signal into a distance and print it to the Serial Monitor. Keep track of the distance that you've travelled so far.
+
+Remember that the signal will "tick" multiple times for each hole or bar. You will have to come up with some logic for differentiating the rising and falling edge of a tick. *Hint: track the value from a previous iteration of the loop.*
+
+
+### Design a way to account for backspin
+You might notice that it's possible that you could erroneously believe that the wheel was always moving forwards, when it instead clearly is moving backwards. Design a way to differentiate forward movement from backward movement. Is there a way to guarantee movement directionality and accurately track your robot's position?
+
+---
+## On your own
+Tracking the movement of the robot at the wheel level is a necessary first step to getting the robot's global position. But there are a lot of problems with only tracking the wheels. Record the wheel tracking to your computer using a Processing.org sketch and use a drawn "box" on the Processing.org screen to track a simulated version of your robot's position. Does the simulation actually line up with the real life robot?
+
+Arduino sketch:
+```cpp
+// Arduino sketch
+// Reads encoder pin and prints its state to Serial
+
+const int encoderPin = 9;   // pick your input pin
+int state;
+
+void setup() {
+  pinMode(encoderPin, INPUT);   // use INPUT_PULLUP if needed
+  Serial.begin(115200);
+}
+
+void loop() {
+  state = digitalRead(encoderPin);
+  Serial.println(state);   // send "0" or "1"
+}
+```
+
+Processing sketch:
+```java
+// Processing sketch that logs box positions to a file
+
+import processing.serial.*;
+PrintWriter output;
+
+Serial port;
+int prev = 0;
+boolean havePrev = false;
+
+float boxX = 50;
+float step = 12;         // pixels to move per tick
+float boxW = 50, boxH = 50;
+
+void setup() {
+  size(800, 200);
+
+  // Open serial
+  println(Serial.list());
+  port = new Serial(this, Serial.list()[2], 115200);
+  port.bufferUntil('\n');
+
+  // Open output file (stored in sketch folder)
+  output = createWriter("positions.txt");
+}
+
+void draw() {
+  background(245);
+  fill(30);
+  rect(boxX, height/2 - boxH/2, boxW, boxH);
+
+  if (boxX > width - boxW) boxX = 0;
+}
+
+void serialEvent(Serial p) {
+  String s = p.readStringUntil('\n');
+  if (s == null) return;
+  s = trim(s);
+  if (s.length() == 0) return;
+
+  int val = (s.charAt(0) == '1') ? 1 : 0;
+
+  if (!havePrev) {
+    prev = val;
+    havePrev = true;
+    return;
+  }
+
+  if (prev == 0 && val == 1) {
+    boxX += step;
+    // Save position to file
+    output.println(boxX);
+    output.flush();   // write immediately
+  }
+  prev = val;
+}
+
+void keyPressed() {
+  if (key == 'q') {
+    output.close();   // save & close file before exit
+    exit();
+  }
+}
+```
+
+---
+## Philosophical Connection
+The way in which we come to know a robot's position through low-level wheel position tracking "should" translate into knowing the robot's global position. But as you'll soon find out, there are lots of problems with that. The model just doesn't always line up with reality. This is a microcosm of more general problems with mathematical models of real phenomena. My claim is that: *no model can exceed the limitations of its inputs.* To what extent do you agree with this claim?
