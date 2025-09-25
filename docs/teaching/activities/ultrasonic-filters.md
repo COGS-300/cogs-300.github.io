@@ -309,7 +309,7 @@ class Slider {
   int getInt() { return max(minV, min(maxV, round(val))); }
 }
 ```
-<!-- 
+
 ### Press Enter to see the Filters
 If you press `Enter` or `Return` (or set `boolean useMedian = true;` and/or `boolean useAverage = true;`), you should see boxes show up that let you control average and median filters. Play with the controls to see what the filters do to the incoming signal.
 
@@ -386,4 +386,4 @@ The use of filters once again poses ontological and epistemic questions. What is
 
 Well, no, not especially. The measurement tool might be biased. Or have errors. So, we apply filters to bring it towards the "truth" of the measurement we need. But, now, doesn't that introduce a subjective bias?
 
-How do you resolve these questions? -->
+How do you resolve these questions?
