@@ -1,4 +1,8 @@
-## Design an Ultrasonic Sonar Tower
+---
+draft: false
+---
+
+# Design an Ultrasonic Sonar Tower
 Now that you have access to high-precision motorized systems like a servo, and you have access to long-distance range sensors like an ultrasonic, you can build a [sonar](https://en.wikipedia.org/wiki/Sonar) tower (which is like a [radar tower](https://en.wikipedia.org/wiki/Radar), but with sound).
 
 Build a fully-working roughly 180 degree sonar tower using servos (or geared DC motors and some motor sensing system) cardboard, one or more ultrasonic sensors, and a cardboard/lego base. The sonar tower needs to actually work, even if the materials are paper or lego.
