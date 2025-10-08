@@ -79,8 +79,8 @@
 </colgroup>
 <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr></thead>
 <tbody>
-<tr><td>Lab 06: Detecting walls</td><td>D03: Bayes Filter for Objects</td><td>Lab 07: Object Tracking</td><td>D04: Decision Trees</td><td>Lab 07: Object Tracking</td></tr>
-<tr><td></td><td><ul><li>Image arrays</li><li>Beam sensor model</li></ul></td><td></td><td><ul><li>Photocells vs. IR sensors</li><li>Line detection</li></ul></td><td></td></tr>
+<tr><td>Lab 06: Detecting walls</td><td>D03: Emergent Detection</td><td>Lab 07: Bayes Filter and Project Planning</td><td>D04: Decision Trees</td><td>Lab 07: Object Tracking</td></tr>
+<tr><td></td><td><ul><li>Conway's Game of Life</li><li>Langton's Ant</li></ul></td><td></td><td><ul><li>Photocells vs. IR sensors</li><li>Line detection</li></ul></td><td></td></tr>
 </tbody></table>
 
 <h3>Week starting October 20</h3>
