@@ -59,7 +59,8 @@ Think about the following points:
 
 ---
 ## On your own
-### TODO
+This activity helps us to understand how to design and study the behaviour of swarms. However, the difficulty is in how to translate intelligence from the behaviour of particle-like agents to their emergent super-structures. On your own, think through ways that we could characterize intelligent behaviour at a super-structure level: what would it look like for a swarm-level emergent super-structure to have a goal and make a good or bad decision?
 
 ---
 ## Philosophical Connection
+The central idea we explore with swarms is how complex organization can come from simple "rules." However, even our own simulations do not demonstrate the direct causal chain between something demonstrably unintelligent like generalizations of Conway's Game of Life, to something that "looks" intelligent and life-life like physarum simulations. This helps us understand the difference between aliveness and intelligence. If we allow that some definitions of life can include Game of Life agents because they technically reproduce (a dubious claim, I know), what is the dividing line between a simulated agent that is alive vs. alive and intelligent? Do there have to be real life and death "stakes" to be alive and intelligent?
