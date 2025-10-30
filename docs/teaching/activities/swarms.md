@@ -33,7 +33,14 @@ Turn on colour message-passing by pressing the `spacebar`. Continue to play arou
 
 ### Design a message-passing algorithm to solve blocks
 You can hopefully see that there's no guaranteed message-passing. Design an algorithm (and settings) that would facilitate message-passing. What needs to change?
+
+<!-- Present the rest of this after lecture  -->
+
+
 <!-- 
+### Characterize the need for memory
+Using the 0-9 keys, you can simulate a larger and smaller memory for the agents. In this example, if they have seen a colour recently, they won't change to it. There are many memory dynamics that you could imagine, but this one works on a simple first-in-first out basis.
+
 ---
 ## On your own
 ### TODO
