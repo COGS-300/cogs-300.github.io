@@ -1,9 +1,11 @@
 ---
-description: Physarum
+description: Slime mold simulations and extended cognition
 draft: false
 ---
 
 import Image from '@theme/IdealImage';
+
+# Physarum
 
 ## Introduction
 
