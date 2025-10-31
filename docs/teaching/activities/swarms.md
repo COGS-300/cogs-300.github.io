@@ -34,16 +34,14 @@ Turn on colour message-passing by pressing the `spacebar`. Continue to play arou
 ### Design a message-passing algorithm to solve blocks
 You can hopefully see that there's no guaranteed message-passing. Design an algorithm (and settings) that would facilitate message-passing. What needs to change?
 
-<!-- Present the rest of this after lecture  -->
-
-
-<!-- 
 ### Characterize the need for memory
 Using the 0-9 keys, you can simulate a larger and smaller memory for the agents. In this example, if they have seen a colour recently, they won't change to it. There are many memory dynamics that you could imagine, but this one works on a simple first-in-first out basis.
 
 ---
 ## On your own
-### TODO
+Try extending the simulation in ways beyond the keyboard parameters. What happens if there are multiple leaders? What happens if the leaders can communicate with each other?
 
 ---
-## Philosophical Connection -->
+## Philosophical Connection
+
+This simulation is a physics-based model, but it also illustrates a fundamental difficulty with message-passing consistency. For many collectives that perform something like intelligent action, like the cells in your body, message-passing has to happen in a way that is more robust than the kind of message-passing we saw with the simulated swarms. Is this form of "message contagion" a reasonable model of communication in living cells? Why or why not?

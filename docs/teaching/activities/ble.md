@@ -1,6 +1,23 @@
-# BLE Swarm
+---
+description: Bluetooth Low Energy beacon messages
+draft: false
+---
 
-Code for BLE activity.
+import Image from '@theme/IdealImage';
+
+# BLE Swarms
+
+## Introduction
+Bluetooth Low Energy (BLE) beacons are a broadcast technology that allow for the frequent transmission of small amounts of data. We can hide messages on a BLE beacon signal using a hex encoding. The advantage of using BLE is that any device can scan for the messages without connecting, since the message is hidden in the information about the beacon itself.
+
+### Materials
+- Arduino
+- BLE scanner (like NRF Connect)
+
+---
+## Activity
+### Upload BLE code to Arduino
+Upload the following code to your Arduino. You may need to install the `ArduinoBLE` library to run it. Once the code is uploaded, use the Serial Monitor to hide short hexidecimal messages inside the beacon identification signal. Change the name of your Arduino under `BLE.setLocalName("R4 Beacon");` if you want a unique name.
 
 ```cpp
 #include <ArduinoBLE.h>
@@ -118,3 +135,14 @@ void loop() {
 }
 
 ```
+
+### Scan and read the data
+Using a scanner like NRF Connect, look for a device called "R4 Beacon" (or whatever you changed it to). There should be an option to view the raw data. Look for a string of hex corresponding to whatever you typed into the Serial Monitor. Try something obvious and repetitive if it's hard to tell whether your message is being sent.
+
+---
+## On your own
+Play around with the Arduino Bluetooth library examples. The Arduino can act like any other Bluetooth peripheral, just like a Bluetooth keyboard or mouse. Try sending messages to your phone, or controlling your computer.
+
+---
+## Philosophical Connection
+The Internet of Things (IoT) revolution is underway: BLE is enabling a wide range of emerging technology, such as indoor positioning, tracking packages in warehouses, and much more. Often, there is an assumption that more smart technology is always better. However, a big difference between a computer system and a human system is the amount of explicit rule-based design. A computer system always needs rules, but a human system very well may not. Using a systems perspective to analyze the question, what kinds of human systems cannot be translated into rule-based computer IoT systems?
