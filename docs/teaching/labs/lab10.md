@@ -19,7 +19,7 @@ For this lab, students will collectively build the tournament challenges. This w
 
 ## Slides
 
-Generate slides using [Marp](https://github.com/marp-team/marp-cli). If you're using the CLI, save the following to `lab09.md` and run `marp lab09.md`.
+Generate slides using [Marp](https://github.com/marp-team/marp-cli). If you're using the CLI, save the following to `lab10.md` and run `marp lab10.md`.
 
 
 ```mdx
