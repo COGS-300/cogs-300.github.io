@@ -1,6 +1,6 @@
 ---
 title: Lab 06. Detecting Walls
-draft: false
+draft: true
 ---
 
 ## Overview

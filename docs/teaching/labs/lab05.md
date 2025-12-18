@@ -1,6 +1,6 @@
 ---
 title: Lab 05. Wall-following
-draft: false
+draft: true
 ---
 
 ## Overview

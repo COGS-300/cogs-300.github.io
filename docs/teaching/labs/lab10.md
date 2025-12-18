@@ -1,6 +1,6 @@
 ---
 title: Lab 10. BYO Tournament and Demo Day
-draft: false
+draft: true
 ---
 
 ## Overview

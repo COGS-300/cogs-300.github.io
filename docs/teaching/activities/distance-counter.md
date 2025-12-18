@@ -1,6 +1,6 @@
 ---
 description: Building up to an optical encoder
-draft: false
+draft: true
 ---
 
 # DIY Distance Counter: A Bad Distance Sensor

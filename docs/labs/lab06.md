@@ -1,6 +1,6 @@
 ---
 title: Lab 06. Detecting walls
-draft: false
+draft: true
 ---
 
 As we saw in class, you can design an excellent robot that solves mazes using only a very simple emergent algorithm. For some of you, this will be enough to get you through the end of the tournament. Never abandon the simple solution! Particularly as a fallback.

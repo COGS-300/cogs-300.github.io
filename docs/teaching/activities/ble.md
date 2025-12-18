@@ -1,6 +1,6 @@
 ---
 description: Bluetooth Low Energy beacon messages
-draft: false
+draft: true
 ---
 
 import Image from '@theme/IdealImage';

@@ -1,6 +1,6 @@
 ---
 description: Message-passing swarms
-draft: false
+draft: true
 ---
 
 import Image from '@theme/IdealImage';

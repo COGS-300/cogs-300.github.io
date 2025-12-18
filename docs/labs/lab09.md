@@ -1,6 +1,6 @@
 ---
 title: Lab 09. Model Tournament
-draft: false
+draft: true
 ---
 
 The tournament will consist of three major challenges: (1) Line-following; (2) Wall-following; and (3) Object tracking. In today's lab, you will perform each of these, but on a small scale. The important part to practice will be the transitions between challenges. 

@@ -1,6 +1,6 @@
 ---
 title: Lab 09. Model Tournament
-draft: false
+draft: true
 ---
 
 ## Overview

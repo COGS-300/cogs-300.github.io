@@ -1,5 +1,5 @@
 ---
 title: Lab 11. Practice Tournament
-draft: false
+draft: true
 ---
 This lab is entirely for practicing the final tournament. 

@@ -1,6 +1,6 @@
 ---
 description: Slime mold simulations and extended cognition
-draft: false
+draft: true
 ---
 
 import Image from '@theme/IdealImage';

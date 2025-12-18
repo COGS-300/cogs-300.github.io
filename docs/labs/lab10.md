@@ -1,6 +1,6 @@
 ---
 title: Lab 10. Build Your Own Tournament and Demo Day
-draft: false
+draft: true
 ---
 You now get a chance to build your own tournament. Each lab will be responsible for building one section of the tournament. The Wednesday lab will build the line-following challenge, the Friday lab will build the wall-following challenge, and the Monday lab will build the object-tracking challenge.
 
