@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Design Your Own Cellular Automata
 
 For this design challenge, you're being asked to design your own cellular automata system system based off of Conway's Game of Life. It must be different than existing sytems that we studied in class such as Langton's Ant, Conway's Game of Life, SmoothLife, or similar derrivatives, but can be heavily inspired by them.

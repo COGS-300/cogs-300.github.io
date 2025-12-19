@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Model your life with Bayes
 
 For this design challenge, you're being asked to model a part of your life using Bayes' theorem. You can use a single instance of Bayes' Theorem, or create a Bayes network. For either approach, the bulk of the work will be in establishing the connection to the part of your life that you're modelling, so one is not especially easier than the other.
