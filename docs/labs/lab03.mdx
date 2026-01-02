@@ -11,12 +11,11 @@ We suggest using a modular approach to building the robot. Rather than trying to
 
 For today, you will just build the robot's chassis and drive system. You may decide to build multiple versions of your robot, so if your team would like to build two in parallel, feel free to do that. You will likely have to rebuild your robot from scratch more than once, so do not plan to make this the final design. Instead, spend your creative time testing this initial driving module thoroughly.
 
-
 ---
 ## Pre-lab
 - Review Pulse Width Modulation from lecture.
 - Motor Driver
-- Building manual
+- Review the idea of a [Bill of Materials](https://en.wikipedia.org/wiki/Bill_of_materials)
 
 ---
 ## Lab
@@ -28,13 +27,31 @@ Now is the time to ensure that your group is set up for a term of working well t
 - Communication and workload policies
 - Shared documentation and collaboration tools
 
-You will also need to create and maintain a GitHub repo for your code. You can use other platforms as needed, but the final robot code needs to be in a well-maintained GitHib repo that includes usage instructions.
+You will also need to create and maintain a GitHub repo for your code and/or a shared drive for your robot documentation. You can use other platforms as needed, but the robot code needs to be in a well-maintained GitHib repo that includes usage instructions.
 
 ### 1. Chassis
 The [chassis](https://en.wikipedia.org/wiki/Chassis) of the robot is the load-baring framework. In our case, we start with a plastic mounting plate to which we attach all of our components.
 
 ![chassis kit](/img/chassis-kit.jpg)
 ![chassis kit assembled](/img/chassis-assembled.jpg)
+
+Here is the **bill of materials** (BOM) for the chassis. There are a few things to notice. First, it does not include every single design detail, nor does it include accurate colours. It's not the greatest drawing, in fact, it's made just by tracing the image above by hand. It took less than 10 minutes to make. It shows some assembly but it's not Ikea catalogue level of detail. This is a "good enough" BOM drawing for something that is in-progress. It includes a part list and counts below.
+
+![bill of materials](/img/bom.jpg)
+
+| Part          | count |
+|---------------|-------|
+| Wheel         | 2     |
+| Motor         | 2     |
+| Motor bracket | 4     |
+| Encoder wheel | 2     |
+| Swivel wheel  | 1     |
+| Small bolts   | 10    |
+| Large bolts   | 4     |
+| Small nuts    | 6     |
+| Large nuts    | 4     |
+
+Draw your own BOM for the robot and maintain along with your group's documentation. Your TAs will ask for it when you come with debugging questions.
 
 You can watch the following video for a similar build. The black encoder wheels are good to think about applying to the robot, but are not going to be used this week.
 
@@ -121,7 +138,9 @@ You may need to calibrate the robot depending on many things like power supply v
 Encapsulate your driving commands into well-tested, callable functions.
 
 ### 6. Robust Testing (homework)
-Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. Submit your group work agreement on Canvas and post to GitHub.
+Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. Update your BOM to include all the parts that you added. Use it as the basis of your debugging materials. Upload it along with your video.
+
+Submit your group work agreement on Canvas and post to GitHub.
 
 We ask that you do "something" above and beyond for this lab. The minimum requirement for next lab is that you create a robust testing framework to demonstrate your robot's abilities.
 

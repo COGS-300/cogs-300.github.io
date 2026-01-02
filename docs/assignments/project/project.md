@@ -1,8 +1,13 @@
+---
+sidebar_position: 1
+slug: /assignments/project
+---
+
 # Electronics Project overview
-Although this course is required to have a nominal final exam, the final assessment of your individual abilities in this course will be the personal electronics project. The project must be done individually because it is an individual assessment, but you are certainly encouraged to discuss the work with your classmates. This is your chance to demonstrate your engagement and mastery over the course subject matter. It is an open-ended creative project, but it must include:
+The final assessment of your individual abilities in this course will be the personal electronics project. The project must be done individually because it is an individual assessment, but you are certainly encouraged to discuss the work with your classmates. This is your chance to demonstrate your engagement and mastery over the course subject matter. It is an open-ended creative project, but it must include at minimum:
 
 1. An operating Arduino R4 and working circuit
-2. A mechatronic system that both senses and actuates (or displays)
+2. A mechatronic system that both senses and actuates (or displays via the microcontroller)
 3. An intelligent decision-making system of some sort
 4. A conceptually-rigorous illustration and/or demonstration of a core course concept
 
@@ -10,7 +15,7 @@ We will guide you towards developing this idea in class, during labs, and in one
 
 ## Project Components
 ### Sketchbook
-You are required to maintain a physical sketchbook to document your thinking. Every two weeks, you'll be required to hand in a reflection that documents your engagement with the course, and briefly justifies a self-assessment grade. The majority of your mark will come from this sketchbook self-assessment grade. We reserve the right to check your self-assessment grade against our records of your class engagement, including attendance and participation.
+You are required to document your project progress in your sketchbook. You should clearly label your early sketches, ideas, designs, inspirations, etc., as well as your circuit diagrams, final sketches, and final project documentation. You will be marked on the quality and clarity of presentation for anything you indicate is part of your final documentation, but the rest of the sketchbook will not be assessed for quality, since it's just for sketches.
 
 ### Sketchbook meeting
 At some point after the first two weeks and before the last two weeks of class, you will be required to have a one-on-one meeting with a member of the teaching staff about your final project idea. You will bring your sketchbook and discuss the development of your idea, and your general course engagement with the teaching staff member. You are required to meet with the teaching staff member to receive your sketchbook grade.
