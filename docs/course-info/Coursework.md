@@ -3,7 +3,7 @@ COGS 300 is a 4-credit course with 3 hours of lecture and 2 hours of lab. UBC gu
 
 COGS 300 is an unusual course for some students because it is taught as a design course. The assignments are purposefully written to **not include** extensive rubrics, exact directions, or with plentiful examples. This is because, in a design course, you are expected to actually practice designing, which is a creative practice. Being a designer means making up solutions that are not yet known. We will teach you how, but you must get good at making things up yourself.
 
-By and large, we are taking inspiration from the "ungrading" movement. That is to say, the point of grading in this course is to keep everyone on track with learning outcomes and to evaluate mastery of skills. So, although we do "grade" to ensure that people are getting adequate feedback, we would prefer to spend our time teachingx. Similarly, we prefer you spend your study time developing practical skills drawing, building, discussing, and testing. We believe that anyone who fully participates will reasonably master the subject, so our grading is oriented towards encouraging practice.
+By and large, we are taking inspiration from the "ungrading" movement. That is to say, the point of grading in this course is to keep everyone on track with learning outcomes and to evaluate mastery of skills. So, although we do "grade" to ensure that people are getting adequate feedback, we would prefer to spend our time teaching. Similarly, we prefer you spend your study time developing practical skills drawing, building, discussing, and testing. We believe that anyone who fully participates will reasonably master the subject, so our grading is oriented towards encouraging practice.
 
 However, this puts the onus on you, the student, to become responsible for your own learning in this course, and not everybody has the practice of discipline needed for that. We do indeed show you everything you need to succeed in this course, but you have to choose to practice it on your own. Set aside time to do the exercises given in class. If you do not know how to do an exercise, teaching staff is happy to guide you, but nobody can make you practice but you.
 
@@ -16,7 +16,7 @@ However, this puts the onus on you, the student, to become responsible for your 
 | Sketchbook                               | 30         |
 
 ## Final Exam (10%)
-A written final exam. It will look very similar to the in-class design challenges. See the [final exam page](course-info/final) for more info.
+A written final exam. It will look very similar to the in-class design challenges. See the [final exam page](/course-info/final) for more info.
 
 ## Sketchbook (30%)
 | Item                                     | Percentage |
@@ -28,7 +28,7 @@ You will be required to maintain a **physical**, hand-written sketchbook. Your s
 
 See the [sketchbook](/assignments/sketchbook) page for details.
 
-## Personal project (25%)
+## Personal project (35%)
 | Item                                     | Percentage |
 |------------------------------------------|------------|
 | Pitch and sketches                       | 1          |
@@ -44,13 +44,11 @@ The personal project will be a creative electronics project that you take on you
 See the personal project page for details.
 
 ## Labs (25%)
-## Marking Breakdown
 | Item                                     | Percentage |
 |------------------------------------------|------------|
-| Labs 01-10                               | 10         |
-| Labs                                     | 25         |
-| Personal project                         | 35         |
-| Sketchbook                               | 30         |
+| Labs 01-10 and Tournament                | 20         |
+| Peer evaluation                          | 5          |
+
 
 The core of the course is the labs. You will be mostly working with a group to complete an autonomous robot that navigates an obstacle course and participates in a final tournament. Lab attendance is absolutely mandatory, but participation outside of scheduled lab time will also be necessary.
 

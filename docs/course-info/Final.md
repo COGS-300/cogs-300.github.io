@@ -23,3 +23,41 @@ You can assume that whatever distance detection system the car uses works exactl
 - How does your system compare to the way that humans follow each other? What's similar and different?
 
 ## Example exam rubric for above
+Mark out of 25:
+- Overall scenario - are the cases articulated clearly and fully accounted for? (out of 5)
+    - 5: All important cases articulated and accounted for
+    - 4: Missing one important case or mixing two cases together inappropriately, but high quality work
+    - 3: Missing more than one important case or medium quality work
+    - 2: Missing many important cases, or low quality work
+    - 1: Missing many important cases, or very low quality work
+    - 0: No discernable attempt
+- Sources of error - are the sensor and mechanical errors articulated clearly and fully accounted for? (out of 5)
+    - 5: All important errors articulated and accounted for
+    - 4: Missing one important sources of errors or mixing two error sources together inappropriately, but high quality work
+    - 3: Missing more than one important source of error or medium quality work
+    - 2: Missing many important error types, or low quality work
+    - 1: Missing many important error types, or very low quality work
+    - 0: No discernable attempt
+- Physical mitigations of error - are the components thoughtfully placed? (out of 5)
+    - 5: All component designs are drawn clearly, annotated, creatively and realistically account for error, and work with the algorithm
+    - 4: High quality work, but potentially missing an important aspect of the physical design problem
+    - 3: Medium quality work, but missing more than one important aspect of the physical design problem
+    - 2: Low quality work, fully missing annotations or doesn't work with the algorithm
+    - 1: Very low quality work
+    - 0: No discernable attempt
+- Algorithmic mitigations of error - are the components thoughtfully placed? (out of 5)
+    - 5: All algorithmic designs are drawn clearly, annotated, creatively and realistically account for error, and work with the physical components
+    - 4: High quality work, but potentially missing an important aspect of the algorithmic design problem
+    - 3: Medium quality work, but missing more than one important aspect of the algorithmic design problem
+    - 2: Low quality work, fully missing annotations or doesn't work with the physical components
+    - 1: Very low quality work
+    - 0: No discernable attempt
+- Comparisons to humans - does this connect back to course concepts? (out of 5)
+    - 5: Excellent work: appropriate and creative references made back to course materials, outside sources of COGS ideas, thoughful and creative, accurate models and metaphors.
+    - 4: High quality work, but missing one of the above.
+    - 3: Medium quality work, missing more than one of the above.
+    - 2: Low quality work, missing many of the above
+    - 1: Very low quality work but a discernable attempt
+    - 0: No discernable attempt
+
+The most common mistake that students make on exams is that they do not make a clear, annotated drawing. That is the core method of communication in this class, but it is unusual compared to your other classes, so students must practice in their sketchbooks. The best way to practice for exams is to attend lectures and fully participate in the daily design challenges.
