@@ -20,11 +20,14 @@ You are required to document your project progress in your sketchbook. You shoul
 ### Sketchbook meeting
 At some point after the first two weeks and before the last two weeks of class, you will be required to have a one-on-one meeting with a member of the teaching staff about your final project idea. You will bring your sketchbook and discuss the development of your idea, and your general course engagement with the teaching staff member. You are required to meet with the teaching staff member to receive your sketchbook grade.
 
-### Initial Pitch, Timeline and Budget
-By one month into the course, you will be required to hand in a written pitch, timeline, and budget for your project. This can be done on paper, PDF, or using any recordable medium of your choice. You will receive written feedback on your pitch. The point of this is to scope your project appropriately to the course. The budget should be under $50.
+### Initial Pitch and Sketches
+By about one month into the course, you will be required to hand in a pitch for your project that includes a written description and one or more sketches. You will receive written feedback on your pitch. The point of this is to scope your project appropriately to the course. Remember, your eventual budget should be under $50.
 
-### Demo Day: Paper Prototype
-In Lab 10, you will be required to bring a working paper prototype of your project into lab for demonstration and critique. The project does not need to be complete, but you need to have enough functional components to be able to show off your idea. Everything that is not yet functional needs to be constructed as a "working" paper prototype.
+### Demo Day: Paper Prototype and BOM
+In Lab 06, you will be required to bring a paper prototype of your project into lab for demonstration and critique. No electronics needed for this prototype, but it should be well thought out. You will include a bill of materials and ensure that the budget is indeed below $50. This is the parts ordering deadline.
+
+### Demo Day: Works-like prototype
+In Lab 10, you will be required to bring a functional prototype of your project into lab for demonstration and critique. The project should mostly "work" in terms of the electronics.
 
 ### Final Showcase
 On the last day of class, you will show off your fully-working final project. Be prepared to explain the concept of your project, demonstrate how it works, and answer questions people may have.
