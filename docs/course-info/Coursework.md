@@ -41,7 +41,7 @@ See the [sketchbook](/assignments/sketchbook) page for details.
 
 The personal project will be a creative electronics project that you take on yourself. It is the individual assessment of the course that (largely) replaces the final exam in a standard course. You will use it to demonstrate your mastery over basic mechatronics as taught in this course and make connections to course concepts.
 
-See the personal project page for details.
+See the [personal project](/assignments/project) page for details.
 
 ## Labs (25%)
 | Item                                     | Percentage |
