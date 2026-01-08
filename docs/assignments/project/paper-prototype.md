@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Paper Prototype and BOM
 Just like in Lab 02, you should make a paper prototype of your project. Unlike your sketch, you should be committed to this idea. In fact, the purpose of the paper prototype is that it should help you work out enough details about your project to be able to make a bill of materials and order parts.
 

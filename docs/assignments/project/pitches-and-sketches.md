@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Pitches and Sketches
 Your project pitch will be a little written blurb with one or more sketches. The sketches should be "good enough" to convey your idea fully, but not a finished design. This might feel a little unusual: yes, we're asking you to leave things a bit unfinished. However, it should not be so unfinished as to be useless. There's a balance. Put a "medium" amount of effort in.
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Works-Like Prototype
 In this lab, you should be showing off a working circuit and mechanical system. The project does not need to be "done" but it needs to be significantly progressed. All your electronic parts should be in, and they should all "work" at this point.
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Final Demo and Documentation
 The final demo will happen on the last day of class in the lecture hall. You will be required to bring your fully working and integrated works-like-looks-like prototype to class and show it off. It's a speedy day for Paul (have to get through ~70 projects), so you should practice a 30-second presentation to ensure that we can have a very quick demo.
 
