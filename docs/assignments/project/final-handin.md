@@ -9,5 +9,7 @@ Along with your demo, you should hand in your documentation. Everything should b
 
 The point of having this documentation is (a) we can actually understand what you're trying to do; and (b) when something does inevitably go wrong, you have proof that you really did try hard. Otherwise, we can only go off of awkward smiles, excuses, and shrugs during the demos, and nobody likes that.
 
+In terms of quality, this prototype should be "good." This is your chance to show off your skills. However, that will mean something different for each project. The point of having demos and sketchbook reviews is to help you work towards a high-quality project. We prioritize a good concept that has been fully thought-through and faithfully realized over something electronically complex. Some of our top projects from last term only had "something like" four servos and an ultrasonic sensor, but they were very well executed.
+
 ## Handin
 You will physically hand in your sketchbook on the final demo day. You will keep your personal prototype (return anything that belongs to us in the lab). You will submit your video (and anything else you need links or interactivity for) to Canvas. Everything is due at the beginning of demo day.
