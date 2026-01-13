@@ -27,7 +27,7 @@ Now is the time to ensure that your group is set up for a term of working well t
 - Communication and workload policies
 - Shared documentation and collaboration tools
 
-You will also need to create and maintain a GitHub repo for your code and/or a shared drive for your robot documentation. You can use other platforms as needed, but the robot code needs to be in a well-maintained GitHib repo that includes usage instructions.
+You will also need to create and maintain a GitHub repo (below) for your code and/or a shared drive for your robot documentation. You can use other platforms as needed, but the robot code needs to be in a well-maintained GitHib repo that includes usage instructions.
 
 ### 1. Chassis
 The [chassis](https://en.wikipedia.org/wiki/Chassis) of the robot is the load-baring framework. In our case, we start with a plastic mounting plate to which we attach all of our components.
@@ -78,7 +78,10 @@ You need to power your motor driver with an external 12V power source. You can e
 This is what is meant by a transistor being a type of **amplifier**: you're taking a lower voltage signal from the Arduino and using it to control a higher voltage.
 
 
-### 3. Driving forwards and backwards
+### 3. Add your team to the GitHub repository
+
+
+### 4. Driving forwards and backwards
 Each side of the motor driver uses three pins: one to **enable** driving, and two for direction. The motor outputs `Out1` and `Out2` are driven by `enA`, `in1`; `in2`. `Out3` and `Out4` are driven by `in3`, `in4`, and `enB`. 
 
 :::info
@@ -108,7 +111,7 @@ The code above will drive a motor at maximum speed in some direction. Whether it
 
 The most helpful code design will be to create functions called `forward`, `backward`, and `stop` that you can call from other functions. 
 
-### 4. Speed Control
+### 5. Speed Control
 Using the principle of pulse-width modulation (PWM), we can vary the amount of time that the `enable` pin is on to control the speed of the motor. 
 
 Briefly, PWM works by rapidly outputting a `HIGH` signal, then a `LOW` signal over and over again in a cycle. When outputting to a device like a motor, the proportion of high-to-low signal will determine the amount of speed. The more time the signal is `HIGH`, the more time motor spends `ON`. This is the *duty cycle*, i.e., the cycle of performing useful work.
@@ -125,7 +128,7 @@ void loop() {
 
 Create a function that takes a speed, and drives the motor. Again, it may be helpful to set this up on a test rig at the same time as on your robot.
 
-### 5. Driving the robot
+### 6. Driving the robot
 If you haven't yet, it's now time to integrate the test circuit and the chassis build. You want to be able to consistently do the following high-level actions (among others):
 - Drive the robot forwards
 - Drive the robot backwards
@@ -137,7 +140,7 @@ You may need to calibrate the robot depending on many things like power supply v
 
 Encapsulate your driving commands into well-tested, callable functions.
 
-### 6. Robust Testing (homework)
+### 7. Robust Testing (homework)
 Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. Update your BOM to include all the parts that you added. Use it as the basis of your debugging materials. Upload it along with your video.
 
 Submit your group work agreement on Canvas and post to GitHub.
