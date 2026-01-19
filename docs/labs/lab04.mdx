@@ -1,21 +1,20 @@
 ---
-title: Lab 04. Telemetry
+title: Lab 04. Distance Measurement
 draft: true
 ---
+Measuring your robot's position is both one of the most simple and difficult things you can do. This lab is about using sensors to model your robot's position. Recording live data on your robot's position is called [telemetry](https://docs.wpilib.org/en/stable/docs/software/telemetry/telemetry.html). Figuring out where your robot is on a map is called [localization](https://en.wikipedia.org/wiki/Robot_navigation).
 
-In lecture, we brought up the concept of [telemetry](https://docs.wpilib.org/en/stable/docs/software/telemetry/telemetry.html), that is, recording live data on your robot's position. and [localization](https://en.wikipedia.org/wiki/Robot_navigation), that is, figuring out where your robot is on a map. 
+A map has many *reference points*: places that you can measure from. The reference point could be a doorway or a wall. The measurement could be *ten paces South from Doorway 1*. Localizing yourself would mean finding the doorway on a map, and measuring out ten paces. In the same way that "paces" is a form of measurement full of inaccuracies, robot motion is full of similar errors.
 
-If you think about a map, it has plenty of *reference points*, or places that you can refer to when making some kind of measurement. The reference point can be, say, a doorway. The measurement can be something like *ten paces South from the doorway if facing the doorway is North*. You can then localize yourself relative to that doorway on a map. However, in the same way where "paces" is a form of measurement that is full of inaccuracies, robot motion is full of the same kind of errors.
+Without external sensors, robots can only refer to themselves for measurement. Using encoders, we can measure how much a wheel has turned. The encoders, as you have seen, have low spatial resolution, which is one source of error. But, there are many other sources of error, such as wheels slipping, or the shape of the tire making the robot wobble.
 
-Without external sensors (which we'll get to next week), robots can only refer to themselves for measurement. Using encoders, we can measure how much a wheel has turned. The encoders, as you have seen, have low spatial resolution, which is one source of error. But, there are many other sources of error such as wheels slipping or the shape of the tire dragging the robot one way or the other. 
-
-In this lab, you will be attempting to localize a robot using only telemetry. At first, you will drive it like a remote control car, recording the telemetry from the wheels. Hopefully, you will then be able to recreate the robot's path (this will prove difficult). The point of the lab isn't "success," but to characterize and minimize error (and to make you really want the next step, external sensors).
+We will try to both measure the robot's position and localize on a very simple 1D map.
 
 ---
 ## Pre-lab
 - Review the lecture materials on encoders
 - Remind yourself about the [Serial monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/)
-- Potentially, look up [Arduino Bluetooth Examples](https://github.com/arduino-libraries/ArduinoBLE/tree/master/examples/Peripheral)
+- If you're feeling brave, look up [Arduino Bluetooth Examples](https://github.com/arduino-libraries/ArduinoBLE/tree/master/examples/Peripheral)
 
 ---
 ## Lab
@@ -33,7 +32,7 @@ Your encoder has an analog out and a digital out. You can experiment with it, bu
 ### 2. Print accurate telemetry to your Serial Monitor
 Once you have the encoder reliably working, print your telemetry to the Serial Monitor. You should design a good enough Serial Monitor print output that you can debug what's wrong with your robot. Format the output nicely and use good delimiting, e.g., always printing a value after a comma.
 
-Optionally, you might want to start streaming this data to your computer. Although you technically could copy and paste Serial Monitor output, it's going to be annoying pretty quickly. 
+Optionally, you might want to start streaming this data to your computer using Processing. Although you technically could copy and paste Serial Monitor output, it's going to be annoying pretty quickly. 
 
 For example, your Arduino code could look like this:
 
@@ -98,14 +97,48 @@ We do not guarantee that the above code will "just work." These are examples—y
 It is worth spending some time really designing the telemetry and measuring its real-world accuracy. Set up some experiments. For example, you might be tempted to "just" record every tick and the time between ticks, and assume that this will translate directly to wheel distance travelled. And, although the logic makes sense, robots rarely play nicely with logic due to the many errors in the system.
 
 
-### 3. "Remote" control your robot from a start position to a goal (homework)
-Using your driving framework from last class, drive your robot from a start position to a goal. Start with a straight line, then add in at least one 90 degree turn. You may experiment with more turns.
+### 3. Add a photocell to the bottom of your robot
+Following the photocell example from lecture, add a photocell to measure the amount of light that bounces from the floor. Using a piece of white tape or a piece of white paper, create a start and end point. Put the robot overtop of the start point and take note of the photocell reading. Then, put the robot inbetween the start and end point and take note of the photocell reading. These are your calibration points to measure the darkness of the floor.
 
-Set up a Processing sketch to control your robot from your computer. This will look very similar to the code we saw in the first class where you controlled LED brightness using Processing. Your robot should accept driving commands while connected by a wire to your computer.
+Using a "threshold filter", i.e., an `if` statement, create behaviour logic for your robot. You will have to amend this example for your own robot's wiring and your own driving logic:
+
+```cpp
+int threshold = 500;
+int photocell = A0;
+int state = 0; // 0 means starting state
+
+void setup() {}
+void loop() {
+  int measurement = analogRead(A0);
+  if (state == 0) {
+    if (measurement > threshold) {
+      driveForwards(); // you will have to define this on your own
+      state = 1;
+    }
+  }
+  if (state == 1) {
+    stop(); // you will have to define this on your own
+  }
+
+  // TODO: put any other measurement code here
+}
+```
+
+Now, design a function that drives your robot from the start point to the end point.
+
+
+### 4. Create an experiment to compare telemetry to actual driving conditions (homework)
+Eventually, this robot will have to solve a maze using line-following logic. For this week, you can start practicing by creating an experiment that demonstrates the (un)reliability of the onboard telemetry and sensing.
+
+Using your driving framework from last class, drive your robot from a start position to a goal. Start with a straight line, then add in at least one 90 degree turn. You may experiment with more turns. Use tape to denote your turns.
+
+The robot should navigate first entirely by "remote control". Drive your robot using the ideal path using keyboard controls. You can set up a Processing sketch to control your robot from your computer. This will look very similar to the code we saw in the first class where you controlled LED brightness using Processing. Your robot should accept driving commands while connected by a wire to your computer.
 
 > As a stretch goal (not required), you may consider making this truly remote. Although it will be a few weeks before we discuss how to do this in class, your Arduino R4 has the ability to connect via Bluetooth or Wifi to a computer. If you're getting tired of wires, go wireless. [See the Arduino Bluetooth examples](https://github.com/arduino-libraries/ArduinoBLE/tree/master/examples/Peripheral) here.
 
 Record your driving commands alongside your telemetry. If you "replay" your commands to the robot with the same timing, does the robot actually follow the same path? Why or why not? Come up with a way to characterize the error.
+
+Next, add some sensing using the photocell. Does the robot work better if you add in a sensor? It should, but you will inevitably run into design issues. Be ready to characterize the errors you get from using both telemetry and the photocell next week in lab.
 
 Submit a video on Piazza of your work **before next lab**, even if you're not happy with the results. People will be interested to know!
 
