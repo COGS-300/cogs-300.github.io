@@ -1,6 +1,6 @@
 ---
 title: Lab 03. Build Your Own Bot
-draft: true
+draft: false
 ---
 
 import YouTube from '@site/src/components/YouTube';
@@ -14,7 +14,7 @@ For today, you will just build the robot's chassis and drive system. You may dec
 ---
 ## Pre-lab
 - Review Pulse Width Modulation from lecture.
-- Motor Driver
+- Review the Motor Driver from lecture.
 - Review the idea of a [Bill of Materials](https://en.wikipedia.org/wiki/Bill_of_materials)
 
 ---
@@ -22,12 +22,11 @@ For today, you will just build the robot's chassis and drive system. You may dec
 You may choose to do multiple parts of this lab in parallel, or work on everything together at the same time as a team. In the end, everyone will be responsible for knowing how every part of the robot works.
 
 ### 0. Group work 
-Now is the time to ensure that your group is set up for a term of working well together. Make a group work agreement and submit it on Canvas. That will go over the following:
-- Times and locations for group meetings
-- Communication and workload policies
-- Shared documentation and collaboration tools
+Review the [group work policy document](https://docs.google.com/document/d/1IzFbzeLiBYfDxuw2f-7XAoWAzg4255LzQv7PxfRW4WU/edit?usp=sharing). Make a copy, fill out template, and submit to Canvas. You will probably want to keep a live version of the document somewhere that everybody can access.
 
-You will also need to create and maintain a GitHub repo (below) for your code and/or a shared drive for your robot documentation. You can use other platforms as needed, but the robot code needs to be in a well-maintained GitHib repo that includes usage instructions.
+The point of this exercise is to set out clear expecations, not to create rules to punish each other and yourself with. Make this a living document, i.e., update it as you need.
+
+You will also need to create and maintain a GitHub repo for your code and/or a shared drive for your robot documentation. You can use other platforms as needed, but the robot code needs to be in a well-maintained GitHib repo that includes usage instructions. Use this repo as a template: [github.com/COGS-300/MyRobot](https://github.com/COGS-300/MyRobot).
 
 ### 1. Chassis
 The [chassis](https://en.wikipedia.org/wiki/Chassis) of the robot is the load-baring framework. In our case, we start with a plastic mounting plate to which we attach all of our components.
@@ -78,10 +77,7 @@ You need to power your motor driver with an external 12V power source. You can e
 This is what is meant by a transistor being a type of **amplifier**: you're taking a lower voltage signal from the Arduino and using it to control a higher voltage.
 
 
-### 3. Add your team to the GitHub repository
-
-
-### 4. Driving forwards and backwards
+### 3. Driving forwards and backwards
 Each side of the motor driver uses three pins: one to **enable** driving, and two for direction. The motor outputs `Out1` and `Out2` are driven by `enA`, `in1`; `in2`. `Out3` and `Out4` are driven by `in3`, `in4`, and `enB`. 
 
 :::info
@@ -89,9 +85,9 @@ The pins here might be different than the video or other documentation. Either c
 :::
 
 ```cpp
-#define enA 9   // Enable pin for Motor A — must be a PWM-capable pin
-#define in1 8   // Direction control pin 1 for Motor A
-#define in2 7   // Direction control pin 2 for Motor A
+int enA = 9;   // Enable pin for Motor A — must be a PWM-capable pin
+int in1 = 8;   // Direction control pin 1 for Motor A
+int in2 = 7;   // Direction control pin 2 for Motor A
 
 void setup() {
     // Set motor control pins as outputs
@@ -107,9 +103,9 @@ void loop() {
 }
 ```
 
-The code above will drive a motor at maximum speed in some direction. Whether it's forward or backwards depends on many things: whether you switched a pin around, the orientation of your motor, etc. You get to define forwards and backwards by testing your circuit.
+The code above will drive a motor at maximum speed in some direction. Whether it's forward or backwards depends on many things: whether you switched a pin around, the orientation of your motor, etc. You get to define forwards and backwards by testing your circuit. 
 
-The most helpful code design will be to create functions called `forward`, `backward`, and `stop` that you can call from other functions. 
+The template repo demonstrates how you can package the above code into a single function. The most helpful code design will be to create functions called `forward`, `backward`, and `stop` that you can call from your loop.
 
 ### 5. Speed Control
 Using the principle of pulse-width modulation (PWM), we can vary the amount of time that the `enable` pin is on to control the speed of the motor. 
@@ -126,7 +122,8 @@ void loop() {
 }
 ```
 
-Create a function that takes a speed, and drives the motor. Again, it may be helpful to set this up on a test rig at the same time as on your robot.
+Create or amend the functions in `Motor.ino` to take a speed and drive the motor forwards and backwards a different speeds.
+
 
 ### 6. Driving the robot
 If you haven't yet, it's now time to integrate the test circuit and the chassis build. You want to be able to consistently do the following high-level actions (among others):
