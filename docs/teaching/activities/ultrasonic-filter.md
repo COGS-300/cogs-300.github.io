@@ -11,8 +11,6 @@ long duration, cm, inches;
 volatile int n = 1;          // 1..100
 long history[100] = {0};
 
-long _signal;
-
 void setup() {
   Serial.begin(9600);
   Serial.setTimeout(1);      // IMPORTANT: don't block waiting for digits
@@ -42,12 +40,24 @@ void loop() {
     while (Serial.available() > 0) Serial.read();
   }
 
-  // --- MEASURE (your fake signal for now) ---
-  _signal = random(10000);
-  duration = average(_signal);
+  // --- MEASURE ---
+    // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
+  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+ 
+  // Read the signal from the sensor: a HIGH pulse whose
+  // duration is the time (in microseconds) from the sending
+  // of the ping to the reception of its echo off of an object.
+  duration = pulseIn(echoPin, HIGH);
 
-  cm = (duration / 2.0) / 29.1;
-  inches = (duration / 2.0) / 74.0;
+  long avg = average(duration);
+
+  cm = (avg / 2.0) / 29.1;
+  inches = (avg / 2.0) / 74.0;
 
   // --- SEND ---
   Serial.print(inches);
@@ -58,6 +68,7 @@ void loop() {
 
   delay(20); // ~50 Hz stream; remove/adjust as you like
 }
+
 
 ```
 
