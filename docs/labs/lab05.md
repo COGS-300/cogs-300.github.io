@@ -1,6 +1,6 @@
 ---
 title: Lab 05. Wall-following
-draft: true
+draft: false
 ---
 
 For this week's lab, we are adding [ultrasonic distance sensors](https://www.youtube.com/watch?v=2hwrDSVHQ-E) to perform external long-range sensing. We'll be using this to follow walls and eventually solve mazes. Eventually, you may want to try sensor integration, that is, mixing the telemetry from the wheel encoders with the long-distance external sensing from the ultrasonic. However, for today, we'll just work on getting used to the ultrasonic.
