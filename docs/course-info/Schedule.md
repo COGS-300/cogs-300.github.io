@@ -1,7 +1,7 @@
 # Schedule
 | Date  | Week | Monday           | Tuesday          | Wednesday       | Thursday        | Friday            |
 |-------|------|------------------|------------------|-----------------|-----------------|-------------------|
-| 12.30 | 00   | -                | -                | -               | -               | Prep (no class)   |
+| 12.29 | 00   | -                | -                | -               | -               | Prep (no class)   |
 | 01.05 | 01   | Kit pickup       | Intro 01         | Lab 01          | Intro 02        | Lab 01            |
 | 01.12 | 02   | Lab 01           | Movement 01      | Lab 02          | Movement 02     | Lab 02            |
 | 01.19 | 03   | Lab 02           | Movement 03      | Lab 03          | Movement 04     | Lab 03            |

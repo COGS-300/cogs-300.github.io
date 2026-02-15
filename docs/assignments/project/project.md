@@ -58,7 +58,7 @@ The connection to COGS 300 is that the project connects human subjectivity and c
 - White plastic heart: $0.00 (sewing out of scrap linen)
 TOTAL: $39.39
 
-#### Timeline
+#### Timeline (Term 1)
 - Sep 18: Order parts
 - Sep 25: Parts expected to be delivered
 - Sep 30: Initial heart rate visualization developed in Processing
@@ -69,6 +69,20 @@ TOTAL: $39.39
 - Dec 01: Documentation and video made
 - Dec 04: Showcase with working project
 - Dec 15: Final documentation deadline
+
+#### Timeline (Term 2)
+- Jan 28: Initial Pitch and Sketches
+- Feb 11: Order parts and Paper Prototype made
+- Feb 20: Parts expected to be delivered
+- Feb 23: Book sketchbook meeting with TA or Paul
+- Feb 27: Initial heart rate visualization developed in Processing
+- Mar 10: LED matrix testing and circuit construction
+- Mar 14: Sketchbook meeting completed
+- Mar 17: Heart sewn
+- Mar 18-23: Works Like Prototype - initial HR pulse visualization on matrix and HR signal shown in Processing
+- Mar 30: HRV calculations implemented in Arduino and visualized in Processing
+- Apr 6: Documentation finished and video made (recommended deadline)
+- Apr 9: Final Showcase with working project + Final documentation deadline
 
 
 ### Product Design
