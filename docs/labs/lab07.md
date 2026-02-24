@@ -1,5 +1,5 @@
 ---
-title: Lab 07. Bayes Filter and Project Planning
+title: Lab 07. Object Detection
 draft: false
 ---
 
