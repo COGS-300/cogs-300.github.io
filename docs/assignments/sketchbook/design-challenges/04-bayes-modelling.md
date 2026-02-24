@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 # Model your life with Bayes
