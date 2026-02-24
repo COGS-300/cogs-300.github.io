@@ -1,6 +1,6 @@
 ---
 title: Lab 07. Bayes Filter and Project Planning
-draft: true
+draft: false
 ---
 
 For this lab, we are performing object detection using a Bayes Filter. The purpose of this is to be able to move our robot towards an object. You will need to do this in the final tournament, where you will have to find and touch a goal object with your robot.
