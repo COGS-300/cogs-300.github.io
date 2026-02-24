@@ -1,6 +1,6 @@
 ---
 title: Lab 07. Bayes Filter and Project Planning
-draft: true
+draft: false
 ---
 
 ## Overview
