@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Final Exam
 The final exam will look almost exactly like the design challenges that you receive in class. The best way to study for the final is to practice your design challenges in class, get good at expressing yourself visually, and to get feedback on your work.
 
