@@ -1,6 +1,6 @@
 ---
 title: Lab 09. Practice Tournament
-draft: false
+draft: true
 ---
 This week, you will practice the tournament. Next week, you will demo the "works-like prototype" of your personal project. The week after, we run the tournament. Therefore, today, just prepare!
 

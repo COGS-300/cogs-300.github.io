@@ -1,6 +1,6 @@
 ---
 title: Lab 01. Interfacing with Arduino
-draft: false
+draft: true
 ---
 
 For this lab, you will be required to find your lab, introduce yourself to your TA, familiarize yourself with the lab components and Arduino accessories, and read through any Arduino documentation that you find. You will also be required to test the multimeter and familiarize yourself with the lab equipment. You should have already obtained the required electronic course materials.
@@ -100,29 +100,49 @@ String incoming;   // Incoming serial data
 int ledValue;      // Parsed sensor value
 
 void setup() {
+  // Create a new window that is 400x400
   size(400, 400);
   
   // List all available ports and print to console
   printArray(Serial.list());
 
-  // Change [0] to the correct port index after checking the list
-  String portName = Serial.list()[2];
-  myPort = new Serial(this, portName, 9600);
+  // Change port to the correct port index after 
+  // checking the list that is printed from above
+  int port = 2;
+
+  // Choose the right port name from the list by index
+  String portName = Serial.list()[port];
+
+  // Start a new connection to your Serial port
+  // The baud rate must match your Arduino program
+  int baudRate = 9600;
+  myPort = new Serial(this, portName, baudRate);
   
-  myPort.bufferUntil('\n'); // Trigger serialEvent on newline
+  // Trigger serialEvent on a newline character
+  myPort.bufferUntil('\n'); 
 }
 
 void draw() {
+  // Clear the background with black
   background(0);
+  // Make the next drawn object have a fill colour of white
   fill(255);
+  // Create a drawn text object with the parsed sensor value
+  // in the middle of the screen
   text("LED Value: " + ledValue, 50, height / 2);
 }
 
+// Triggered on newline according to setup
 void serialEvent(Serial myPort) {
+  // Read the incoming line until a newline character
   incoming = myPort.readStringUntil('\n');
+  // If something exists to be read...
   if (incoming != null) {
+    // Trim off the whitespace from the front and back
     incoming = trim(incoming);
+    // If there's anything left after trimming whitespace
     if (incoming.length() > 0) {
+      // Parse the value to set the LED to
       ledValue = int(incoming);
     }
   }
@@ -195,11 +215,11 @@ void loop() {
 ```
 
 ### 4. Make an LED dimmer interface (homework)
-For this week's creative challenge, make LED dimmer that takes commands from Processing, and outputs to your real, live LED via Arduino.
+For this week's lab, make LED dimmer that takes commands from Processing, and outputs to your real, live LED via Arduino.
 
 Think through the LED's [duty cycle](https://learn.sparkfun.com/tutorials/pulse-width-modulation/duty-cycle), i.e., how long it is off vs. on. There is also a helpful Arduino [Fade tutorial](https://docs.arduino.cc/built-in-examples/basics/Fade/). For the Processing sketch, you may want to look at the [Mouse 1D tutorial](https://processing.org/examples/mouse1d.html) for ideas.
 
-Remember that we give top marks only for _exceeding_ the minimum requirements. For this week, we'll give you some hints. Try adding more LEDs, different keyboard or mouse inputs from Processing, or think up something entirely new that uses LED dimming.
+Remember that we give top marks only for _exceeding_ the minimum requirements. Try adding more LEDs, different keyboard or mouse inputs from Processing, or think up something entirely new that uses LED dimming.
 
 **Submit a video of your working dimmer program on Piazza by the night before your lab.**
 

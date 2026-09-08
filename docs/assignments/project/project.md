@@ -4,81 +4,55 @@ slug: /assignments/project
 ---
 
 # Electronics Project overview
-The final assessment of your individual abilities in this course will be the personal electronics project. The project must be done individually because it is an individual assessment, but you are certainly encouraged to discuss the work with your classmates. This is your chance to demonstrate your engagement and mastery over the course subject matter. It is an open-ended creative project, but it must include at minimum:
+The assessment of your individual abilities in this course will be the personal electronics project. The project must be done individually because it is an individual assessment, but you are certainly encouraged to discuss the work with your classmates. This is your chance to demonstrate your engagement and mastery over the course subject matter. It is an open-ended creative project, but it must include at minimum:
 
 1. An operating Arduino R4 and working circuit
-2. A mechatronic system that both senses and actuates (or displays via the microcontroller)
-3. An intelligent decision-making system of some sort
+2. A mechatronic system that senses and/or actuates a mechanism
+3. An interactive decision-making system of some sort
 4. A conceptually-rigorous illustration and/or demonstration of a core course concept
 
-We will guide you towards developing this idea in class, during labs, and in one-on-one meetings. Although we are assessing your abilities, the final execution of the project will not be the most important part. Instead, making consistent and well-documented progress will be the core of the assessment.
+Basically, it needs to have at least a sensor, an actuator, a mechanism, and a brain. We will guide you towards developing this idea in class, during labs, and in one-on-one meetings.
 
-## Project Components
-### Sketchbook
-You are required to document your project progress in your sketchbook. You should clearly label your early sketches, ideas, designs, inspirations, etc., as well as your circuit diagrams, final sketches, and final project documentation. You will be marked on the quality and clarity of presentation for anything you indicate is part of your final documentation, but the rest of the sketchbook will not be assessed for quality, since it's just for sketches.
+## Requirements
+Here is a deeper explanation of the above requirements.
 
-### Sketchbook meeting
-At some point after the first two weeks and before the last two weeks of class, you will be required to have a one-on-one meeting with a member of the teaching staff about your final project idea. You will bring your sketchbook and discuss the development of your idea, and your general course engagement with the teaching staff member. You are required to meet with the teaching staff member to receive your sketchbook grade.
+### Concept
+We have found that the best projects are not the most complex, but usually, simple ideas with a fully-realized concept. This what we mean by conceptually-rigorous. For example, a "drone" or "eight-legged spider robot" would be a bad choice for this project (we've seen many fail at this point). However, a "dice roller" was a particularly beautiful execution of this project (sorry, you can't use this one now that we've said it). What's the difference?
 
-### Initial Pitch and Sketches
-By about one month into the course, you will be required to hand in a pitch for your project that includes a written description and one or more sketches. You will receive written feedback on your pitch. The point of this is to scope your project appropriately to the course. Remember, your eventual budget should be under $50.
+Robots that have generalized intelligence or support arbitrary abilities are quite complex. They require many degrees of freedom (lots of motors), highly-accurate sensing systems, and usually quite complex control systems. You are already getting a taste of this with your group lab project; you do not have enough time to build one of these by yourself in this class.
 
-### Demo Day: Paper Prototype and BOM
-In Lab 06, you will be required to bring a paper prototype of your project into lab for demonstration and critique. No electronics needed for this prototype, but it should be well thought out. You will include a bill of materials and ensure that the budget is indeed below $50. This is the parts ordering deadline.
+In contrast, purpose-built devices (like our dice roller example) only really need to achieve a single objective. They can only "do" one thing, and every component is oriented towards that purpose. The dice-roller robot did not need to use complex computer vision algorithms to recognize the dice. Instead, it relied on mechanical assumptions such as "if this button at the bottom of a cup is pressed through pressure, then the dice must be present." That's the level we want you to achieve for this project.
 
-### Demo Day: Works-like prototype
-In Lab 10, you will be required to bring a functional prototype of your project into lab for demonstration and critique. The project should mostly "work" in terms of the electronics.
+The conceptual part of your work may include intelligent systems on your computer, LLMs, email systems, or whatever you would like. However, we're only going to mark the parts of the project that you personally designed and built that directly connect to the Arduino. A simple rule is: everything from the computer to the Arduino is not marked. Everything from the Arduino to the mechanism is marked.
 
-### Final Showcase
-On the last day of class, you will show off your fully-working final project. Be prepared to explain the concept of your project, demonstrate how it works, and answer questions people may have.
+The reason for this is that this class is about ground-up intelligence and systems analysis and design. Top-down intelligence is an important topic, just not the focus of this class.
 
-### Final Sketchbook and Documentation Handin
-You will be required to hand in your sketchbook and final project documentation, including a short written description of the concept and execution, a circuit diagram, and drawings and design diagrams needed to understand the functionality of the project, and a video that demonstrates the working product.
+### Sensing
+Sensing can be as simple as detecting a button press, or as complex as detecting heart rate variability through a blood oxygen sensor. The sensor must be an Arduino-compatible component. You are welcome to use other sensors, e.g., your computer's camera, but we will not "mark" them. For example, we have seen excellent projects that use computer vision to detect human body motion, and we allow and welcome them as parts of your design, but the computer vision components are not "for marks" since they are not the focus of this class. Instead, we want you to use Arduino-based sensors to learn about electronic signal processing.
 
-## Potential Project Directions
-Again, you are encouraged to take this project and run wild with it. There are many, many potential directions that you can take it. The below ideas are given as jumping off points, including a templates for your pitch, timeline and budget. Any idea you pitch should be unique and developed mostly on your own, but feel free to talk to others to brainstorm ideas.
+The sensor must not be simply perfunctory, but part of the core interaction loop. For example, an ON button does not count as a sensor (although you're welcome to have one). If you instead have a "limit switch", that would indeed count as a sensor because you would be using as part of on-going interactive operation. Even though they are essentially the same electrical component, the purpose differentiates whether they meet the requirement.
 
-### Human Biosensing
-There are many interesting biosensors that can be used with Arduino, including skin conductance, muscle activation, heart rate, and more. A human biosensing project would include using one or more sensors to sense some signal from the human body and then actuate or display something based on the signal. Potential applications range from sports science, to sleep monitoring, to emotion regulation, and more.
+### Actuation
+The most obvious actuator is the geared DC motor that you use for your robot, but there are many other things that we can consider an actuator for this class: a fan, a vibrotactile device, a speaker, a Peltier cell, an electromagnet, a solenoid, and more (ask us if you're unsure). Like the sensor, it must be an Arduino-compatible component. So, the speakers on your computer don't count (although you're welcome to use them). 
 
-#### Pitch: Videogame LED Heart Monitor
-When people play videogames, they go through waves of emotional distress and relaxation. These changes in emotion are reflected in measures such as heart rate (HR) and heart rate variability (HRV). The more stressed someone is, the faster their heart may race, and also, the less their heart rate varies. 
+You may wonder about LEDs, displays, and other output devices. You are welcome to use them, and, if they are Arduino-compatible devices, we will consider them as part of the marking scheme, but they are not considered actuators. The basic rule is: if you can run the component off of your computer directly, it's fine to use it but it's not marked, and if you can run it off of the Arduino, we will consider it for marking.
 
-For this project, I will use a blood pulse oximeter (BPO) to measure a person's HR and HRV. The BPO will be attached to their earlobe while they play a stressful videogame. The BPO will be attached to an Arduino which will measure their HR/HRV. The Arduino will also be attached to a small multicolour LED matrix housed inside a white plastic heart. The LED matrix will pulse at the same rate as their heart, and change colours according to their HRV. 
+### Mechanism
+A mechanism is a series of connected parts that perform a task or create/constrain motion. At minimum, this will be a simple mechanism such as a lever, pulley, wheel and axel, linear guide, spring, inclined plane, wedge, or screw. It can also be more complex, like a gear train. The mechanism can be input, output, or both. It can be small or large, and it can be a part or encompass the whole device.
 
-The purpose of this project will be to externalize someone's internal emotional state when they may not be attending to it. By having an external reminder of their emotional state, they may be able to notice that they are stressed and perform relaxation techniques. Or, they may want to increase the difficulty if they notice that they are not being stimulated enough.
+The requirement here is that you have to make the mechanism. You can use Lego, cardboard, popsicle sticks, or other craft materials. You cannot count, e.g., the lever that is already inside a button that you bought as the mechanism.
 
-The connection to COGS 300 is that the project connects human subjectivity and cognition to computer modelling by literally connecting affect-related biosignals to an electronic system. The project assumes that a simple computer model of emotion can represent human experience well enough to stage an intervention. The heart LED matrix display is a model of human emotion, albeit a rough one. Whether it can truly help someone delve deeper into their own emotional experience remains to be seen.
+### Interactive Decision-making System
+At minimum, your system must run off of an Arduino R4 and perform some kind of action that requires decision-making over a variable environment. This can be as simple as a series of if-then statements, or as complex as a remote LLM-backed smart thermometer that incorporates weather and personal preferences. We do not value the latter more than the former: as above, we mark the part that starts at the Arduino.
 
-#### Budget
-- Pulse and Heart Rate sensor: $13.98
-- RGB LED matrix: $11.41
-- USB-C Cable: $3.50
-- Jumper wires: $10.50
-- White plastic heart: $0.00 (sewing out of scrap linen)
-TOTAL: $39.39
+The point of this really is "make it interactive." For example, we have had projects such as a very beautifully-constructed music box, but had no interactivity other than "on-off" and therefore really didn't meet the project requirements. On the other hand, we have had projects such as as a not-very-beautiful hugging robot that had wires falling off, but very much met the project requirements because it responded to hugs. Put your effort into making something interactive, rather than pristine.
 
-#### Timeline
-- Sep 18: Order parts
-- Sep 25: Parts expected to be delivered
-- Sep 30: Initial heart rate visualization developed in Processing
-- Oct 15: LED matrix testing and circuit construction
-- Nov 01: Heart sewn
-- Nov 05: Demo day - initial HR pulse visualization on matrix and HR signal shown in Processing
-- Nov 15: HRV calcuations implemented in Arduino and visualized in Processing
-- Dec 01: Documentation and video made
-- Dec 04: Showcase with working project
-- Dec 15: Final documentation deadline
+## Project Milestones
+There will be three milestones for the project: a paper prototype, a works-like prototype, and a final prototype. The final prototype should be "good" but not perfect: it can still be a prototype, but it needs to be well-developed.
 
+- First Paper Prototype and Operations Manual
+- Intermediary Works-like Prototype and Operations Manual
+- Final Prototype and Operations Manual
 
-### Product Design
-Many interesting products can be prototyped with Arduino, from automatic fish feeders, to unique musical instruments, to vibration-based notifaction systems. A product design project would involve making an electronic and/or IoT device that meets a human need with the premise that it could be sold or distributed.
-
-### Scientific Instrument
-Arduino can be used in the sciences to create devices for data collection from weather stations, to animal monitoring systems, to museum display engagement sensing. A scientific instrument project would involve making a device that advances a scientific goal such as measurement or experimental control.
-
-### Engineering model
-Engineers and architects sometimes make small models of larger systems that they're interested in building such as model airplanes, model water systems, model buildings, or even just something that demonstrates an engineering or scientific principle (such as Bernoulli's principle). An engineering model project would involve designing a model version of something to demonstrate a principle or method of design.
-
-### Artistic project
-Arduino is used widely in artistic and hobby projects such as actuated cosplay costumes, sculptures, and performances. A artistic project can involve so many different things that it's hard to define for a write-up, but would be evaluated on aesthetic and/or conceptual merit.
+## Final Note on Cost
+The project is not designed to be expensive. We will enforce a $50 limit to purchased materials. Scavenged materials can exceed $50 in value, but the purpose of the project is to make do and be creative with limited materials, not to buy your way into a good mark.

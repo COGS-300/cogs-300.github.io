@@ -1,6 +1,6 @@
 ---
 title: Lab 06. Paper Prototypes and BOMs
-draft: false
+draft: true
 ---
 Today, you will demonstrate your looks-like paper prototypes. The point of the paper prototype is to have a clear idea of how your system will work before you commit to a design. That also means that you need to take the paper prototype seriously: something that simply looks like your design but doesn't attempt to function like it will not tell you enough about which parts you need.
 
