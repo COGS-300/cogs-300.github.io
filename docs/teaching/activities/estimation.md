@@ -1,6 +1,6 @@
 ---
 description: Using your body to measure things.
-draft: true
+draft: false
 ---
 
 # Body Estimation
@@ -16,6 +16,15 @@ For this exercise, you are asked to use only your body as a measuring stick. No 
 
 ---
 ## Activity
+<!-- How to run:
+The point of this activity is (1) to immediately acculturate people into the class; (2) demonstrate concretely how embodied and extended cognition works.
+
+This activity can take between 10 and 30 mins. If time is short, cut out one of the sizes and ask only one or two groups to report on their findings. If wanting to extend, discussion can be extended significantly by asking each group to report. If needed to extend further, get them to make metric (SI) measurements of their body parts and translate from body units into SI units.
+
+Start with a short introduction to error and show how to measure something with a straight edge and your fingers. Ask if anyone can see the source of error: your fingers are difference sizes. Show them that the error calcuation will be at a maximum: (width(biggest finger) - width(smallest finger)) * number of fingers wide something is. The logic being that if you perfectly align your thumbs side to side, that's the maximum width the thing could be, and if you perfectly align your pinkies side by size, that's the minimum width the thing could be.
+
+Of course, you might not have accounted for other sources of error, like the little gaps between your fingers. You could refine your calculation to include those, but does it matter?
+-->
 
 ### Make some measurements
 Measure four different sizes of things:
@@ -24,6 +33,17 @@ Measure four different sizes of things:
 - Something medium, as in, bigger than your hand but smaller than your whole body.
 - Something large, as in, something bigger than your body.
 - Something very large, as in, as big as a room.
+
+For each measurement, estimate using only your body parts, and include an error estimate. Start with a rough estimate for each, then refine if time.
+
+<!-- Lessons:
+1. Drift: More smaller measurements accummulate error quickly.
+2. Precision vs. speed: Larger units are faster to measure with, but are imprecise.
+3. Unit analysis: Larger units can be composed of smaller units, but also include their error.
+4. Reference: Everything measured must have a reference, including metric units.
+5. Choose to know: You can always "know" well enough to make a decision.
+6. Evaluation of effort: Deciding which things matter and don't (small errors may not matter for big measurements) 
+ -->
 
 ### Error
 While you're measuring, estimate the **[error](https://en.wikipedia.org/wiki/Errors_and_residuals)** by setting an upper and lower bound.
@@ -57,3 +77,4 @@ In terms of ontology, most scientists are [realists](https://en.wikipedia.org/wi
 In terms of epistemology, what we think of a classical scientific stace is [positivism](https://en.wikipedia.org/wiki/Positivism). Positivists believe that we can deduce reality from axioms and observations, usually with an incorporated post-positivist critique that we are often biased observers, so we can only ever deduce reality from statistical measurements, using better and better approximations depending on the size of our sample and precision of our measuring devices.
 
 How does the body estimation exercise challenge or support these philosophical positions? On the one hand, you're measuring the real world. On the other hand, you are using your body as the measuring stick, so all of your measurements are relative to your own body and perception. Discuss with your group.
+
