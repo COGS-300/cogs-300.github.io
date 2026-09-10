@@ -8,7 +8,7 @@
 
 **Instructors**: 
 - Paul Bucci, paul.bucci@ubc.ca, Office: B138 in the Biodiversity Research Center (Beaty Museum lower floor)
-- Tim Fernandes, timothy.fernandes@ubc.ca 
+- Tim Fernandes, timothy.fernandes@ubc.ca, Office: Buchanan B146
 
 **Office hours**: By appointment. Paul does not check Canvas Inbox notifications often, nor does he check email outside of business hours.
 
