@@ -1,6 +1,6 @@
 # Contact Information
 
-**Lecture Location**: [MCLD 3018 (MacLeod main floor)](https://learningspaces.ubc.ca/classrooms/mcld-3018/)
+**Lecture Location**: [MCLD 3018 (MacLeod)](https://learningspaces.ubc.ca/classrooms/mcld-3018/)
 
 **Lab Location**: [IONA B151 (Basement Lab)](https://learningspaces.ubc.ca/buildings/iona-building-iona/).
 
