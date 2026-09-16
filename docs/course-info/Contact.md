@@ -10,7 +10,9 @@
 - Paul Bucci, paul.bucci@ubc.ca, Office: B138 in the Biodiversity Research Center (Beaty Museum lower floor)
 - Tim Fernandes, timothy.fernandes@ubc.ca, Office: Buchanan B146
 
-**Office hours**: By appointment. Paul does not check Canvas Inbox notifications often, nor does he check email outside of business hours.
+**Office hours**: 
+- Paul: By appointment. Paul does not check Canvas Inbox notifications often, nor does he check email outside of business hours.
+- Tim: Wednesdays, 3-4pm at the COGS Lab (IONA B151). Please use email for any other correspondence.
 
 **TAs**: 
 - Eloise Scott (Monday lab)
