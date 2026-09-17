@@ -1,0 +1,121 @@
+---
+description: Reading Digital Signals
+draft: true
+---
+
+import Image from '@theme/IdealImage';
+
+# Reading Digital Signals
+
+## Introduction
+Recall our lesson on [digital signals](https://cogs-300.github.io/teaching/activities/signals), where we thought about digital signals in terms of _output_ as lights. Today, we're going to flip it around and think about digital signals from an _input_ standpoint.
+
+As we learned in our first lecture, every intelligent system has both input and output, where output is some kind of effect on the world (like actuation) and input is sensing of the world. In the middle, there's some kind of decision-making system. 
+
+In this activity, we're going to learn how to make our first sensing system. It is very basic. However, do not let basic be mistaken for not useful: this exact kind of sensing system runs many very important manufacturing machines today.
+
+### Materials
+- Arduino, breadboard, wires
+- LED and resistor
+- Button
+- [Digital Read TinkerCAD drawing](https://www.tinkercad.com/things/34BwdAB7su0-digitalread-example?sharecode=jX5u-uMTcHXuq9JeIqT27XVNdtXhksxiZ0z20Cdiy4g)
+- [Digital Write TinkerCAD drawing](https://www.tinkercad.com/things/kcuesQbp7Wi-digital-signals-with-code?sharecode=KNs7Vx0cdYJg3B7cHfRCpz9N6osnTS97QmB18Hmf_dU)
+
+### Activityf
+Today, we're going to follow the design process again, but from the input side. Rather than a braking system, we're going to design a car door sensing system.
+
+Every modern car has a door sensing system. Door sensing systems are very common, from fridges to washing machines, many devices need to sense the state of a door. Usually, the sensor component is very simple, just or or more buttons. But the design may be complex. The door will also have an indicator that lets the user know the status of the door.
+
+Work together with your group to assemble a looks-like prototype and a works-like prototype for a car door sensing system. You should be assembling a single, shared prototype.
+
+1. Review the Code in the TinkerCAD example
+Make sure you can read the code in the TinkerCAD example. What does each line mean? Write a comment so that you can remember.
+
+```cpp
+// example comment:
+// Stores the current reading from the LED circuit
+int ledState; 
+
+void setup() // TODO: comment here
+{
+  pinMode(A0, INPUT); // TODO: comment here
+  Serial.begin(9600); // TODO: comment here
+  ledState = 0;       // TODO: comment here
+}
+
+void loop() // TODO: comment here
+{
+  ledState = digitalRead(A0); // TODO: comment here
+  Serial.print("The LED reads: "); // TODO: comment here
+  Serial.println(ledState); // TODO: comment here
+  delay(10); // TODO: comment here
+}
+```
+
+2. Review your Blink example from lab
+Make sure you can read the output code from the first lab. If you can't find it here, that's because it's on the left hand bar, under labs, then under your first lab. Have it ready.
+
+3. Brainstorm a moodboard
+Assemble a moodboard that relates to car door sensing systems. You might have to do a little more than just doing a Google image search, but start with that. How does a car door sensing system act? Remind yourself and your group what you are trying to design with concrete examples.
+
+4. Initial sketches
+Draw as many initial sketches as you can. You're going for volume rather than precision. How should the door sensor work? Where is it placed? What happens when you open vs. close the door? What encodings make sense to show that the door is open or closed to the driver and passengers? The point of this is to get your mind around the problem, not decide on a final design. 
+
+5. Make a works-like prototype for the sensor
+Using the [Digital Read TinkerCAD drawing](https://www.tinkercad.com/things/34BwdAB7su0-digitalread-example?sharecode=jX5u-uMTcHXuq9JeIqT27XVNdtXhksxiZ0z20Cdiy4g) as a reference point, create a sensing circuit for your initial sensing works-like prototype.
+
+6. Make a works-like prototype for the indicator
+Using the [Digital Write TinkerCAD drawing](https://www.tinkercad.com/things/kcuesQbp7Wi-digital-signals-with-code?sharecode=KNs7Vx0cdYJg3B7cHfRCpz9N6osnTS97QmB18Hmf_dU) as a reference point, create an output circuit for your initial indicator works-like prototype.
+
+7. Final works-like prototypes, looks-like prototypes, and storyboards
+Assemble your two works-like prototypes into the same circuit. Make a looks-like prototype (a sketch) for how the final system is going to look. Make a storyboard for how it is going to act.
+
+The standard is that someone else should be able to operate your prototype without you being there to help them. Depending on time, we may even try the exercise of trading prototypes between groups today.
+
+8. Stretch Goal: Implement timing
+Arduino provides a function called `millis()` that lets you know how many milliseconds it has been since you started the Arduino. You can use it like this:
+
+```cpp
+int ledState; 
+
+int now;
+int last;
+int difference;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
+  ledState = 0;
+  
+  now = 0;
+  last = 0;
+  difference = 0;
+}
+
+void loop()
+{
+  // Read the time right now
+  now = millis();
+
+  // Read the LED state
+  ledState = digitalRead(A0);
+
+  // If the button has been pressed
+  // set the last time to now
+  if (ledState == HIGH) {
+    last = now;
+  }
+
+  // Take the difference between this reading and the last reading
+  // to see how long it has been since the button was pressed
+  difference = now - last;
+  Serial.print("The LED reads: ");
+  Serial.print(ledState);
+  Serial.print(". The button was last pressed ");
+  Serial.print(difference);
+  Serial.println(" milliseconds ago.");
+
+  delay(10);
+}
+```

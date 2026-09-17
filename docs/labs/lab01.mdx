@@ -7,6 +7,8 @@ For this lab, you will be required to find your lab, introduce yourself to your 
 
 Each lab has preparatory work that you should do ahead of time. There will usually be some video content, some coding content, and some conceptual content. The pre-labs are not marked, but they are highly suggested to complete to have a good experience in your lab.
 
+You may want to work in groups for this lab, although it is not required. You probably will want to meet many different people to see who you want to work with. And perhaps more importantly, who you do NOT want to work with.
+
 ---
 ## Pre-lab
 
@@ -23,6 +25,9 @@ You don't need any circuit-building experience to test the Arduino's built-in LE
 
 ### 4. Print a value to the Serial Monitor
 The [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) is a very valuable debugging tool. As the name implies, it monitors serial communication _from_ the Arduino _to_ the computer. It is not the same as an output console, i.e., it will not print errors unless you specifically program it, but is the only way to monitor values from your program live.
+
+### 5. Read up on Multimeters
+Check out the documentation for [multimeters](https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-multimeter).
 
 ```cpp
 void setup() {
@@ -68,6 +73,7 @@ void loop() {
 }
 ```
 
+### 2. Make some measurments
 Next, see how the [multimeter](https://www.sciencebuddies.org/science-fair-projects/references/how-to-use-a-multimeter) works. A multimeter will be your best debugging tool. Learn how to use it by filling in the table below in your sketchbooks or on your computer.
 
 Test the continuity, voltage, and current of the circuit using the multimeter.
@@ -85,7 +91,7 @@ Test the continuity, voltage, and current of the circuit using the multimeter.
 | After the LED        | Off  |         |         |
 
 
-### 2. Communicate from Arduino to Processing
+### 3. Communicate from Arduino to Processing
 Extend your Arduino code to print the current on/off value of your LED. You'll need to use a `Serial.print()` and `Serial.println()` statement.
 
 Once you've got your LED value printing on the Arduino, paste the following **Processing sketch into the Processing IDE**:
@@ -154,10 +160,10 @@ You may need to look through the port list to ensure you're communicating with y
 
 :::
 
-### 3. Communicate from Processing to Arduino
+### 4. Communicate from Processing to Arduino
 Now, make a program that turns an LED on and off. We've provided starter code for you. 
 
-Here's the Processing.org code (no changes needed) that you need to **paste into the Processing IDE**:
+Here's the Processing.org code (one change needed) that you need to **paste into the Processing IDE**:
 ```cpp
 // Processing sketch to turn LED on/off
 
@@ -214,7 +220,7 @@ void loop() {
 }
 ```
 
-### 4. Make an LED dimmer interface (homework)
+### 5. Make an LED dimmer interface (homework)
 For this week's lab, make LED dimmer that takes commands from Processing, and outputs to your real, live LED via Arduino.
 
 Think through the LED's [duty cycle](https://learn.sparkfun.com/tutorials/pulse-width-modulation/duty-cycle), i.e., how long it is off vs. on. There is also a helpful Arduino [Fade tutorial](https://docs.arduino.cc/built-in-examples/basics/Fade/). For the Processing sketch, you may want to look at the [Mouse 1D tutorial](https://processing.org/examples/mouse1d.html) for ideas.
