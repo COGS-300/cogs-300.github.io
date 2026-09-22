@@ -28,12 +28,12 @@ When the dial is turned, the measured voltage changes both on the digital displa
 Look on both sides of the box to see how it is wired. Notice that the digital display needs a positive, negative, and probe (sensor) connection, whereas the analog display just has a positive and negative terminal. Why is that?
 
 
-### Create a Potentiometer Sensor and LED Display Circuit
+### 1. Create a Potentiometer Sensor and LED Display Circuit
 ![Potentiometer circuit](/img/activity-02-analog-signals.png)
 Create a circuit according to the [TinkerCAD Potentiometer and LED circuit](https://www.tinkercad.com/things/1cXARK32BAK-model-analog-circuit-with-potentiometer?sharecode=Xts3vR_a1qBpgOKFC7DRSTuhc9KQNudpqBfWAVkBFXE). There are two parts, the potentiometer circuit, and the LED circuit. The potentiometer is your sensor, and the LED is your display.
 
 
-### Map values and Debug with the Serial Monitor
+### 2. Map values and Debug with the Serial Monitor
 Click on the code in the simulator, copy, and run on your Arduino. Notice these lines:
 
 ```cpp
@@ -49,6 +49,16 @@ analogWrite(analogOutPin, outputValue);
 We have three functions there. The `analogRead` function reads an analog value from a pin. The `map` function takes a value from an input range and either stretches or shrinks it to match an output range. The `analogWrite` function outputs a variable amount of power depending on the value you provide it (we'll learn more about how in a few lectures).
 
 Find your own Serial Monitor, and see the real input values, how they are converted, and what your LED should be outputting. You should always use the Serial Monitor to debug your programs if you can't figure out what's going wrong.
+
+### 3. Brainstorm all of the control mappings for a potentiometer
+Draw everything you can think of that has a potentiometer inside of it. Think about all knobs. Which ones are switches, and which ones are potentiometers? How do you know the difference?
+
+### 4. Figure out how your potentiometer could be used as a distance sensor
+One common function of a potentiometer is to measure distance. What would that mean? Draw the mechanics and principles of using an encoder for a distance sensor. Note that it would not be a perfect or infinite distance sensor, but that, with just a few other parts, you could do pretty well.
+
+### 5. Design a system that uses a potentiometer as a distance sensor
+Following the design process (brainstorm/moodboard, sketch, prototype, test, repeat), design a system that uses a potentiometer as a distance sensor. Decide (1) what distance you are sensing; (2) how you keep track of calibration and limits; and (3) what the system needs to track vs. what is displayed to the user.
+
 
 ---
 ## On your own
