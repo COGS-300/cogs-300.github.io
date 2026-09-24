@@ -1,6 +1,6 @@
 ---
 title: Lab 03. Build Your Own Bot
-draft: true
+draft: false
 ---
 
 import YouTube from '@site/src/components/YouTube';
@@ -109,6 +109,8 @@ The code above will drive a motor at maximum speed in some direction. Whether it
 
 The template repo demonstrates how you can package the above code into a single function. The most helpful code design will be to create functions called `forward`, `backward`, and `stop` that you can call from your loop.
 
+
+
 ### 5. Speed Control
 Using the principle of pulse-width modulation (PWM), we can vary the amount of time that the `enable` pin is on to control the speed of the motor. 
 
@@ -126,6 +128,9 @@ void loop() {
 
 Create or amend the functions in `Motor.ino` to take a speed and drive the motor forwards and backwards a different speeds.
 
+:::info
+You will need to maintain your documentation. Use TinkerCAD or Fritzing to maintain a circuit diagram and upload it to GitHub.
+:::
 
 ### 6. Driving the robot
 If you haven't yet, it's now time to integrate the test circuit and the chassis build. You want to be able to consistently do the following high-level actions (among others):
@@ -140,7 +145,7 @@ You may need to calibrate the robot depending on many things like power supply v
 Encapsulate your driving commands into well-tested, callable functions.
 
 ### 7. Robust Testing (homework)
-Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. Update your BOM to include all the parts that you added. Use it as the basis of your debugging materials. Upload it along with your video.
+Demonstrate your working prototype by making a video and posting it to Piazza by the night before your next lab. You will also demonstrate the prototype during lab to your TA. Update your BOM to include all the parts that you added. Update your circuit diagram if you have moved the pins. Use it as the basis of your debugging materials. Upload it along with your video.
 
 Submit your group work agreement on Canvas and post to GitHub.
 

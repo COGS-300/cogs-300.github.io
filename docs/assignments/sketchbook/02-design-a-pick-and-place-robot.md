@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 # Design a Pick-and-Place Robot
