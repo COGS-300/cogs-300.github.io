@@ -1,6 +1,6 @@
 ---
 title: Lab 04. Localization (and Project Paper Prototypes)
-draft: true
+draft: false
 ---
 Today's lab will feature both additions to your robot, and instructions for your first project deliverable, which will be due in two weeks.
 
@@ -29,24 +29,8 @@ Your encoder has an analog out and a digital out. You can experiment with it, bu
 :::
 
 
-### 2. Wire and test a solo ultrasonic
-Start by wiring a single ultrasonic sensor by following this [TinkerCAD wiring diagram](https://www.tinkercad.com/things/dCqOWJ6agPD-ultrasonic-distance-sensor?sharecode=uBjW7uq2wRdtkQ6FHpULRSTInpywyLwIz3R_Wy3qjOU). Use one of your team's Arduinos to ensure that you're getting consistent and accurate sensor readings. Keep this ultrasonic on hand while you prepare the next part.
-
-
-### 3. Add an ultrasonic to your robot
-Using the above circuit as a template, add an ultrasonic to your existing robot. You might decide to change your wiring system to accommodate the new pins that you need to use, the additional power requirements, or just to manage the mess of the wires ontop of your robot. Take photos and make notes about the changes that you make to the robot:
-- What was working before the addition of the ultrasonic?
-- What changed after the addition of the ultrasonic?
-- Do any measurements seem different before or after?
-- How does the onboard measurement system compare to your solo ultrasonic?
-
-:::warning
-You will likely have to reposition or add another ultrasonic sensor at some point, so do not make this a permanent connection. Paper prototype where possible.
-:::
-
-
-### 4. Print accurate telemetry to your Serial Monitor
-Once you have the encoder and ultrasonic reliably working, print your telemetry to the Serial Monitor. You should design a good enough Serial Monitor print output that you can debug what's wrong with your robot. Format the output nicely and use good delimiting, e.g., always printing a value after a comma.
+### 2. Print accurate telemetry to your Serial Monitor
+Once you have the encoder reliably working, print your telemetry to the Serial Monitor. You should design a good enough Serial Monitor print output that you can debug what's wrong with your robot. Format the output nicely and use good delimiting, e.g., always printing a value after a comma.
 
 Optionally, you might want to start streaming this data to your computer using Processing. Although you technically could copy and paste Serial Monitor output, it's going to be annoying pretty quickly. 
 
@@ -58,42 +42,6 @@ For example, your Arduino code could look like this:
 const int LEFT_ENCODER_PIN  = 2;
 const int RIGHT_ENCODER_PIN = 3;
 
-const int TRIG_PIN = 8;
-const int ECHO_PIN = 9;
-
-// ---------------------------
-// Ultrasonic measurement
-// ---------------------------
-float readDistanceCM() {
-  // Make sure trigger starts LOW
-  digitalWrite(TRIG_PIN, LOW);
-  delayMicroseconds(2);
-
-  // Send a 10 us pulse
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN, LOW);
-
-  // Measure echo pulse length.
-  // Timeout after 30 ms so the program does not hang forever.
-  unsigned long duration =
-    pulseIn(ECHO_PIN, HIGH, 30000);
-
-  // If no echo was received
-  if (duration == 0) {
-    return -1;
-  }
-
-  // Speed of sound:
-  // approximately 0.0343 cm/us
-  //
-  // Divide by 2 because sound travels
-  // TO the object and BACK.
-  float distance = duration * 0.0343 / 2.0;
-
-  return distance;
-}
-
 // ---------------------------
 // Setup
 // ---------------------------
@@ -101,13 +49,10 @@ void setup() {
   pinMode(LEFT_ENCODER_PIN, INPUT_PULLUP);
   pinMode(RIGHT_ENCODER_PIN, INPUT_PULLUP);
 
-  pinMode(TRIG_PIN, OUTPUT);
-  pinMode(ECHO_PIN, INPUT);
-
   Serial.begin(115200);
 
   // Optional CSV header
-  Serial.println("t_ms,left_encoder,right_encoder,distance_cm");
+  Serial.println("t_ms,left_encoder,right_encoder");
 }
 
 // ---------------------------
@@ -122,9 +67,7 @@ void loop() {
   int rightEncoder =
     digitalRead(RIGHT_ENCODER_PIN);
 
-  float distance =
-    readDistanceCM();
-
+  
   // CSV output
   Serial.print(t);
   Serial.print(",");
@@ -135,11 +78,7 @@ void loop() {
   Serial.print(rightEncoder);
   Serial.print(",");
 
-  Serial.println(distance, 2);
-
-  // HC-SR04 measurements should not be taken
-  // extremely rapidly.
-  delay(50);
+  delay(5);
 }
 ```
 And then the Processing.org code could print out a CSV that you can review in Excel or Google Sheets. For example:
@@ -180,7 +119,7 @@ void setup() {
 
   // CSV header
   out.println(
-    "arduino_t_ms,left_encoder,right_encoder,distance_cm"
+    "arduino_t_ms,left_encoder,right_encoder"
   );
 
   println("Logging started.");
@@ -222,15 +161,12 @@ void serialEvent(Serial p) {
   int t = int(parts[0]);
   int leftEncoder = int(parts[1]);
   int rightEncoder = int(parts[2]);
-  float distanceCM = float(parts[3]);
 
   // Save cleaned CSV row
   out.println(
     t + "," +
     leftEncoder + "," +
-    rightEncoder + "," +
-    distanceCM
-  );
+    rightEncoder  );
 
   // Immediately write to disk
   out.flush();
@@ -269,15 +205,11 @@ We do not guarantee that the above code will "just work." These are examples—y
 
 It is worth spending some time really designing the telemetry and measuring its real-world accuracy. Set up some experiments. For example, you might be tempted to "just" record every tick and the time between ticks, and assume that this will translate directly to wheel distance travelled. And, although the logic makes sense, robots rarely play nicely with logic due to the many errors in the system. 
 
+### 3. Design an Experiment to Determine Your Telemetry Error
+Your encoders will inevitably be inaccurate. Design an experiment to estimate the error of your encoders. Make reference to real-world features, such as the size of the encoder, the size of the wheels, and other objects to make a theoretical analysis of your error. Then, compare that to a real, measured result.
 
-### 5. Create an experiment to demonstrate sensor differences (homework)
-You'll notice that the above code only registers ticks. How can you translate your ticks into a distance?
 
-Set up an experiment where you can verify the real distance (e.g., with a ruler) against the measured distance with the ultrasonic vs. the measured distance with the encoder. You'll notice that these may not all agree. You will experience either that there is significant moment-to-moment error in the form of noise, long-term error in the form of sensor drift, or long-term error in the form of mechanical drift. In other words, your ultrasonic measurements are going to bounce around, your encoders are going to slowly become incorrect, and your robot will wobble around.
-
-Every real-world system has these types of errors. They are expected and impossible to remove. Instead, we learn how to manage the error. How can you manage your error and determine your level of accuracy?
-
-### 6. Project Paper Prototypes (homework)
+### 4. Project Paper Prototypes (homework)
 In two weeks, you will demonstrate and hand in your project paper prototypes. In any combination, you will need:
 - Sketches
 - A looks-like prototype
