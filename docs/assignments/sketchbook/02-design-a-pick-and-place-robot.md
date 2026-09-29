@@ -1,4 +1,5 @@
 ---
+title: DC02. Design a Pick-and-Place Robot
 draft: false
 ---
 
@@ -35,12 +36,3 @@ For this course, we always use the following kind of scale:
 - 0: No discernable effort.
 
 You will notice that "fully meeting requirements" is only a 4/5, or 80%. This is unusual for many people, but is standard in art and design courses. The secret requirement is that you must go above and beyond to get above 80%. The point is to get you to creatively engage with the course. If we fully specify what it takes to get 100%, then there will be no creative component. Part of the purpose of engaging with this in this manner is to teach you to assess yourself in your own creativity. Then, we will assess you on your self-assessment. Don't worry, this will seem natural soon enough.
-
-Since this is your first design challenge, we will provide some ideas of above and beyond:
-- Very well done and/or highly-detailed drawings
-- Creative measurement processes that use multiple tools or perspectives
-- Unusual and fully worked-through estimation techniques
-- Extra building perspectives that include analyses of smaller sections of the building
-- Etc.
-
-The design challenge is due two weeks after the assignment released (will be indicated on Canvas). 
