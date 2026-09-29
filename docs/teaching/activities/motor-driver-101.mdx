@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 import Image from '@theme/IdealImage';
@@ -8,6 +8,8 @@ import Image from '@theme/IdealImage';
 
 ## Introduction
 Beacuse moving in the physical world takes a lot of power, we need to use higher-voltage sources to drive our motors than the low-voltage logic of our Arduino. For this activity, we will be learning about the [L298n Motor Driver](https://projecthub.arduino.cc/lakshyajhalani56/l298n-motor-driver-arduino-motors-motor-driver-l298n-7e1b3b) which you will be using in your robots for the rest of term.
+
+Note that we'll just use our Arduinos to power the motor driver for now, not a battery.
 
 ### Materials
 - [L298n Motor Driver](https://projecthub.arduino.cc/lakshyajhalani56/l298n-motor-driver-arduino-motors-motor-driver-l298n-7e1b3b)
@@ -58,7 +60,7 @@ void loop() {
 ### Speed Control
 Using `analogWrite(enA, pwm)` where `pwm` can range from `0-255`, run your motor at different speeds.
 
-Next, use a potentiometer to control the motor speed. You may want to use the [Arduino map function](https://docs.arduino.cc/language-reference/en/functions/math/map/) to translate the sensor reading (which is in the range `0-1024`) to the motor control range `0-255`. If you can't remember how to hook up a potentiometer, return to the [Analog Signals](http://localhost:3000/teaching/activities/analog-signals) activity.
+Next, use a potentiometer to control the motor speed. You may want to use the [Arduino map function](https://docs.arduino.cc/language-reference/en/functions/math/map/) to translate the sensor reading (which is in the range `0-1024`) to the motor control range `0-255`.
 
 ---
 ## On your own
