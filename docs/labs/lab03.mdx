@@ -57,14 +57,14 @@ Draw your own BOM for the robot and maintain along with your group's documentati
 You can watch the following video for a similar build. The black encoder wheels are good to think about applying to the robot, but are not going to be used this week.
 
 :::warning
-Note that the build below does not include an Arduino, so do not permanently attach your breadboard to your chassis yet.
+Note that the build below does not include an Arduino, so do not permanently attach your breadboard to your chassis yet. Although the photos and BOM drawing show a battery pack, we recommend setting it aside for this lab. At this stage, it will be easier to start by powering everything through your Arduino and laptop (see Section 2).
 :::
 
 <YouTube id="Q4UmbjXwoZ4" />
 
 
 ### 2. Prototyping the control circuit
-In parallel to the above, start to prototype the driving circuit. You will need an Arduino, motor driver, one or two motors, and a power source. 
+In parallel to the above, start to prototype the driving circuit. You will need an Arduino, motor driver, one or two motors, and a power source. For this lab, your Arduino, plugged into your laptop, can be that power source.
 
 The purpose of building this circuit in parallel (or as a separate module) is to decompose your design workflow and debugging process. When you inevitably run into issues with your whole system, testing each module independently will assist in making a whole-system diagnosis.
 
@@ -72,9 +72,14 @@ Here is a video that describes the wiring process:
 
 <YouTube id="E2sTbpFsvXI" />
 
+Online tutorials often power the motor driver from a separate battery or power supply. For this lab, we recommend powering it from your Arduino instead.
+
 Conceptually, there are a few notes to make. Your Arduino is the **control module** at the top of the control hierarchy. It is running the code that will command the motors to move. It uses 5V logic, which is powerful enough to transmit signals, but probably not powerful enough to drive motors (due to friction, etc.). The motor driver is the **target module** at the bottom of the control hierarchy. It uses 5V logic and 12V power to drive the motor.
 
-You need to power your motor driver with an external 12V power source. You can experiment with lower or higher voltages, up to a maximum of 24V, although you really shouldn't need to go that high and run the risk of burning your components out. The Arduino is basically controlling transistors with a lower voltage that act as a gateway for a higher voltage to flow.
+**Powering the motor driver**
+For this lab, the simplest option is to power the motor driver from your Arduino, which is powered over USB by your laptop. Connect the Arduino's 5V pin to both the driver's 12V terminal (motor power) and its 5V terminal (logic power), and connect the driver's GND to the Arduino's GND.
+
+For more speed and torque, you can connect a battery pack or other external supply to the 12V terminal in place of the Arduino's 5V. Just make sure its ground is also connected to the Arduino's ground. You can experiment with higher voltages, up to a maximum of 24V, although you really shouldn't need to go that high and run the risk of burning your components out. The Arduino is basically controlling transistors with a lower voltage that act as a gateway for a higher voltage to flow.
 
 This is what is meant by a transistor being a type of **amplifier**: you're taking a lower voltage signal from the Arduino and using it to control a higher voltage.
 
@@ -141,6 +146,8 @@ If you haven't yet, it's now time to integrate the test circuit and the chassis 
 - Turn the robot in place (one wheel forward, the other backward)
 
 You may need to calibrate the robot depending on many things like power supply voltage, weight, friction, attachments, etc. Due to the difference between static and rolling friction, you may notice that a minimum speed is lower while driving than while stopped. All of this is expected behaviour, but it may seem unexpected the first time you make the robot move.
+
+If you're powering the motors from the Arduino's 5V, expect them to run slower than in the videos. You might need to set a higher `analogWrite` value before the wheels start turning.
 
 Encapsulate your driving commands into well-tested, callable functions.
 
