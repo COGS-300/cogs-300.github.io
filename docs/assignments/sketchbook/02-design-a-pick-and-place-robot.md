@@ -14,16 +14,12 @@ The constraints are the same as in class:
 
 To build the looks-like part of the prototoype, make a real, physical prototype of the robot. You can use any crafting material: Lego, popsicle sticks, cardboard, paper, hot glue, etc. You do not need to use any electronic parts in the looks-like prototype. Accompany the physical model with drawings in your sketchbook that match the physical design, annotate them, and briefly explain how it works.
 
-To build the works-like part of the prototype, make a real, physical circuit. You can use buttons, switches, photocells, and/or potentiometers. You should demonstrate at least one DOF's distance encoding with the circuit. Accompany the circuit with drawings in your sketchbook that match the circuit design, annotate them, and briefly explain how it works.
-
 ## Design solution format and handin
 Submit a short video of your prototype to Pizza. 
 
-Each design solution, including this one, should include **two** short reflections and self-provided grades in the range of 0-5. Yoru final design and relfections should be in your sketchbook. The reflection grades must be very clearly marked (highlighted, circled, at the top of the page, something), or we will count it as zero. You will submit a photo of the final design and reflections to Canvas.
+Each design solution, including this one, should include a short reflection and a self-provided grade in the range of 0-5. Yoru final design and relfection should be in your sketchbook. The reflection grade must be very clearly marked (highlighted, circled, at the top of the page, something), or we will count it as zero. You will submit a photo of the final design and reflections to Canvas.
 
 The first reflection and self-provided grade should assess your design challenge: how well did you think that you did the design challenge? Provide a short justification for your self-given grade and reflect on the connection between the design challenge and course concepts.
-
-The second reflection and self-provided grade should assess your participation in the course: over the module, did you fully engage in the pre-readings? Did you do the in-class drawing exercises and design challenges to the best of your ability? Provide a short justification and reflect on your changing understanding of COGS as a result of the module.
 
 The best reflections do not linger long on self-promotion. Instead, they focus on course concepts. Use this first design challenge as a practice run.
 
