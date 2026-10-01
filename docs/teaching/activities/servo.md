@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 # Servo
@@ -17,10 +17,10 @@ A servo is a DC motor, gearbox, motor driver, and microcontroller all in one lit
 ---
 ## Activity
 
-### Wire the Servo
+### 1. Wire the Servo
 Following the [Servo TinkerCAD](https://www.tinkercad.com/things/hcDQxz3cDFx-servo?sharecode=uJvyGNifyDRr85e7w36UiAWuWBPoZYiwyoyQtH2kXko), wire your servo to the Arduino. Note that the servo must be connected to a PWM pin to be able to work properly. A PWM pin has a tilde `~` beside the number.
 
-### Run a sweep to test
+### 2. Run a sweep to test
 The basic testing routine for a servo is to sweep through the full range of motion. You can refer back to this whenever you're unsure whether your servo is working.
 
 ```cpp
@@ -49,6 +49,15 @@ void loop() {
 }
 ```
 The servo should move back and forth between its minimum position and maximum position. If it doesn't, check the wiring.
+
+### 3. Add a button or potentiometer sensor
+You have a variety of sensors in your kit. Make a "works-like" prototype of a circuit that senses and moves.
+
+### 4. Design a Robot Pet
+Using the provided materials, design a robot pet. Decide a few things: is the sensor "diagetic" or "non-diagetic", that is, is it part of the "scene" of the interaction that the user needs to believe is part of the pet (diagetic), or is it more like a puppet's control string (non-diagetic)? 
+
+Design behaviours that convey an emotion or other meaning from the pet. Decide what makes the robot "seem alive" vs. "seem like a robot." What do you have to do to convincingly get a reaction out of someone that makes them _act like_ the robot is alive?
+
 
 ---
 ## On your own
