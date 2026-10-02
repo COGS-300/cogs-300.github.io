@@ -39,45 +39,47 @@ For example, your Arduino code could look like this:
 // ---------------------------
 // Pins
 // ---------------------------
-const int LEFT_ENCODER_PIN  = 2;
-const int RIGHT_ENCODER_PIN = 3;
-
+const int LEFT_ENCODER_PIN  = 12;
+const int RIGHT_ENCODER_PIN = 13;
+ 
 // ---------------------------
 // Setup
 // ---------------------------
 void setup() {
   pinMode(LEFT_ENCODER_PIN, INPUT_PULLUP);
   pinMode(RIGHT_ENCODER_PIN, INPUT_PULLUP);
-
-  Serial.begin(115200);
-
+ 
+  Serial.begin(9600);
+ 
   // Optional CSV header
   Serial.println("t_ms,left_encoder,right_encoder");
 }
-
+ 
 // ---------------------------
 // Main loop
 // ---------------------------
 void loop() {
   unsigned long t = millis();
-
+ 
   int leftEncoder =
     digitalRead(LEFT_ENCODER_PIN);
-
+ 
   int rightEncoder =
     digitalRead(RIGHT_ENCODER_PIN);
-
-  
+ 
+ 
   // CSV output
   Serial.print(t);
   Serial.print(",");
-
+ 
   Serial.print(leftEncoder);
   Serial.print(",");
-
+ 
   Serial.print(rightEncoder);
-  Serial.print(",");
-
+ // Serial.print(",");
+ 
+  Serial.println();
+ 
   delay(5);
 }
 ```
@@ -88,21 +90,18 @@ import processing.serial.*;
 
 Serial port;
 PrintWriter out;
-
+ 
 void setup() {
   size(600, 300);
-
+ 
   // Print available serial ports
   println(Serial.list());
-
+ 
   // Change this index to match the Arduino.
   String portName = Serial.list()[0];
-
+ 
   println("Opening: " + portName);
-
-  port = new Serial(this, portName, 115200);
-  port.bufferUntil('\n');
-
+ 
   // Create timestamped filename
   String fn =
     nf(year(), 4) +
@@ -112,89 +111,96 @@ void setup() {
     nf(hour(), 2) +
     nf(minute(), 2) +
     nf(second(), 2);
-
+ 
   out = createWriter(
     "robot_telemetry_" + fn + ".csv"
   );
-
+ 
   // CSV header
   out.println(
     "arduino_t_ms,left_encoder,right_encoder"
   );
 
+  port = new Serial(this, portName, 9600);
+  port.bufferUntil('\n');
+
   println("Logging started.");
+
 }
-
-
+ 
+ 
 // Called whenever a complete line arrives
 void serialEvent(Serial p) {
-
-  String line =
-    p.readStringUntil('\n');
-
+  String line = p.readStringUntil('\n');
+ 
   if (line == null) {
     return;
   }
-
+ 
   line = trim(line);
-
   if (line.length() == 0) {
     return;
   }
-
+ 
   println(line);
 
   // Ignore Arduino header
   if (line.startsWith("t_ms")) {
     return;
   }
-
+ 
   String[] parts = split(line, ',');
-
+ 
   // We expect exactly four fields
-  if (parts.length != 4) {
+  if (parts.length != 3) {
     println("Bad row: " + line);
     return;
   }
-
+ 
   // Parse values
   int t = int(parts[0]);
   int leftEncoder = int(parts[1]);
   int rightEncoder = int(parts[2]);
-
+ 
   // Save cleaned CSV row
   out.println(
     t + "," +
     leftEncoder + "," +
-    rightEncoder  );
+    rightEncoder);
 
   // Immediately write to disk
   out.flush();
+
 }
-
-
+ 
+ 
 void draw() {
   background(240);
-
   fill(0);
   textSize(18);
+
   text("Robot telemetry logger", 20, 40);
 
   textSize(14);
   text("Press Q to stop and save.", 20, 70);
+
 }
-
-
+ 
+ 
 void keyPressed() {
+
   if (key == 'q' || key == 'Q') {
     out.flush();
     out.close();
     port.stop();
-
+ 
     println("Log saved.");
+
     exit();
   }
+
 }
+ 
 ```
 
 :::warning
