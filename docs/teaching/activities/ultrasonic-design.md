@@ -1,6 +1,6 @@
 ---
 description: Designing an Ultrasonic Object Detector
-draft: true
+draft: false
 ---
 
 import Image from '@theme/IdealImage';
