@@ -60,10 +60,12 @@ void setup() {
 // ---------------------------
 void loop() {
   unsigned long t = millis();
- 
+  
+  // you may want to turn this into a count and then a distance
   int leftEncoder =
     digitalRead(LEFT_ENCODER_PIN);
  
+  // you may want to turn this into a count and then a distance
   int rightEncoder =
     digitalRead(RIGHT_ENCODER_PIN);
  

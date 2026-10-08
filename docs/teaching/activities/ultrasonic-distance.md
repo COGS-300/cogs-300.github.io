@@ -1,5 +1,5 @@
 ---
-description: Designing an Ultrasonic Object Detector
+description: Designing an Ultrasonic Distance Sensor
 draft: false
 ---
 

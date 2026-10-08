@@ -3,6 +3,8 @@ draft: true
 ---
 
 # Filters in Signal Processing
+Signals in robotics are understood as time series. That is, each sample is taken on each iteration of the robot's main loop, and, if you would like, stored in an array. Think of it like a bar graph that is built step-by-step.
+
 When we receive a signal, it's rare that it is purely clean. Like static on an old TV or radio, it's common to have noise included in the signal. We therefore have to extract the information that we want (signal) from the information we don't want (noise).
 
 The field of signal processing deals with this basic problem of extracting signal from noise. One of the simplest filters is a threshold filter. You can think of it as an if-statement:
