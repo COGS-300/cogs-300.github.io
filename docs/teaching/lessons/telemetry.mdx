@@ -1,0 +1,31 @@
+---
+draft: false
+---
+
+import RobotDistanceGraph from '@site/src/components/RobotDistanceGraph';
+import RobotDistanceFilter from '@site/src/components/RobotDistanceFilter';
+import RobotTelemetry from '@site/src/components/RobotTelemetry';
+import RobotFilterLayers from '@site/src/components/RobotFilterLayers';
+
+
+# Robot Motion and Sensor Measurements
+
+## Basic Motion
+This interactive simulation shows three examples of a robot measuring its distance to a wall.
+
+
+<RobotDistanceGraph />
+Try changing the noise amplitude, driving speed, and proportional controller gain. Observe how the distance measurements change over time.
+
+
+## Filters
+<RobotFilterLayers />
+This graph shows the effect of different filters on a signal. Why does the maximum and minimum filters seem to "move the line" to the right?
+
+## Filters and P-Controller
+<RobotDistanceFilter />
+This graph shows the effect of a filter and a P-controller together. How does changing the window size and weight impact the graph?
+
+## Telemetry
+<RobotTelemetry />
+This graph is a pretty accurate depiction of what would happen with sensor drift if you didn't ever perform sensor integration.

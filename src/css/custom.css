@@ -60,3 +60,27 @@ table.schedule-table {
 .schedule-table td li {
   margin: 0.1rem 0;
 }
+
+
+.robot-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.robot-controls > div {
+  min-width: 0;
+}
+
+.robot-controls input[type="range"] {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Stack controls on narrow screens */
+@media (max-width: 650px) {
+  .robot-controls {
+    grid-template-columns: 1fr;
+  }
+}
