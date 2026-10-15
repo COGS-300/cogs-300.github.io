@@ -37,8 +37,6 @@ However, WetGrass could be conditioned on many other factors such as time of day
 ## Design solution format and handin
 For this design challenge, even if you use an online Bayes Network tool, draw the network or formula in your sketchbook, and sketch the real-world thing that your are modelling. Explain and annotate your formula/network, and draw an example of what it refers to.
 
-Make a presentable, clean version in your sketchbook, reflect on the module and your learning, justify and give yourself a grade from 0-5. Upload a photo of your drawings and reflection and presentable version of the design challenge for review.
-
-The reflection should be a paragraph or two on the course concepts, tying them into your personal understanding of the course. Include a short justification for the mark that you've given yourself in terms of your participation in class, engagement with the readings, and work on the design challenge.
+Make a presentable, clean version in your sketchbook, reflect on the module and your learning, justify and give yourself a grade from 0-5. Upload a photo of your drawings and reflection and presentable version of the design challenge for review. The reflection should be a paragraph or two on the course concepts, tying them into your personal understanding of the course. 
 
 The design challenge is due about two weeks after the assignment released (will be indicated on Canvas).
