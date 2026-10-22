@@ -1,24 +1,21 @@
 ---
-draft: true
+draft: false
 ---
 
-# Model your life with Bayes
+# D04. Model your life with Bayes
 
 For this design challenge, you're being asked to model a part of your life using Bayes' theorem. You can use a single instance of Bayes' Theorem, or create a Bayes network. For either approach, the bulk of the work will be in establishing the connection to the part of your life that you're modelling, so one is not especially easier than the other.
 
 For the single instance version, prepare a worked example (like we did in class) where each probability term is explained in detail, along with illustrations, explanations, models, and examples. For the following equation, clearly identify:
 
-
-- A: the belief in question.
-- B: the evidence that conditions your belief.
+- A: the belief in question. The belief needs to be a range, not just a single setting.
+- B: the evidence that conditions your belief. The evidence needs to be able to vary, not just one possible observation.
 - P(A): the prior probability of your belief, including how you could both analytically and experimentally observe P(A).
 - P(B): the prior probability of your evidence (independent of belief), including how you could both analytically and experimentally observe P(B).
 - P(B|A): the probability of seeing your evidence given your belief is true, including how you could both analytically and experimentally observe P(B|A).
 - P(A|B): the probability of your belief given your evidence, including how you could both analytically and experimentally observe P(A|B).
 
-Substantiate your model with evidence. It's OK to estimate probabilities, but justify your estimates thoroughly. To ensure the robustness of your model, clearly demonstrate how parameters of the model impact your probability estimations. 
-
-For example, if you're trying to calculate the probability of getting into grad school given certain grades, you should not just use all As (optimistic) or all Cs (pessimistic), but instead show at least both.
+Once you have finished an analytical model, design and run an experiment, demonstrating how your experiment aligns and differs from the analytical model. If you can't run the experiment, simulate reasonable results. See an example experimental setup here (does NOT include full annotation that you will need): [Wake Up with Bayes](/teaching/lessons/wakeup).
 
 ---
 For the Bayesian Network version, you need to explain and justify your real-world example. However, the mathematics are taken care of for you (if you use a modelling program like [online.bayesserver.com](online.bayesserver.com), which is highly recommended). Instead, for each node in the network, you need to document, explain and justify the following:

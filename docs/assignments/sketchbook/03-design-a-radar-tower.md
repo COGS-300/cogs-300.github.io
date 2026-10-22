@@ -2,7 +2,7 @@
 draft: false
 ---
 
-# Design an Ultrasonic Sonar Tower
+# D03. Design an Ultrasonic Sonar Tower
 Using long-distance range sensors like an ultrasonic, build a [sonar](https://en.wikipedia.org/wiki/Sonar) tower (which is like a [radar tower](https://en.wikipedia.org/wiki/Radar), but with sound).
 
 The tower should have a field of view that is nearly 180 degrees, but potentially as large as 360. You can use cardboard, one or more ultrasonic sensors, and a cardboard/lego base.
