@@ -1,0 +1,152 @@
+# Modelling With Bayes Nets
+Bayes networks are a good way to model multiple interacting states. A single Bayes formula will tell you about how two variables co-occur. A Bayes network is like using multiple Bayes formulas to see how many variables interact.
+
+## Materials 
+- Bayes Networks online: [online.bayesserver.com](https://online.bayesserver.com/)
+
+## Activity
+Each variable represents a state that we can measure and predict and is recorded as a column header. Familiarize yourself with each step.
+
+### Draw the setup
+Draw a picture of the following: Your lawn has a sprinker system on it. You can see the record of whether the sprinkler went off on your sprinkler system. You also have a little weathervane with a rain gauge and a sunlight sensor. For your COGS 300 project, you put an Arduino with a moisture sensor in the grass. You set up a Bayes net to predict each variable from each other variable: `Cloudy`, `Sprinkler`, `Rain`, `WetGrass`.
+
+### Make the Bayes Net
+Going to [online.bayesserver.com](https://online.bayesserver.com/), open the `Sprinkler` example, and/or draw your own causal model. Which variables are causal? Which are not? Put the causal variables higher in the network.
+
+### Variables
+Make sense of each variable on its own by drawing a picture that corresponds to the `True` and `False` setting of that variable. For example: `Cloudy = T` means that it was cloudy outside. `Cloudy = F` means that it was sunny (not cloudy) outside. Finish this for each variable.
+
+### Cross the variables
+Just like above, make sense of multiple variables being set at once. Think about your causal model and differentiate co-occurences from causalities. For example, `Rain = T; WetGrass = T` implies that the rain caused the grass to be wet, but `Rain = F; WetGrass = T` implies that something else caused the grass to be wet. Finish making sense of the full cross of variables by drawing examples.
+
+### Experimental setup
+Decide with your group how you will run an experiment to get the data to create the distribution from the online example(examples of raw data and priors below).
+
+### Raw data sample
+This table represents the raw data you would collect if you were running this experiment.
+
+| Cloudy | Sprinkler | Rain | WetGrass |
+|--------|-----------|------|----------|
+| T | F | T | T |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| F | T | F | T |
+| T | F | F | F |
+| T | F | T | T |
+| F | F | T | T |
+| F | T | T | T |
+| T | T | T | T |
+| F | F | F | F |
+| T | F | T | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | T | F | F |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | F | F |
+| F | F | T | T |
+| F | T | F | T |
+| T | F | T | T |
+| F | T | T | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | T | F | T |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | T | T |
+| T | F | T | T |
+| F | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| T | F | T | F |
+| F | T | F | T |
+| F | F | F | F |
+| T | F | F | F |
+| F | T | T | T |
+| T | F | T | T |
+| F | T | F | T |
+| T | T | T | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | F | T | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | T | F | T |
+| T | F | T | F |
+| F | F | T | T |
+| T | F | T | T |
+| F | T | F | T |
+| F | F | F | F |
+| T | F | F | F |
+| F | T | T | T |
+| T | F | T | T |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | T | F | T |
+| F | F | T | T |
+| T | T | T | T |
+| T | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | T | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | T | T |
+| F | T | F | T |
+| T | F | F | F |
+| T | F | T | T |
+| F | T | F | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | T | T | T |
+| T | F | T | T |
+| F | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | T | T |
+| T | F | F | F |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | T | F | T |
+| T | F | T | T |
+| F | F | F | F |
+| T | F | T | T |
+| F | T | F | T |
+
+## Distribution
+This table represents a possible probability distribtion you would build from the prior distribution (note that it is not exact, just an illustration).
+
+| Cloudy | Sprinkler | Rain | WetGrass | Probability |
+|--------|-----------|------|----------|-------------|
+| T | T | T | T | 0.0396 |
+| T | T | T | F | 0.0004 |
+| T | T | F | T | 0.0090 |
+| T | T | F | F | 0.0010 |
+| T | F | T | T | 0.3240 |
+| T | F | T | F | 0.0360 |
+| T | F | F | T | 0.0000 |
+| T | F | F | F | 0.0900 |
+| F | T | T | T | 0.0495 |
+| F | T | T | F | 0.0005 |
+| F | T | F | T | 0.1800 |
+| F | T | F | F | 0.0200 |
+| F | F | T | T | 0.0450 |
+| F | F | T | F | 0.0050 |
+| F | F | F | T | 0.0000 |
+| F | F | F | F | 0.2000 |
+
