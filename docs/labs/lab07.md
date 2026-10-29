@@ -1,62 +1,46 @@
 ---
-title: Lab 07. Object Detection
-draft: true
+title: Lab 06. Line-Following and BYO-Tournament
+draft: false
 ---
+It's time to build the tournament. Each lab will take responsiblity for constructing, maintaining, and amending one of the challenges of the tournament.
 
-For this lab, we are performing object detection. The purpose of this is to be able to move our robot towards an object. You will need to do this in the final tournament, where you will have to find and touch a goal object with your robot.
+- Friday Lab will be first, and build the line-following challenge.
+- Monday Lab will be second, and build the wall-following challenge.
+- Wednesday Lab will be last, and build the object-detection challenge.
 
-The basic conceptual idea is to scan using an ultrasonic sensor and a servo. We can map the angle of the servo to the distance from an object. Then, we can rotate the robot so that it is facing towards the angle that has the lowest value. Then, we can move the robot forwards at that angle, and restart the process.
+Your TAs have been briefed on the design considerations for each challenge, and will guide you through the process of building.
 
-This is likely to be an error-prone operation, so we can apply all of our signal processing and probability-based techniques to get good data. You are strongly encouraged to use a Bayes filter or another probability-based system, but it is not strictly required.
+For your lab homework, you will work on the line-following challenge.
 
 ---
 ## Pre-lab
-- Remind yourself of the [Bayes Filter lesson](/teaching/lessons/bayes-filter)
+- None
 
---- 
+---
+## Tournament Setup
+Start the lab by laying out your lab's section of the tournament. Make it large enough to make sure that everyone can practice on it. 
+
+--
 ## Lab
 
-### 0. Setup
-Take a big black bin out and place it roughly two meters from a flat wall. Your robot will have to start facing a wall, turn around, and touch the big black bin. The bin location may be "randomized", that is, it should not always be directly behind your robot.
+### 1. Add two or more IR Sensors to your robot
+IR sensors have an LED that emits infrared light, and detect the amount that is reflected back. We will use it for the line-following challenge. You will likely need at least two to detect lines (although, happy if you prove us wrong and can do it with one).
 
-### 1. Implement a sweep on your robot
-You have at least two options for sweeping on your robot: (1) Attaching something like an ultrasonic sonar tower with a servo to the robot; or (2) using the robot itself to sweep by turning the whole robot with the ultrasonic sensor fixed in a single position. There are advantages and disadvantages to both, and we've seen both be sucessful in the final tournament.
+The IR Sensor are tunable, which means you can change the on-chip threshold filter by twisting the potentiometer that is on the chip by using a screwdriver. It can a binary signal based on this turned threshold filter.
 
-Experiment with sweeping in both ways. Once you've made a decision, write a sweep routine for the robot. Find a way to visualize the object's direction.
-
-:::warning
-Test before making any permanent changes to your robot.
-:::
-
-### 2. Implement a depth map
-Set up an array that relates the angular position of your robot (or robot with a sonar tower) to the location of an object you're trying to detect by doing the following:
-
-- Every index of the array corresponds to a direction that the robot is facing
-- Every value of the array corresponds to the distance from your robot to the object
-
-For example, if you use a 22.5° discretization, it might look like this to be facing a wall and sweep along it:
-
-| Index   | Degrees  | Distance    |
-|---------|----------|-------------|
-| 0       | 00.0     | 5cm         |
-| 1       | 22.5     | 10cm        |
-| 2       | 45.0     | 20cm        |
-| 3       | 67.5     | 30cm        |
-| 4       | 90.0     | 45cm        |
-| ...     | ...      | ...         |
+To tune it, point the sensor at a piece of white tape. Then, point the sensor at the ground. You want it to turn on when pointed at the white tape, and not at the ground.
 
 
-### 3. Design and implement an object-tracking algorithm
-Eventually, your robot should be able to find an object and drive towards it in a noisy and constrained environment. A very simple object-tracking algorithm would be: scan 180 degrees, drive towards closest object. However, if you happen to scan both the wall and the object, your robot could easily drive towards the wall when it should drive towards the object.
+### 2. Get the robot to start and stop on a line
+To test your robot, get it to stop and start on a line. Start the robot in an open space, then get it to stop once it hits a line. Or, get it to start on a line, and drive until the tape ends.
 
-Instead, ask yourself how you could differentiate the wall from the object. 
 
-A signal-processing approach might be: Does the wall have a different characteristic signal across the whole array than the object? E.g., does the depth map linearly descend for the wall, but have a "bump" where the object is? Is there a measure that you can derive from the signal that will indicate a different shape of object?
+### 3. Adapt the start-stop algorithm to turn
+Your initial line-following robot should follow the same process as the wall-following robot. Think about it like a ball ping-ponging along the sides of the white tape. You want your robot to drive forwards and a little bit left until the sensors leave the tape. Then, turn right until it's back on the tape. Then drive forwards and a bit left again. Similarly, if the robot leaves the right side of the tape, the robot should turn left.
 
-A Bayes filter approach might be: Can we represent each index not by a depth, but instead by a probability? Can we improve the probability with repeated measures? If so, how do we predict movement in the array?
 
-### 4. Perform live object tracking (homework)
-Come up with a demonstration of your object-tracking system working on your autonomous robot. It does not have to be perfect, but it should be able to reasonably accurately deterine the direction of the object. It's not required to use a Bayes filter for what you hand in next week, but it will likely help to think probabilistically. Remember, with robotics, "whatever works, works", so if you come up with a valid and creative new approach, that's great! 
+### 4. Solve the line maze (homework)
+Make your robot solve the line-following portion of the maze, even if very slowly. Add more sensors if you need. The algorithm in (3) will certainly get you to finish the line-following, but it might not be very fast. For next week, at least get the slow version working. But, if you can speed it up with, e.g., Bayes, this would be an excellent place to use probability.
 
 As usual, you will be marked on the following scale:
 
