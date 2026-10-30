@@ -1,5 +1,5 @@
 ---
-title: Lab 06. Line-Following and BYO-Tournament
+title: Lab 07. Line-Following and BYO-Tournament
 draft: false
 ---
 It's time to build the tournament. Each lab will take responsiblity for constructing, maintaining, and amending one of the challenges of the tournament.
