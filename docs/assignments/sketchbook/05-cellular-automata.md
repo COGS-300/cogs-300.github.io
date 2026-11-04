@@ -29,7 +29,7 @@ If you would like to do a computer simulation, that is acceptable, but not requi
 
 Each design solution, including this one, should include a short reflection and self-provided grades in the range of 0-5. Your final design and relfections should be in your sketchbook. The reflection grades must be very clearly marked (highlighted, circled, at the top of the page, something), or we will count it as zero. You will submit a photo of the final design and reflections to Canvas.
 
-The best reflections do not linger long on self-promotion. Instead, they focus on course concepts. Use this first design challenge as a practice run.
+The best reflections do not linger long on self-promotion. Instead, they focus on course concepts. 
 
 For this course, we always use the following kind of scale:
 - 5: Exceptional: above and beyond requirements, brings in outside knowledge and/or deeply engages with the material.
