@@ -18,7 +18,7 @@
 - Schedule may be updated as needed
 - DC is design challenge.
 - PP is paper prototype.
-- WP is paper prototype.
+- WP is works-like prototype.
 - Sep 09 lab will be open to all for kit pickup.
 - First lab is Monday, Sep 14.
 - No class during Imagine Day, Truth and Reconciliation Day, Thanksgiving, or week of Remembrance Day.
