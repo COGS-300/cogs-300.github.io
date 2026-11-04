@@ -23,15 +23,11 @@ To demonstrate your system, draw and annotate the following system components:
 - The state: each cell's possible state
 - The transition rule: what makes cells change state?
 
-Then "simulate" your agent on paper until you can detect an emergent pattern. Characterize at least three key emergent patterns (i.e. species) for your system.
+"Simulate" your agent on paper until you can detect an emergent pattern. Characterize at least three key emergent patterns (i.e. species) for your system. If your system doesn't express a clear emergent behaviour, find a way to tune it to make at least three distinct emergent behaviours appear. You can indeed have different starting conditions to express the behaviours.
 
 If you would like to do a computer simulation, that is acceptable, but not required. If you choose to do that, still make a drawing for your sketchbook, but also post a video to Piazza, and say you did in your sketchbook.
 
-Each design solution, including this one, should include **two** short reflections and self-provided grades in the range of 0-5. Yoru final design and relfections should be in your sketchbook. The reflection grades must be very clearly marked (highlighted, circled, at the top of the page, something), or we will count it as zero. You will submit a photo of the final design and reflections to Canvas.
-
-The first reflection and self-provided grade should assess your design challenge: how well did you think that you did the design challenge? Provide a short justification for your self-given grade and reflect on the connection between the design challenge and course concepts.
-
-The second reflection and self-provided grade should assess your participation in the course: over the module, did you fully engage in the pre-readings? Did you do the in-class drawing exercises and design challenges to the best of your ability? Provide a short justification and reflect on your changing understanding of COGS as a result of the module.
+Each design solution, including this one, should include a short reflection and self-provided grades in the range of 0-5. Your final design and relfections should be in your sketchbook. The reflection grades must be very clearly marked (highlighted, circled, at the top of the page, something), or we will count it as zero. You will submit a photo of the final design and reflections to Canvas.
 
 The best reflections do not linger long on self-promotion. Instead, they focus on course concepts. Use this first design challenge as a practice run.
 
