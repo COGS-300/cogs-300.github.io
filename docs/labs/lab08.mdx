@@ -1,31 +1,29 @@
 ---
-title: Lab 08. Build Your Own Tournament
-draft: true
+title: Lab 08. Transitioning to Object Detection
+draft: false
 ---
 
-import YouTube from '@site/src/components/YouTube';
-
-It's time to build the tournament. Each lab will take responsiblity for constructing, maintaining, and amending one of the challenges of the tournament.
-
-The Wednesday Lab will be first, and build the line-following challenge.
-
-The Friday Lab will be second, and build the wall-following challenge.
-
-The Monday Lab will be last, and build the object-detection challenge.
-
-Your TAs have been briefed on the design considerations for each challenge, and will guide you through the process of building.
+You've learned how to do line-following last lab. You learned how to do wall-following earlier. Now, it's time to finish the tournament, by performing object detection. Then, it's all just improving your performance in the tournament until the Final Tournament.
 
 ---
-## Tournament Outline
-The tournament has three challenges: follow a line, follow a wall, and then find an object. The tournament is a competition: best times will be given bonus marks. There may be other special cases for bonus marks if something creative and interesting (and fair) can be found.
+## Pre-lab
+- None
 
-Bonus marks will be +1% to your entire course grade for each person on the team (given that they actually contributed). There will be bonus marks for the best time across all lab sections for each challenge, as well as the best time overall, and the winner of the final day tournament.
+--- 
+## Lab
+The 
 
-There are many pathways to getting bonus marks. For example, your team could be fastest at the line-following, but not very fast at any other challenge. Then you would get +1% as your bonus mark. Or, your team could be slower than some other team at each challenge, but fastest overall, and get +1% as your bonus mark. Or, your team could be fastest in your lab, but not fastest overall, get into the final round, win it, and get +1% as your bonus mark. It is technically possible for one team to win all challenges and get +5% bonus marks for their team, but it has never been done yet.
+### 1. Transitions
+The first thing to figure out is how to transition between tournament sections. When does your robot know to stop line-following, and start wall-following? When does it know to start object detection? Ensure that your robot "knows" when it is in each section of the tourament.
 
----
-## Model Tournament (homework)
-Build a model of the tournament for your team that you can test and debug with. Create a "small" version of each challenge to test your core system design, and devise a way to test your ability to transition between challenges. Future-proof this model by making it modular and updatable if a part of the full tournament changes over the next few weeks.
+### 2. Implement a Sweep
+Using the constructed object detection arena, implement an object detection sweep with your robot. Make sure that it can figure out the angle at which an object lies from it. Sweep back and forth with the robot and have it drive towards the closest object.
+
+### 3. Demonstrate All Angles (homework)
+Show that your robot can approach the object from any possible angle, i.e., your robot can be spun around arbitrarily and still find the object.
+
+### 4. Stay within the Arena (not homework)
+You will eventually need to ensure that your robot stays within the white lines of the object detection arena. That is like combining line-following with object detection. That is not due this week, but you should probably get it figured out soon.
 
 As usual, you will be marked on the following scale:
 
